@@ -4,10 +4,10 @@ TheLoai(matheloai, tentheloai)
 QuocGia(maphim, tenquocgia)
 DaoDien(maphim, tendaodien)
 DienVien(maphim, tendienvien)
-Ghe(maghe, maphong, maloaighe)
 Phong(maphong, tenphong)
+Ghe(maghe, maphong, maloaighe)
 LoaiGhe(maloaighe, tenloaighe, giaghe)
-HoaDon(mahd,makh,tenphim, loaive, maghe, phong, suatchieu, ngaylaphd, bapnuoc)
-ChiTietHoaDon(macthd, mahd, dongia, soluong)
 BaiViet
 ChuDe
+HoaDon(mahd, makh, maphim, maghe, maphong, suatchieu, ngaylaphd, bapnuoc)
+ChiTietHoaDon(macthd, mahd, soluong)
