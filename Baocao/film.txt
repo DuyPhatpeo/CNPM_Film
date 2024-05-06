@@ -1,0 +1,13 @@
+User(makh, tenkh, ng_sinh, gioitinh, sdt, email, password, role)
+Phim(maphim, tenphim, thoiluong, phanloai, mota)
+TheLoai(matheloai, tentheloai)
+QuocGia(maphim, tenquocgia)
+DaoDien(maphim, tendaodien)
+DienVien(maphim, tendienvien)
+Ghe(maghe, maphong, maloaighe)
+Phong(maphong, tenphong)
+LoaiGhe(maloaighe, tenloaighe, giaghe)
+HoaDon(mahd,makh,tenphim, loaive, maghe, phong, suatchieu, ngaylaphd, bapnuoc)
+ChiTietHoaDon(macthd, mahd, dongia, soluong)
+BaiViet
+ChuDe
