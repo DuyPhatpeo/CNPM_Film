@@ -5,3 +5,5 @@ quy trinh đặt vé
 - Mục chọn ghế: sẽ được chọn ghế hoặc đổi suất chiếu để có được vị trí ghế mình mong mún
 - Mục chọn thức ăn: bắp nước combo
 - Mục thanh toán: 
+
+Cần tìm xem các mục cần thiết để hiển thị ra, không hiển thị hết
