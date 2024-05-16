@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\views\\shared\\_partiasidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\views\\shared\\_partiasidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E006710C-A3D7-4E70-ABAA-DE4F50A67952}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_PartiaSideBar.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_PartiaSideBar.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_PartiaSideBar.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_PartiaSideBar.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_PartiaSideBar.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T09:21:48.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T08:57:22.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAAAK8AAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T08:56:02.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T08:54:24.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminAreaRegistration.cs",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T08:54:01.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T08:42:46.479Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
