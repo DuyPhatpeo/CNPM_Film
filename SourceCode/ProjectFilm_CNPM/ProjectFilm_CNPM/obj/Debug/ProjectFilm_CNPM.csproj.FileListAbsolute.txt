@@ -1,82 +1,3 @@
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\ProjectFilm_CNPM.dll.config
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\ProjectFilm_CNPM.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\ProjectFilm_CNPM.pdb
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\csc.exe
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\csc.exe.config
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\csc.rsp
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\csi.exe
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\csi.exe.config
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\csi.rsp
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.AppContext.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Console.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Globalization.Calendars.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.IO.Compression.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.IO.Compression.ZipFile.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Net.Http.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Net.Sockets.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Threading.Tasks.Extensions.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.ValueTuple.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\vbc.exe
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\vbc.exe.config
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\vbc.rsp
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\VBCSCompiler.exe
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Antlr3.Runtime.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Newtonsoft.Json.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Helpers.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Mvc.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Optimization.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Razor.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.Razor.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\WebGrease.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Helpers.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Mvc.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Optimization.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Razor.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.Razor.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Newtonsoft.Json.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Antlr3.Runtime.pdb
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.AssemblyReference.cache
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.CoreCompileInputs.cache
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.CopyComplete
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.dll
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.pdb
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\ProjectFilm_CNPM.dll.config
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\ProjectFilm_CNPM.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\ProjectFilm_CNPM.pdb
@@ -130,9 +51,24 @@ D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\vbc.rsp
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\VBCSCompiler.exe
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\roslyn\VBCSCompiler.exe.config
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Antlr3.Runtime.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\EntityFramework.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\EntityFramework.SqlServer.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.AspNet.Identity.Core.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.AspNet.Identity.Owin.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Cookies.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Facebook.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Google.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.OAuth.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Twitter.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Web.Infrastructure.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Newtonsoft.Json.dll
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Owin.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Helpers.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Mvc.dll
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.Optimization.dll
@@ -150,6 +86,20 @@ D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPage
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\System.Web.WebPages.Razor.xml
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Newtonsoft.Json.xml
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Antlr3.Runtime.pdb
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\EntityFramework.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\EntityFramework.SqlServer.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.AspNet.Identity.Core.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Facebook.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Cookies.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Google.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.Twitter.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.Owin.Security.OAuth.xml
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.AssemblyReference.cache
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.CoreCompileInputs.cache

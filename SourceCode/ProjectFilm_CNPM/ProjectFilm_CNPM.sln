@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34024.191
+VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFilm_CNPM", "ProjectFilm_CNPM\ProjectFilm_CNPM.csproj", "{E006710C-A3D7-4E70-ABAA-DE4F50A67952}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectFilm_CNPM", "ProjectFilm_CNPM\ProjectFilm_CNPM.csproj", "{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E006710C-A3D7-4E70-ABAA-DE4F50A67952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E006710C-A3D7-4E70-ABAA-DE4F50A67952}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E006710C-A3D7-4E70-ABAA-DE4F50A67952}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E006710C-A3D7-4E70-ABAA-DE4F50A67952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5DDC912A-641C-4FD4-A68A-95F32442C2A7}
+		SolutionGuid = {86136A1E-6E9C-45CF-9597-DAF0AC61ACCE}
 	EndGlobalSection
 EndGlobal
