@@ -173,6 +173,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -2217,6 +2218,11 @@
     <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

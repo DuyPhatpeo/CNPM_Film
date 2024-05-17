@@ -176,12 +176,16 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //hien thi thong bao
+                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
+                return RedirectToAction("Trash");
             }
             Phim phim = db.Phims.Find(id);
             if (phim == null)
             {
-                return HttpNotFound();
+                //hien thi thong bao
+                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
+                return RedirectToAction("Trash");
             }
             return View(phim);
         }
