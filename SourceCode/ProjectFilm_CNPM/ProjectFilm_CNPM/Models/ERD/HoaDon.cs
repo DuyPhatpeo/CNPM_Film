@@ -10,6 +10,10 @@ namespace ProjectFilm_CNPM.Models.ERD
     [Table("HoaDon")]
     public class HoaDon
     {
+        public HoaDon()
+        {
+            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaHD { get; set; }
@@ -40,5 +44,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         public int? TrangThai { get; set; }
         // Navigation property
         public virtual NguoiDung NguoiDung { get; set; }
+        public ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+
     }
 }

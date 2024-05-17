@@ -10,7 +10,12 @@ namespace ProjectFilm_CNPM.Models.ERD
     [Table("Phim")]
     public class Phim
     {
-        public Phim() { }
+        public Phim() 
+        {
+            this.TheLoais = new HashSet<TheLoai>();
+            this.SuatChieus = new HashSet<SuatChieu>();
+            this.ChuDes = new HashSet<ChuDe>();
+        }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int MaPhim { get; set; }
@@ -53,5 +58,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Display(Name = "Trạng thái")]
         public int TrangThai { get; set; }
         public ICollection<TheLoai> TheLoais { get; set; }
+        public ICollection<ChuDe> ChuDes { get; set; }
+        public ICollection<SuatChieu> SuatChieus { get; set; }
     }
 }

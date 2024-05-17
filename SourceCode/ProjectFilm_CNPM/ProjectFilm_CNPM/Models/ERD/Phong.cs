@@ -10,6 +10,9 @@ namespace ProjectFilm_CNPM.Models.ERD
     [Table("Phong")]
     public class Phong
     {
+        public Phong() {
+            this.Ghes = new HashSet<Ghe>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaPhong { get; set; }
@@ -33,5 +36,6 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
+        public ICollection<Ghe> Ghes { get; set; }
     }
 }

@@ -10,6 +10,10 @@ namespace ProjectFilm_CNPM.Models.ERD
     [Table("NguoiDung")]
     public class NguoiDung
     {
+        public NguoiDung()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+        }
         [Key]
         public string MaND { get; set; }
 
@@ -56,5 +60,6 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
+        public ICollection<HoaDon> HoaDons { get; set; }
     }
 }

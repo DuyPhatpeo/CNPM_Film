@@ -10,7 +10,9 @@ namespace ProjectFilm_CNPM.Models.ERD
     [Table("ChuDe")]
     public class ChuDe
     {
-
+        public ChuDe() {
+            this.BaiViets = new HashSet<BaiViet>();
+        }
         [Key]
         public int Id { get; set; }
 
@@ -43,6 +45,8 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
+        public virtual Phim Phim { get; set; }
+        public ICollection<BaiViet> BaiViets { get; set; }
 
     }
 }

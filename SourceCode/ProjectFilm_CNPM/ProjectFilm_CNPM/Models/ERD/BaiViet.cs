@@ -26,5 +26,6 @@ namespace ProjectFilm_CNPM.Models.ERD
         public string Anh { get; set; }
         [Display(Name = "Kiểu bài viết")]
         public string KieuBV { get; set; }
+        public virtual ChuDe ChuDe {  get; set; }
     }
 }
