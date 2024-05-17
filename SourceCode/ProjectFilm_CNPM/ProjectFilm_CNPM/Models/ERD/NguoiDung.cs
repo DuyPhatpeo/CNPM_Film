@@ -33,6 +33,9 @@ namespace ProjectFilm_CNPM.Models.ERD
 
         [Display(Name = "Số điện thoại")]
         public string SDT { get; set; }
+        [Display(Name = "Ảnh đại diện")]
+        public string Anh {  get; set; }
+
 
         [EmailAddress]
         [Required(ErrorMessage = "Email không được để trống")]

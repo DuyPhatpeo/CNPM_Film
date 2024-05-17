@@ -172,6 +172,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -2202,6 +2204,16 @@
     <Content Include="Public\plugins\summernote\summernote.js.map" />
     <Content Include="Public\plugins\summernote\summernote.min.js.map" />
     <Content Include="Public\plugins\toastr\toastr.js.map" />
+    <Content Include="Areas\Admin\Views\TheLoai\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

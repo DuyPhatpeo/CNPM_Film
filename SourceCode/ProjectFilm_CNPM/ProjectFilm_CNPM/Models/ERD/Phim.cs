@@ -50,8 +50,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Required(ErrorMessage = "Ngày tạo không được để trống")]
         [Display(Name = "Ngày tạo phim")]
         public DateTime NgayTao { get; set; }
-        [Required(ErrorMessage = "Ngày tạo không được để trống")]
-        [Display(Name = "Ngày tạo")]
+        [Display(Name = "Người cập nhật")]
         public int? NguoiCapNhat { get; set; }
         public DateTime? NgayCapNhat { get; set; }
         [Required(ErrorMessage = "Trạng thái không được để trống")]

@@ -16,7 +16,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaGhe { get; set; }
-
+        [Required(ErrorMessage = "Tên ghế không được để trống")]
         [StringLength(2, ErrorMessage = "Tên ghế không được vượt quá 2 ký tự")]
         [Display(Name = "Tên ghế")]
         public string TenGhe { get; set; }
