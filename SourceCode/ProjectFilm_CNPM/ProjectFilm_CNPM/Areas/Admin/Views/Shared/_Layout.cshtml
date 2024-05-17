@@ -1,35 +1,27 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿﻿
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
+    @*<title>@ViewBag.Title</title>*@
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Trang ADMIN</title>
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/Public/plugins/fontawesome-free/css/all.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="~/Public/plugins/daterangepicker/daterangepicker.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="~/Public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="~/Public/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="~/Public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="~/Public/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="~/Public/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <!-- Bootstrap4 Duallistbox -->
-    <link rel="stylesheet" href="~/Public/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
-    <!-- BS Stepper -->
-    <link rel="stylesheet" href="~/Public/plugins/bs-stepper/css/bs-stepper.min.css">
-    <!-- dropzonejs -->
-    <link rel="stylesheet" href="~/Public/plugins/dropzone/min/dropzone.min.css">
+    <link href="~/Public/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <!-- Theme style -->
-    <link rel="stylesheet" href="~/Public/dist/css/adminlte.min.css">
+    <link href="~/Public/dist/css/adminlte.min.css" rel="stylesheet" />
+    <!-- Bootstrap tu dinh  nghia-->
+    <link href="~/Public/css/LayoutAdmin.css" rel="stylesheet" />
+    <link rel="icon" href="~/Public/img/logo.svg" type="image/png">
+    @*Khu vuc header*@
+    @RenderSection("header", required: false)
 </head>
+
+
+@*Khu vuc body*@
 <body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -38,31 +30,168 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="" class="btn btn-outline-dark">Logout</a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="~/Public/index3.html" class="brand-link">
-                <img src="~/Public/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">ADMIN</span>
-            </a>
+            @*<a href="@Url.Action("Index","Link")" class="brand-link">
+                <img src="~/Public/img/logo.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">ADMIN ANEX</span>
+            </a>*@
 
-            @Html.Partial("_PartiaSideBar")
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/Public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Lữ Vũ Phúc</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Menu Sản phẩm: Loại SP, Sản phẩm, Nhà cung cấp -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-procedures " aria-hidden="true"></i>
+                                <p>
+                                    Sản phẩm
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh mục sản phẩm</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh mục loại sản phẩm</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh mục nhà cung cấp</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Menu danh mục bài viết-->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-pen "></i>
+                                <p>
+                                    Bài viết
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách bài viết</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Chủ đề bài viết</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Trang đơn</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--Menu dành cho giao diện-->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-book "></i>
+                                <p>
+                                    Giao diện
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Menu</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Slide Show</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <!--Phàn còn lại của menu-->
+                        <li class="nav-header">LABELS</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p class="text">Important</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle text-warning"></i>
+                                <p>Warning</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Informational</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            @RenderBody()
-        </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 1.0
-            </div>
-            <strong>Copyright &copy; 2024-@DateTime.Now.Year <a href="#">TDP & LVP</a>.</strong> All rights reserved.
-        </footer>
+        @RenderBody()
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -75,9 +204,14 @@
     <script src="~/Public/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- AdminLTE App -->
     <script src="~/Public/dist/js/adminlte.min.js"></script>
-   
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Public/dist/js/demo.js"></script>
+
+    @*Khu vuc Footer*@
+    @RenderSection("footer", required: false)
 </body>
+
+
 </html>

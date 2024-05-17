@@ -1,131 +1,96 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.Phim
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết phim";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var item = Model;
 }
+ 
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-<h2>Details</h2>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">CHI TIẾT LOẠI HÀNG</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Edit", "Phim", new { id = Model.MaPhim })" class="btn-sm btn-success"><i class="fa fa-edit"> Sửa</i></a>
+                            <a href="@Url.Action("Index", "Phim")" class="btn-sm btn-success"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.MaPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenRutGon)</th>
+                                <th>Thời lượng(phút)</th>
+                                <th>@Html.DisplayNameFor(model => model.Anh)</th>
+                                <th>@Html.DisplayNameFor(model => model.DaoDien)</th>
+                                <th>@Html.DisplayNameFor(model => model.DienVien)</th>
+                                <th>@Html.DisplayNameFor(model => model.QuocGia)</th>
+                                <th>@Html.DisplayNameFor(model => model.PhanLoai)</th>
+                                <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
 
-<div>
-    <h4>Phim</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenPhim)
-        </dt>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(model => model.MaPhim)</td>
+                                <td>@Html.DisplayFor(model => model.TenPhim)</td>
+                                <td>@Html.DisplayFor(model => model.TenRutGon)</td>
+                                <td>@Html.DisplayFor(model => model.ThoiLuong)</td>
+                                <td>@Html.DisplayFor(model => model.Anh)</td>
+                                <td>@Html.DisplayFor(model => model.DaoDien)</td>
+                                <td>@Html.DisplayFor(model => model.DienVien)</td>
+                                <td>@Html.DisplayFor(model => model.QuocGia)</td>
+                                <td>
+                                    @if (item.PhanLoai == 0)
+                                    {
+                                        @:T18
+                                    }
+                                    else if (item.PhanLoai == 1)
+                                    {
+                                        @:T16
+                                    }
+                                    else if (item.PhanLoai == 2)
+                                    {
+                                        @:T13
+                                    }
+                                    else if (item.PhanLoai == 3)
+                                    {
+                                        @:K
+                                    }
+                                    else if (item.PhanLoai == 4)
+                                    {
+                                        @:P
+                                    }
+                                    else if (item.PhanLoai == 5)
+                                    {
+                                        @:C
+                                    }
+                                </td>
+                                <td>@Html.DisplayFor(model => model.MoTa)</td>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
+                            </tr>
+                        </tbody>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenPhim)
-        </dd>
+                    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenRutGon)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenRutGon)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ThoiLuong)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThoiLuong)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Anh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Anh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DaoDien)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DaoDien)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DienVien)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DienVien)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.QuocGia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QuocGia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhanLoai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhanLoai)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhim }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

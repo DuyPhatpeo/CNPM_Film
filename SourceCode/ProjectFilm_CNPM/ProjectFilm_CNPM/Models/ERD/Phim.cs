@@ -37,10 +37,14 @@ namespace ProjectFilm_CNPM.Models.ERD
         public string DienVien { get; set; }
         [Required(ErrorMessage = "Quốc gia không được để trống")]
         [Display(Name = "Quốc gia")]
+        
         public string QuocGia { get; set; }
+        [Required(ErrorMessage = "Năm phát hành không được để trống")]
+        [Display(Name = "Năm phát hành")]
+        public int NamPhatHanh { get; set; }
         [Required(ErrorMessage = "Phân loại không được để trống")]
         [Display(Name = "Phân loại")]
-        public string PhanLoai { get; set; }
+        public int PhanLoai { get; set; }
         [Required(ErrorMessage = "Mô tả không được để trống")]
         [Display(Name = "Mô tả")]
         public string MoTa { get; set; }

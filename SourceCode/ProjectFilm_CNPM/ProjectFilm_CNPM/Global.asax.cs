@@ -17,5 +17,10 @@ namespace ProjectFilm_CNPM
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Session_Start()
+        {
+            Session["UserID"] = "1";
+            Session["UserCustomer"] = "";
+        }
     }
 }

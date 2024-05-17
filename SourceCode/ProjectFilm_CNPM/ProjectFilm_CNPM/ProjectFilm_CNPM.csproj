@@ -173,16 +173,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202405170509517_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202405170509517_CreatedDatabase.designer.cs">
-      <DependentUpon>202405170509517_CreatedDatabase.cs</DependentUpon>
+    <Compile Include="Library\XMessage.cs" />
+    <Compile Include="Library\XString.cs" />
+    <Compile Include="Migrations\202405170717421_CreatedDatabase.cs" />
+    <Compile Include="Migrations\202405170717421_CreatedDatabase.designer.cs">
+      <DependentUpon>202405170717421_CreatedDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Models\ERD\ChuDe.cs" />
     <Compile Include="Models\ERD\Ghe.cs" />
     <Compile Include="Models\ERD\HoaDon.cs" />
+    <Compile Include="Models\ERD\Menu.cs" />
     <Compile Include="Models\ERD\NguoiDung.cs" />
     <Compile Include="Models\ERD\Phim.cs" />
     <Compile Include="Models\ERD\Phong.cs" />
@@ -223,6 +225,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Public\css\jquery.dataTables.min.css" />
+    <Content Include="Public\css\main.css" />
+    <Content Include="Public\css\style.css" />
     <Content Include="Public\dist\css\adminlte.css" />
     <Content Include="Public\dist\css\adminlte.min.css" />
     <Content Include="Public\dist\css\alt\adminlte.components.css" />
@@ -276,6 +281,8 @@
     <Content Include="Public\dist\js\pages\dashboard.js" />
     <Content Include="Public\dist\js\pages\dashboard2.js" />
     <Content Include="Public\dist\js\pages\dashboard3.js" />
+    <Content Include="Public\js\jquery.dataTables.min.js" />
+    <Content Include="Public\js\main.js" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Public\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2123,7 +2130,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_PartiaSideBar.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Public\dist\css\adminlte.css.map" />
     <Content Include="Public\dist\css\adminlte.min.css.map" />
@@ -2204,11 +2210,7 @@
     <Content Include="Public\plugins\summernote\summernote.js.map" />
     <Content Include="Public\plugins\summernote\summernote.min.js.map" />
     <Content Include="Public\plugins\toastr\toastr.js.map" />
-    <Content Include="Areas\Admin\Views\TheLoai\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\TheLoai\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\TheLoai\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\TheLoai\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\TheLoai\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
@@ -2294,8 +2296,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405170509517_CreatedDatabase.resx">
-      <DependentUpon>202405170509517_CreatedDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405170717421_CreatedDatabase.resx">
+      <DependentUpon>202405170717421_CreatedDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

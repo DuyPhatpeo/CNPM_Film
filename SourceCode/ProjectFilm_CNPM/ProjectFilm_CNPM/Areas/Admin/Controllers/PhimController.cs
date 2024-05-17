@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProjectFilm_CNPM.Library;
 using ProjectFilm_CNPM.Models;
 using ProjectFilm_CNPM.Models.ERD;
 
@@ -26,12 +27,13 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy phim");
+                return RedirectToAction("Index");
             }
             Phim phim = db.Phims.Find(id);
             if (phim == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy phim");
             }
             return View(phim);
         }
@@ -47,12 +49,26 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaPhim,TenPhim,TenRutGon,ThoiLuong,Anh,DaoDien,DienVien,QuocGia,PhanLoai,MoTa,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] Phim phim)
+        public ActionResult Create(Phim phim)
         {
             if (ModelState.IsValid)
             {
+                //Xử lý tự động cho các trường sau:
+                //---Create At
+                phim.NgayTao = DateTime.Now;
+                //---Create By
+                phim.NguoiTao = Convert.ToInt32(Session["UserId"]);
+                //Slug
+                phim.TenRutGon = XString.Str_Slug(phim.TenPhim);
+                //Update at
+                phim.NgayCapNhat = DateTime.Now;
+                //Update by
+                phim.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
+
                 db.Phims.Add(phim);
                 db.SaveChanges();
+                //hiển thị thông báo thành công
+                TempData["message"] = new XMessage("success", "Tạo mới phim thành công!");
                 return RedirectToAction("Index");
             }
 
@@ -79,7 +95,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaPhim,TenPhim,TenRutGon,ThoiLuong,Anh,DaoDien,DienVien,QuocGia,PhanLoai,MoTa,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] Phim phim)
+        public ActionResult Edit([Bind(Include = "MaPhim,TenPhim,TenRutGon,ThoiLuong,Anh,DaoDien,DienVien,QuocGia,NamPhatHanh,PhanLoai,MoTa,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] Phim phim)
         {
             if (ModelState.IsValid)
             {
@@ -116,13 +132,34 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        // POST: Admin/Category/Status
+        public ActionResult Status(int? id)
         {
-            if (disposing)
+            if (id == null)
             {
-                db.Dispose();
+                //hien thi thong bao
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            Phim phim = db.Phims.Find(id);
+            if (phim == null)
+            {
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
+            }
+            //cap nhat trang thai
+            phim.TrangThai = (phim.TrangThai == 1) ? 2 : 1;
+            //cap nhat update at
+            phim.NgayCapNhat = DateTime.Now;
+            //cap nhat update by
+            phim.NguoiCapNhat = Convert.ToInt32(Session["UserID"]);
+            //update db
+            db.SaveChanges();
+            //hien thi thong bao
+            TempData["message"] = new XMessage("success", "Cập nhật trạng thái thành công");
+            //tro ve trang Index
+            return RedirectToAction("Index");
         }
+
     }
 }
