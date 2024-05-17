@@ -2216,6 +2216,7 @@
     <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2264,6 +2265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Public\img\phim\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

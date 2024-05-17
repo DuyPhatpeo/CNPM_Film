@@ -1,7 +1,13 @@
-﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Phim>
+﻿
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Phim>
 
 @{
-    ViewBag.Title = "Danh sách các bộ phim";
+    ViewBag.Title = "Thùng rác";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -24,11 +30,11 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong class="text-danger">DANH MỤC LOẠI HÀNG</strong>
+                            <strong class="text-danger">THÙNG RÁC PHIM</strong>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="@Url.Action("Create","Phim")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
-                            <a href="@Url.Action("Trash","Phim")" class="btn-sm btn-danger"><i class="fa fa-trash"> Thùng rác</i></a>
+                            @*<a href="@Url.Action("Create","Phim")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>*@
+                            <a href="@Url.Action("Index","Phim")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
                         </div>
                     </div>
                 </div>
@@ -88,17 +94,8 @@
 
 
                                     <td>
-                                        @if (item.TrangThai == 1)
-                                        {
-                                            <a href="@Url.Action("Status","Phim", new { id = item.MaPhim })" class="btn-sm btn-success"><i class="fa fa-toggle-on"></i></a>
-                                        }
-                                        else
-                                        {
-                                            <a href="@Url.Action("Status","Phim", new { id = item.MaPhim })" class="btn-sm btn-danger"><i class="fa fa-toggle-off"></i></a>
-                                        }
-                                        <a href="@Url.Action("Edit","Phim", new { id = item.MaPhim })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="@Url.Action("Details","Phim", new { id = item.MaPhim })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                        <a href="@Url.Action("DelTrash","Phim", new { id = item.MaPhim })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="@Url.Action("Undo","Phim", new { id = item.MaPhim })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
+                                        <a href="@Url.Action("Delete","Phim", new { id = item.MaPhim })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             }
