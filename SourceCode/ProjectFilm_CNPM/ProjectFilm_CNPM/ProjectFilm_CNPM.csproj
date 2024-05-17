@@ -178,9 +178,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405170509517_CreatedDatabase.cs" />
+    <Compile Include="Migrations\202405170509517_CreatedDatabase.designer.cs">
+      <DependentUpon>202405170509517_CreatedDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ERD\BaiViet.cs" />
+    <Compile Include="Models\ERD\ChiTietHoaDon.cs" />
+    <Compile Include="Models\ERD\ChuDe.cs" />
+    <Compile Include="Models\ERD\Ghe.cs" />
+    <Compile Include="Models\ERD\HoaDon.cs" />
     <Compile Include="Models\ERD\NguoiDung.cs" />
     <Compile Include="Models\ERD\Phim.cs" />
+    <Compile Include="Models\ERD\Phong.cs" />
+    <Compile Include="Models\ERD\Slider.cs" />
+    <Compile Include="Models\ERD\SuatChieu.cs" />
+    <Compile Include="Models\ERD\ThamSo.cs" />
     <Compile Include="Models\ERD\TheLoai.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -2266,6 +2280,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202405170509517_CreatedDatabase.resx">
+      <DependentUpon>202405170509517_CreatedDatabase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
