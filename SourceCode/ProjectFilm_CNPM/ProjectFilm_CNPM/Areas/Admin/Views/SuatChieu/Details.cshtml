@@ -1,0 +1,75 @@
+﻿@model ProjectFilm_CNPM.Models.ERD.SuatChieu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SuatChieu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Phim.TenPhim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phim.TenPhim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioChieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioChieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSuatChieu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

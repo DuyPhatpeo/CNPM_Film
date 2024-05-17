@@ -1,0 +1,123 @@
+﻿@model ProjectFilm_CNPM.Models.ERD.Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSlider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSlider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SapXep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SapXep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViTri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViTri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuKhoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuKhoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

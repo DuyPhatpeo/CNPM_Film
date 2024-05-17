@@ -1,8 +1,7 @@
-﻿﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    @*<title>@ViewBag.Title</title>*@
+    <title>@ViewBag.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -10,9 +9,9 @@
     <link href="~/Public/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <!-- Theme style -->
     <link href="~/Public/dist/css/adminlte.min.css" rel="stylesheet" />
-    <!-- Bootstrap tu dinh  nghia-->
+    <!-- Bootstrap tu dinh nghia-->
     <link href="~/Public/css/LayoutAdmin.css" rel="stylesheet" />
-    <link rel="icon" href="~/Public/img/logo.svg" type="image/png">
+
     @*Khu vuc header*@
     @RenderSection("header", required: false)
 </head>
@@ -31,10 +30,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="" class="btn btn-outline-dark">Logout</a>
+                    <a href="@Url.Action("Index","Home")" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -54,58 +50,72 @@
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 min-vh-100">
             <!-- Brand Logo -->
-            @*<a href="@Url.Action("Index","Link")" class="brand-link">
-                <img src="~/Public/img/logo.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">ADMIN ANEX</span>
-            </a>*@
+            <a href="@Url.Action("Index","Link")" class="brand-link">
+                <span class="brand-text font-weight-light">Admin</span>
+            </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="~/Public/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Lữ Vũ Phúc</a>
-                    </div>
-                </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Menu Sản phẩm: Loại SP, Sản phẩm, Nhà cung cấp -->
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="fa fa-procedures " aria-hidden="true"></i>
+                                <i class="fa fa-hashtag" aria-hidden="true"></i>
                                 <p>
-                                    Sản phẩm
+                                    Rạp
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="@Url.Action("Index","Phong")" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh mục sản phẩm</p>
+                                        <p>Danh mục phòng</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh mục loại sản phẩm</p>
+                                        <p>Danh mục ghế</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh mục nhà cung cấp</p>
+                                        <p>Danh mục suất chiếu</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-film" aria-hidden="true"></i>
+                                <p>
+                                    Phim
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Phim")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh mục phim</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh mục thể loại phim</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
 
                         <!-- Menu danh mục bài viết-->
                         <li class="nav-item">
@@ -126,13 +136,7 @@
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Chủ đề bài viết</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Trang đơn</p>
+                                        <p>Danh mục chủ đề</p>
                                     </a>
                                 </li>
                             </ul>
@@ -162,28 +166,6 @@
                                 </li>
                             </ul>
                         </li>
-
-
-                        <!--Phàn còn lại của menu-->
-                        <li class="nav-header">LABELS</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-danger"></i>
-                                <p class="text">Important</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-warning"></i>
-                                <p>Warning</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-info"></i>
-                                <p>Informational</p>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -192,6 +174,10 @@
         </aside>
 
         @RenderBody()
+
+        <footer class="main-footer fixed-bottom">
+            <strong>Copyright &copy; 2024-@DateTime.Now.Year <a href="#">TDP & LVP</a>.</strong> All rights reserved.
+        </footer>
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

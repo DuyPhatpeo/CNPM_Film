@@ -221,7 +221,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         }
 
 
-        // POST: Admin/Category/Status
+        // POST: Admin/Phim/Status
         public ActionResult Status(int? id)
         {
             if (id == null)
@@ -249,7 +249,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             //tro ve trang Index
             return RedirectToAction("Index");
         }
-        // POST: Admin/Product/DelTrash
+        // POST: Admin/Phim/DelTrash
         public ActionResult DelTrash(int? id)
         {
             if (id == null)
@@ -283,7 +283,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             var trashPhim = db.Phims.Where(p => p.TrangThai == 0).ToList();
             return View(trashPhim);
         }
-        // POST: Admin/Supplier/Undo
+        // POST: Admin/Phim/Undo
         public ActionResult Undo(int? id)
         {
             if (id == null)

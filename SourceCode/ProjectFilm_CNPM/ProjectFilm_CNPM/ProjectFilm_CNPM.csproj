@@ -171,9 +171,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaiVietController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GheController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SuatChieuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -182,9 +189,9 @@
     </Compile>
     <Compile Include="Library\XMessage.cs" />
     <Compile Include="Library\XString.cs" />
-    <Compile Include="Migrations\202405170717421_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202405170717421_CreatedDatabase.designer.cs">
-      <DependentUpon>202405170717421_CreatedDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\202405171352599_CreatedDatabase.cs" />
+    <Compile Include="Migrations\202405171352599_CreatedDatabase.Designer.cs">
+      <DependentUpon>202405171352599_CreatedDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -237,8 +244,6 @@
     <Content Include="Public\dist\css\alt\adminlte.core.min.css" />
     <Content Include="Public\dist\css\alt\adminlte.extra-components.css" />
     <Content Include="Public\dist\css\alt\adminlte.extra-components.min.css" />
-    <Content Include="Public\dist\css\alt\adminlte.light.css" />
-    <Content Include="Public\dist\css\alt\adminlte.light.min.css" />
     <Content Include="Public\dist\css\alt\adminlte.pages.css" />
     <Content Include="Public\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="Public\dist\css\alt\adminlte.plugins.css" />
@@ -517,7 +522,6 @@
     <Content Include="Public\plugins\codemirror\mode\z80\z80.js" />
     <Content Include="Public\plugins\codemirror\theme\3024-day.css" />
     <Content Include="Public\plugins\codemirror\theme\3024-night.css" />
-    <Content Include="Public\plugins\codemirror\theme\abbott.css" />
     <Content Include="Public\plugins\codemirror\theme\abcdef.css" />
     <Content Include="Public\plugins\codemirror\theme\ambiance-mobile.css" />
     <Content Include="Public\plugins\codemirror\theme\ambiance.css" />
@@ -541,7 +545,6 @@
     <Content Include="Public\plugins\codemirror\theme\icecoder.css" />
     <Content Include="Public\plugins\codemirror\theme\idea.css" />
     <Content Include="Public\plugins\codemirror\theme\isotope.css" />
-    <Content Include="Public\plugins\codemirror\theme\juejin.css" />
     <Content Include="Public\plugins\codemirror\theme\lesser-dark.css" />
     <Content Include="Public\plugins\codemirror\theme\liquibyte.css" />
     <Content Include="Public\plugins\codemirror\theme\lucario.css" />
@@ -1265,7 +1268,6 @@
     <Content Include="Public\plugins\fullcalendar\locales\ar.js" />
     <Content Include="Public\plugins\fullcalendar\locales\az.js" />
     <Content Include="Public\plugins\fullcalendar\locales\bg.js" />
-    <Content Include="Public\plugins\fullcalendar\locales\bn.js" />
     <Content Include="Public\plugins\fullcalendar\locales\bs.js" />
     <Content Include="Public\plugins\fullcalendar\locales\ca.js" />
     <Content Include="Public\plugins\fullcalendar\locales\cs.js" />
@@ -1299,9 +1301,7 @@
     <Content Include="Public\plugins\fullcalendar\locales\ja.js" />
     <Content Include="Public\plugins\fullcalendar\locales\ka.js" />
     <Content Include="Public\plugins\fullcalendar\locales\kk.js" />
-    <Content Include="Public\plugins\fullcalendar\locales\km.js" />
     <Content Include="Public\plugins\fullcalendar\locales\ko.js" />
-    <Content Include="Public\plugins\fullcalendar\locales\ku.js" />
     <Content Include="Public\plugins\fullcalendar\locales\lb.js" />
     <Content Include="Public\plugins\fullcalendar\locales\lt.js" />
     <Content Include="Public\plugins\fullcalendar\locales\lv.js" />
@@ -1318,7 +1318,6 @@
     <Content Include="Public\plugins\fullcalendar\locales\ru.js" />
     <Content Include="Public\plugins\fullcalendar\locales\sk.js" />
     <Content Include="Public\plugins\fullcalendar\locales\sl.js" />
-    <Content Include="Public\plugins\fullcalendar\locales\sm.js" />
     <Content Include="Public\plugins\fullcalendar\locales\sq.js" />
     <Content Include="Public\plugins\fullcalendar\locales\sr-cyrl.js" />
     <Content Include="Public\plugins\fullcalendar\locales\sr.js" />
@@ -2132,6 +2131,18 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Trash.cshtml" />
     <Content Include="Public\dist\css\adminlte.css.map" />
     <Content Include="Public\dist\css\adminlte.min.css.map" />
     <Content Include="Public\dist\css\alt\adminlte.components.css.map" />
@@ -2140,8 +2151,6 @@
     <Content Include="Public\dist\css\alt\adminlte.core.min.css.map" />
     <Content Include="Public\dist\css\alt\adminlte.extra-components.css.map" />
     <Content Include="Public\dist\css\alt\adminlte.extra-components.min.css.map" />
-    <Content Include="Public\dist\css\alt\adminlte.light.css.map" />
-    <Content Include="Public\dist\css\alt\adminlte.light.min.css.map" />
     <Content Include="Public\dist\css\alt\adminlte.pages.css.map" />
     <Content Include="Public\dist\css\alt\adminlte.pages.min.css.map" />
     <Content Include="Public\dist\css\alt\adminlte.plugins.css.map" />
@@ -2211,18 +2220,41 @@
     <Content Include="Public\plugins\summernote\summernote.js.map" />
     <Content Include="Public\plugins\summernote\summernote.min.js.map" />
     <Content Include="Public\plugins\toastr\toastr.js.map" />
-    <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TheLoai\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Ghe\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Ghe\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Ghe\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Ghe\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Ghe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SuatChieu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SuatChieu\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SuatChieu\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SuatChieu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SuatChieu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2304,8 +2336,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405170717421_CreatedDatabase.resx">
-      <DependentUpon>202405170717421_CreatedDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405171352599_CreatedDatabase.resx">
+      <DependentUpon>202405171352599_CreatedDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

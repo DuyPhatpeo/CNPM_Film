@@ -1,0 +1,67 @@
+﻿@model ProjectFilm_CNPM.Models.ERD.BaiViet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BaiViet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ChuDeBV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDeBV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenBV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LienKet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LienKet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChiTiet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChiTiet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KieuBV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KieuBV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

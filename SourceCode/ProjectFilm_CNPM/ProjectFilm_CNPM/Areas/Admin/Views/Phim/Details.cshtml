@@ -18,11 +18,11 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong class="text-danger">CHI TIẾT LOẠI HÀNG</strong>
+                            <strong class="text-danger">CHI TIẾT PHIM</strong>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="@Url.Action("Edit", "Phim", new { id = Model.MaPhim })" class="btn-sm btn-success"><i class="fa fa-edit"> Sửa</i></a>
-                            <a href="@Url.Action("Index", "Phim")" class="btn-sm btn-success"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                            <a href="@Url.Action("Edit", "Phim", new { id = Model.MaPhim })" class="btn-sm btn-primary"><i class="fa fa-edit"> Sửa</i></a>
+                            <a href="@Url.Action("Index", "Phim")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,6 @@
                                 <td><img src="~/Public/img/phim/@item.Anh" alt="Img" class="img-fluid" /></td>
                                 <td>@Html.DisplayFor(model => model.TenRutGon)</td>
                                 <td>@Html.DisplayFor(model => model.ThoiLuong)</td>
-                                <td>@Html.DisplayFor(model => model.Anh)</td>
                                 <td>@Html.DisplayFor(model => model.DaoDien)</td>
                                 <td>@Html.DisplayFor(model => model.DienVien)</td>
                                 <td>@Html.DisplayFor(model => model.QuocGia)</td>
