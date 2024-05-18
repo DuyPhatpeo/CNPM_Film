@@ -4,72 +4,54 @@
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-<h2>Details</h2>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">CHI TIẾT CHỦ ĐỀ</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Create","TheLoai")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
+                            <a href="@Url.Action("Trash","TheLoai")" class="btn-sm btn-danger"><i class="fa fa-trash"> Thùng rác</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenTheLoai)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(model => model.Id)</td>
+                                <td>@Html.DisplayFor(model => model.TenTheLoai)</td>
+                                <td>@Html.DisplayFor(model => model.Phim.TenPhim)</td>
+                                <th>@Html.DisplayFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayFor(model => model.NgayCapNhat)</th>
 
-<div>
-    <h4>TheLoai</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Phim.TenPhim)
-        </dt>
+                            </tr>
+                        </tbody>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phim.TenPhim)
-        </dd>
+                    </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenTheLoai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenTheLoai)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-
-    </dl>
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
