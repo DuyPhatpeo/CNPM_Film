@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.TheLoai>
 
 @{
-    ViewBag.Title = "The Loai";
+    ViewBag.Title = "Thể loại";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
 @section header{
@@ -24,7 +25,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong class="text-danger">DANH MỤC CHỦ ĐỀ</strong>
+                            <strong class="text-danger">DANH MỤC THỂ LOẠI</strong>
                         </div>
                         <div class="col-md-6 text-right">
                             <a href="@Url.Action("Create","TheLoai")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
@@ -38,7 +39,7 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                <th>Số thứ tự</th>
                                 <th>@Html.DisplayNameFor(model => model.TenTheLoai)</th>
                                 <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
                                 <th>Chức năng</th>
@@ -49,22 +50,23 @@
                             {
 
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                    <td>@i</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenTheLoai)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
                                     <td>
                                         @if (item.TrangThai == 1)
                                         {
-                                            <a href="@Url.Action("Status","ChuDe", new { id = item.Id })" class="btn-sm btn-success"><i class="fa fa-toggle-on"></i></a>
+                                            <a href="@Url.Action("Status","TheLoai", new { id = item.Id })" class="btn-sm btn-success"><i class="fa fa-toggle-on"></i></a>
                                         }
                                         else
                                         {
-                                            <a href="@Url.Action("Status","ChuDe", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-toggle-off"></i></a>
+                                            <a href="@Url.Action("Status","TheLoai", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-toggle-off"></i></a>
                                         }
-                                        <a href="@Url.Action("Edit","ChuDe", new { id = item.Id })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="@Url.Action("Details","ChuDe", new { id = item.Id })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                        <a href="@Url.Action("DelTrash","ChuDe", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="@Url.Action("Edit","TheLoai", new { id = item.Id })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="@Url.Action("Details","TheLoai", new { id = item.Id })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("DelTrash","TheLoai", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    @{ i++;}
                                 </tr>
                             }
                         </tbody>

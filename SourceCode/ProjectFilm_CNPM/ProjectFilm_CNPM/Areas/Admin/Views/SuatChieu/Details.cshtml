@@ -21,8 +21,8 @@
                             <strong class="text-danger">CHI TIẾT SUẤT CHIẾU</strong>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="@Url.Action("Create","SuatChieu")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
-                            <a href="@Url.Action("Trash","SuatChieu")" class="btn-sm btn-danger"><i class="fa fa-trash"> Thùng rác</i></a>
+                            <a href="@Url.Action("Edit", "SuatChieu", new { id = Model.MaPhim })" class="btn-sm btn-primary"><i class="fa fa-edit"> Sửa</i></a>
+                            <a href="@Url.Action("Index", "SuatChieu")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
                         </div>
                     </div>
                 </div>

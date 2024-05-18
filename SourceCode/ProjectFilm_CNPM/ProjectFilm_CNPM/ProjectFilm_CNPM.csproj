@@ -2295,7 +2295,6 @@
     <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Details.cshtml" />
     <Content Include="Public\assets\webfonts\fa-brands-400.ttf" />
     <Content Include="Public\assets\webfonts\fa-brands-400.woff2" />
     <Content Include="Public\assets\webfonts\fa-regular-400.ttf" />
@@ -2306,6 +2305,7 @@
     <Content Include="Public\assets\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Public\vendor\jquery\jquery.min.map" />
     <Content Include="Public\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\Admin\Views\TheLoai\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

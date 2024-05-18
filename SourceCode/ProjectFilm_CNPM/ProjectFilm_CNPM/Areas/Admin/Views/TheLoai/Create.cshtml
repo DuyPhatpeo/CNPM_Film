@@ -1,6 +1,6 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.TheLoai
 @{
-    ViewBag.Title = "TheLoai";
+    ViewBag.Title = "Tạo mới thể loại";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -18,7 +18,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <strong class="text-danger">TẠO MỚI CHỦ ĐỀ</strong>
+                                <strong class="text-danger">TẠO THỂ LOẠI CHO PHIM</strong>
                             </div>
                             <div class="col-md-6 text-right">
                                 <a href="@Url.Action("Index","TheLoai")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
@@ -32,25 +32,33 @@
                                 <div class="col-md-6">
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        @Html.LabelFor(model => model.TenTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.TenTheLoai, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.TenTheLoai, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         @Html.LabelFor(model => model.MaPhim, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
                                             @Html.DropDownListFor(model => model.MaPhim, (IEnumerable<SelectListItem>)ViewBag.PhimList, "-- Chọn phim --", new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.MaPhim, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.MaPhim, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("TenTheLoai", ViewBag.Genres as SelectList, "-- Chọn thể loại --", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.TenTheLoai, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        @Html.AntiForgeryToken()
+                                        <button class="btn-sm btn-success" type="submit" name="create">Lưu/Thêm<i class="fa fa-save"></i></button>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    @Html.AntiForgeryToken()
-                                    <button class="btn-sm btn-success" type="submit" name="create">Lưu/Thêm<i class="fa fa-save"></i></button>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-6" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(model => model.TrangThai, new[] { new SelectListItem { Text = "Không xuất bản", Value = "2" }, new SelectListItem { Text = "Xuất bản", Value = "1" } }, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                         </div> <!-- /.card-footer-->
                     </div><!-- /.card -->
             </section><!-- /.content -->
