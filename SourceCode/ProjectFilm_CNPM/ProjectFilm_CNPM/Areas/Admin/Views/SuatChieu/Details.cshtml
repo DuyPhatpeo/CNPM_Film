@@ -1,75 +1,57 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.SuatChieu
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi Tiết Suất Chiếu";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var item = Model;
 }
 
-<h2>Details</h2>
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-<div>
-    <h4>SuatChieu</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Phim.TenPhim)
-        </dt>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">CHI TIẾT SUẤT CHIẾU</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Edit", "SuatChieu", new { id = Model.MaPhim })" class="btn-sm btn-primary"><i class="fa fa-edit"> Sửa</i></a>
+                            <a href="@Url.Action("Index", "SuatChieu")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.MaSuatChieu)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.MaSuatChieu)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
+                                <th>@Html.DisplayFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayFor(model => model.NgayCapNhat)</th>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phim.TenPhim)
-        </dd>
+                            </tr>
+                        </tbody>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GioChieu)
-        </dt>
+                    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioChieu)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSuatChieu }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

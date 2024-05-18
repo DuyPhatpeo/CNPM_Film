@@ -5,6 +5,7 @@
 @{
     ViewBag.Title = "Thùng rác";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
 @section header{
@@ -40,6 +41,7 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
+                                <th>Số thứ tự</th>
                                 <th>@Html.DisplayNameFor(model => model.MaPhong)</th>
                                 <th>@Html.DisplayNameFor(model => model.TenPhong)</th>
                                 <th>Chức năng</th>
@@ -50,13 +52,16 @@
                             {
 
                                 <tr>
+                                    <td>@i</td>
                                     <td>@Html.DisplayFor(modelItem => item.MaPhong)</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenPhong)</td>
                                     <td>
                                         <a href="@Url.Action("Undo","Phong", new { id = item.MaPhong })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
                                         <a href="@Url.Action("Delete","Phong", new { id = item.MaPhong })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    @{ i++;}
                                 </tr>
+                                
                             }
                         </tbody>
 

@@ -180,6 +180,7 @@
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuatChieuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThamSoController.cs" />
     <Compile Include="Areas\Admin\Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -2295,7 +2296,6 @@
     <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
-    <Content Include="Areas\Admin\Views\Phong\Details.cshtml" />
     <Content Include="Public\assets\webfonts\fa-brands-400.ttf" />
     <Content Include="Public\assets\webfonts\fa-brands-400.woff2" />
     <Content Include="Public\assets\webfonts\fa-regular-400.ttf" />
@@ -2306,6 +2306,13 @@
     <Content Include="Public\assets\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Public\vendor\jquery\jquery.min.map" />
     <Content Include="Public\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\Admin\Views\TheLoai\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\ThamSo\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ThamSo\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ThamSo\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ThamSo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ThamSo\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Ghe\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

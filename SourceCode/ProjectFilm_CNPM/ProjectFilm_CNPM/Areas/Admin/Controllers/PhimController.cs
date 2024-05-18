@@ -36,6 +36,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             if (phim == null)
             {
                 TempData["message"] = new XMessage("danger", "Không tìm thấy phim");
+                return RedirectToAction("Index");
             }
             return View(phim);
         }

@@ -23,6 +23,7 @@ namespace ProjectFilm_CNPM.Models.ERD
 
         [Required(ErrorMessage = "Giờ chiếu không được để trống")]
         [Display(Name = "Giờ chiếu")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         public DateTime GioChieu { get; set; }
 
         [Required(ErrorMessage = "Người tạo không được để trống")]

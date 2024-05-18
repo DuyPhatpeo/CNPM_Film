@@ -16,12 +16,18 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
     public class TheLoaiController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private List<string> genres = new List<string>{
+            "Phiêu lưu - Hành động",
+            "Tình cảm",
+            "Hài kịch",
+            "Khoa học - viễn tưởng",
+            "Tài liệu"};
 
         // GET: Admin/TheLoai
         public ActionResult Index()
         {
-            var theLoai = db.TheLoais.Where(p => p.TrangThai == 1 || p.TrangThai == 2).ToList();
-            return View(theLoai);
+            var list = db.TheLoais.Where(m=> m.TrangThai !=0).ToList();
+            return View(list);
         }
 
         // GET: Admin/TheLoai/Details/5
@@ -29,13 +35,13 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                TempData["message"] = new XMessage("danger", "Không tìm thấy TheLoai");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
                 return RedirectToAction("Index");
             }
             TheLoai theLoai = db.TheLoais.Find(id);
             if (theLoai == null)
             {
-                TempData["message"] = new XMessage("danger", "Không tìm thấy TheLoai");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
             }
             return View(theLoai);
         }
@@ -43,6 +49,18 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/TheLoai/Create
         public ActionResult Create()
         {
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+            ViewBag.Genres = new SelectList(genres);
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
             return View();
         }
 
@@ -53,6 +71,28 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TheLoai theLoai)
         {
+            ViewBag.Genres = new SelectList(genres);
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
+            // Lấy danh sách thể loại từ cơ sở dữ liệu
+            var existingGenres = db.TheLoais.Select(tl => tl.TenTheLoai.ToLower()).ToList();
+
+            // Kiểm tra xem thể loại mới đã tồn tại chưa
+            if (existingGenres.Contains(theLoai.TenTheLoai.ToLower()))
+            {
+                // Nếu thể loại đã tồn tại, hiển thị thông báo lỗi và trả về view Create
+                ModelState.AddModelError("TenTheLoai", "Thể loại này đã tồn tại.");
+                return View(theLoai);
+            }
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:
@@ -68,7 +108,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 db.TheLoais.Add(theLoai);
                 db.SaveChanges();
                 //hiển thị thông báo thành công
-                TempData["message"] = new XMessage("success", "Tạo mới TheLoai thành công!");
+                TempData["message"] = new XMessage("success", "Tạo mới thể loại thành công!");
                 return RedirectToAction("Index");
             }
 
@@ -78,15 +118,28 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/TheLoai/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.Genres = new SelectList(genres);
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
+
             if (id == null)
             {
-                TempData["message"] = new XMessage("danger", "Không tìm thấy TheLoai");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
                 return RedirectToAction("Index");
             }
             TheLoai theLoai = db.TheLoais.Find(id);
             if (theLoai == null)
             {
-                TempData["message"] = new XMessage("danger", "Không tìm thấy TheLoai");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
                 return RedirectToAction("Index");
             }
             return View(theLoai);
@@ -99,6 +152,28 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(TheLoai theLoai)
         {
+
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
+            // Lấy danh sách thể loại từ cơ sở dữ liệu
+            var existingGenres = db.TheLoais.Select(tl => tl.TenTheLoai.ToLower()).ToList();
+
+            // Kiểm tra xem thể loại mới đã tồn tại chưa
+            if (existingGenres.Contains(theLoai.TenTheLoai.ToLower()))
+            {
+                // Nếu thể loại đã tồn tại, hiển thị thông báo lỗi và trả về view Create
+                ModelState.AddModelError("TenTheLoai", "Thể loại này đã tồn tại.");
+                return View(theLoai);
+            }
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:
@@ -152,8 +227,6 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             }
             db.TheLoais.Remove(theLoai);
             db.SaveChanges();
-
-
 
             // Thông báo thành công
             TempData["message"] = new XMessage("success", "Xóa danh mục thành công");
@@ -222,8 +295,8 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         }
         public ActionResult Trash()
         {
-            var trashTheLoai = db.TheLoais.Where(p => p.TrangThai == 0).ToList();
-            return View(trashTheLoai);
+            var trash = db.TheLoais.Where(p => p.TrangThai == 0).ToList();
+            return View(trash);
         }
         // POST: Admin/TheLoai/Undo
         public ActionResult Undo(int? id)
