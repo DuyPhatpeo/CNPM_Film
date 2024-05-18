@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Danh sách các ghế";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
 @section header{
@@ -24,7 +25,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong class="text-danger">DANH MỤC CHỦ ĐỀ</strong>
+                            <strong class="text-danger">DANH SÁCH GHẾ</strong>
                         </div>
                         <div class="col-md-6 text-right">
                             <a href="@Url.Action("Create","Ghe")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
@@ -38,7 +39,8 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <th>@Html.DisplayNameFor(model => model.MaGhe)</th>
+                                <th>Số thứ tự</th>
+                                <th>@Html.DisplayNameFor(model => model.TenGhe)</th>
                                 <th>@Html.DisplayNameFor(model => model.Phong.TenPhong)</th>
                                 <th>@Html.DisplayNameFor(model => model.LoaiGhe)</th>
                                 <th>@Html.DisplayNameFor(model => model.GiaGhe)</th>
@@ -50,23 +52,25 @@
                             {
 
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.MaGhe)</td>
+                                    <td>@i</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenGhe)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Phong.TenPhong)</td>
                                     <td>@Html.DisplayFor(modelItem => item.LoaiGhe)</td>
                                     <td>@Html.DisplayFor(modelItem => item.GiaGhe)</td>
                                     <td>
                                         @if (item.TrangThai == 1)
                                         {
-                                            <a href="@Url.Action("Status","ChuDe", new { id = item.MaGhe })" class="btn-sm btn-success"><i class="fa fa-toggle-on"></i></a>
+                                            <a href="@Url.Action("Status","Ghe", new { id = item.MaGhe })" class="btn-sm btn-success"><i class="fa fa-toggle-on"></i></a>
                                         }
                                         else
                                         {
-                                            <a href="@Url.Action("Status","ChuDe", new { id = item.MaGhe })" class="btn-sm btn-danger"><i class="fa fa-toggle-off"></i></a>
+                                            <a href="@Url.Action("Status","Ghe", new { id = item.MaGhe })" class="btn-sm btn-danger"><i class="fa fa-toggle-off"></i></a>
                                         }
-                                        <a href="@Url.Action("Edit","ChuDe", new { id = item.MaGhe })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="@Url.Action("Details","ChuDe", new { id = item.MaGhe })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                        <a href="@Url.Action("DelTrash","ChuDe", new { id = item.MaGhe })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="@Url.Action("Edit","Ghe", new { id = item.MaGhe })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="@Url.Action("Details","Ghe", new { id = item.MaGhe })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("DelTrash","Ghe", new { id = item.MaGhe })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    @{ i++;}
                                 </tr>
                             }
                         </tbody>

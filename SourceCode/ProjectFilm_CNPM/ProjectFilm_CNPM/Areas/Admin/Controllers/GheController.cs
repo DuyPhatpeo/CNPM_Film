@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProjectFilm_CNPM.Library;
 using ProjectFilm_CNPM.Models;
 using ProjectFilm_CNPM.Models.ERD;
 
@@ -14,12 +15,16 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
     public class GheController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private List<string> loaighe = new List<string>{
+            "Đơn",
+            "Đôi",
+            "VIP"};
 
         // GET: Admin/Ghe
         public ActionResult Index()
         {
-            var ghes = db.Ghes.Include(g => g.Phong);
-            return View(ghes.ToList());
+            var list = db.Ghes.Where(m => m.TrangThai != 0).ToList();
+            return View(list);
         }
 
         // GET: Admin/Ghe/Details/5
@@ -40,7 +45,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/Ghe/Create
         public ActionResult Create()
         {
-            ViewBag.MaPhong = new SelectList(db.Phongs, "MaPhong", "TenPhong");
+
+            // Chuyển ds phim thành SelectListItem
+            var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            }) ;
+            ViewBag.LoaiGhe = loaighe;
+            ViewBag.PhongList = phonglist;
             return View();
         }
 
@@ -49,10 +62,44 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaGhe,TenGhe,MaPhong,LoaiGhe,GiaGhe,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] Ghe ghe)
+        public ActionResult Create(Ghe ghe)
         {
+            
+            // Chuyển ds phim thành SelectListItem
+            var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
+
+            ViewBag.PhongList = phonglist;
+            ViewBag.LoaiGhe = loaighe;
+            // Lấy loại ghế mà người dùng đã chọn từ form
+            var selectedLoaiGhe = Request.Form["LoaiGhe"];
             if (ModelState.IsValid)
             {
+                var tenThamSo = string.Format("Giá vé ({0})", selectedLoaiGhe);
+                var thamSoGiaVe = db.ThamSos.FirstOrDefault(ts => ts.TenThamSo == tenThamSo);
+                if (thamSoGiaVe != null)
+                {
+                    // Gán giá vé cho đối tượng ghế
+                    ghe.GiaGhe = Convert.ToInt32(thamSoGiaVe.GiaTri);
+                }
+                else
+                {
+                    ModelState.AddModelError("", $"Không tìm thấy giá vé cho loại ghế '{selectedLoaiGhe}'");
+                    return View(ghe);
+                }
+                //Xử lý tự động cho các trường sau:
+                //---Create At
+                ghe.NgayTao = DateTime.Now;
+                //---Create By
+                ghe.NguoiTao = Convert.ToInt32(Session["UserId"]);
+                
+                //Update at
+                ghe.NgayCapNhat = DateTime.Now;
+                //Update by
+                ghe.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
                 db.Ghes.Add(ghe);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -65,6 +112,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/Ghe/Edit/5
         public ActionResult Edit(int? id)
         {
+            // Chuyển ds phim thành SelectListItem
+            var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
+
+            ViewBag.PhongList = phonglist;
+            ViewBag.LoaiGhe = loaighe;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -74,7 +130,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MaPhong = new SelectList(db.Phongs, "MaPhong", "TenPhong", ghe.MaPhong);
+           
             return View(ghe);
         }
 
@@ -83,10 +139,44 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaGhe,TenGhe,MaPhong,LoaiGhe,GiaGhe,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] Ghe ghe)
+        public ActionResult Edit(Ghe ghe)
         {
+            // Chuyển ds phim thành SelectListItem
+            var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
+
+            ViewBag.PhongList = phonglist;
+            ViewBag.LoaiGhe = loaighe;
+            // Lấy loại ghế mà người dùng đã chọn từ form
+            var selectedLoaiGhe = Request.Form["LoaiGhe"];
             if (ModelState.IsValid)
             {
+                var tenThamSo = string.Format("Giá vé ({0})", selectedLoaiGhe);
+                var thamSoGiaVe = db.ThamSos.FirstOrDefault(ts => ts.TenThamSo == tenThamSo);
+
+                if (thamSoGiaVe != null)
+                {
+                    // Gán giá vé cho đối tượng ghế
+                    ghe.GiaGhe = Convert.ToInt32(thamSoGiaVe.GiaTri);
+                }
+                else
+                {
+                    ModelState.AddModelError("", $"Không tìm thấy giá vé cho loại ghế '{selectedLoaiGhe}'");
+                    return View(ghe);
+                }
+                //Xử lý tự động cho các trường sau:
+                //---Create At
+                ghe.NgayTao = DateTime.Now;
+                //---Create By
+                ghe.NguoiTao = Convert.ToInt32(Session["UserId"]);
+
+                //Update at
+                ghe.NgayCapNhat = DateTime.Now;
+                //Update by
+                ghe.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
                 db.Entry(ghe).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -121,13 +211,96 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        public ActionResult Status(int? id)
         {
-            if (disposing)
+            if (id == null)
             {
-                db.Dispose();
+                //hien thi thong bao
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            Ghe ghe = db.Ghes.Find(id);
+            if (ghe == null)
+            {
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
+            }
+            //cap nhat trang thai
+            ghe.TrangThai = (ghe.TrangThai == 1) ? 2 : 1;
+            //cap nhat update at
+            ghe.NgayCapNhat = DateTime.Now;
+            //cap nhat update by
+            ghe.NguoiCapNhat = Convert.ToInt32(Session["UserID"]);
+            //update db
+            db.SaveChanges();
+            //hien thi thong bao
+            TempData["message"] = new XMessage("success", "Cập nhật trạng thái thành công");
+            //tro ve trang Index
+            return RedirectToAction("Index");
+        }
+        public ActionResult Undo(int? id)
+        {
+            if (id == null)
+            {
+                //Thong bao that bai
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                //chuyen huong trang
+                return RedirectToAction("Index", "Ghe");
+            }
+
+            //khi nhap nut thay doi TrangThai cho mot mau tin
+            Ghe ghe = db.Ghes.Find(id);
+            //kiem tra id cua categories co ton tai?
+            if (ghe == null)
+            {
+                //Thong bao that bai
+                TempData["message"] = new XMessage("danger", "Phục hồi dữ liệu thất bại");
+
+                //chuyen huong trang
+                return RedirectToAction("Index", "Ghe");
+            }
+            //thay doi trang thai TrangThai tu 1 thanh 2 va nguoc lai
+            ghe.TrangThai = 2;
+
+            //cap nhat gia tri cho Nguoi/Ngay cap nhat
+            ghe.NguoiCapNhat = Convert.ToInt32(Session["UserId"].ToString());
+            ghe.NgayCapNhat = DateTime.Now;
+
+            //Goi ham Update trong TopicDAO
+            db.Entry(ghe).State = EntityState.Modified;
+            db.SaveChanges();
+            //Thong bao thanh cong
+            TempData["message"] = new XMessage("success", "Phục hồi dữ liệu thành công");
+
+            //khi cap nhat xong thi chuyen ve Trash
+            return RedirectToAction("Trash", "Ghe");
+        }
+        public ActionResult DelTrash(int? id)
+        {
+            //khi nhap nut thay doi Status cho mot mau tin
+            Ghe ghe = db.Ghes.Find(id);
+
+            //thay doi trang thai TrangThai tu 1,2 thanh 0
+            ghe.TrangThai = 0;
+
+            //cap nhat gia tri cho Nguoi/Ngay cap nhat
+            ghe.NguoiCapNhat = Convert.ToInt32(Session["UserId"].ToString());
+            ghe.NgayCapNhat = DateTime.Now;
+
+            //Goi ham Update
+            db.Entry(ghe).State = EntityState.Modified;
+            db.SaveChanges();
+
+            //Thong bao thanh cong
+            TempData["message"] = new XMessage("success", "Xóa mẩu tin thành công");
+
+            //khi cap nhat xong thi chuyen ve Index
+            return RedirectToAction("Index", "Ghe");
+        }
+        public ActionResult Trash(int? id)
+        {
+            var list = db.Ghes.Where(m => m.TrangThai == 0).ToList();
+            return View(list);
         }
     }
 }

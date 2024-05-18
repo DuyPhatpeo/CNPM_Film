@@ -11,3 +11,8 @@ Cần tìm xem các mục cần thiết để hiển thị ra, không hiển th�
 Thêm ảnh cho bang NGUOIDUNG
 ko cho phep null vs tenghe
 cho phép người cập nhật trong phim null
+
+BẢNG THAM SỐ
+ĐƠN	45000
+ĐÔI	90000
+VIP	60000

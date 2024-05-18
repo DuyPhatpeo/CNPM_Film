@@ -1,0 +1,64 @@
+﻿@model ProjectFilm_CNPM.Models.ERD.ThamSo
+
+@{
+    ViewBag.Title = "Xác nhận xóa mẩu tin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var item = Model;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="wrapper">
+        <!-- Main Sidebar Container -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong class="text-danger">XÁC NHẬN XÓA MẪU TIN</strong>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="@Url.Action("Index","ChuDe")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                    <th>@Html.DisplayNameFor(model => model.TenThamSo)</th>
+                                    <th>@Html.DisplayNameFor(model => model.DonViTinh)</th>
+                                    <th>@Html.DisplayNameFor(model => model.GiaTri)</th>
+                                    <th>@Html.DisplayNameFor(model => model.DonViTinh)</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenThamSo)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.DonViTinh)</td>
+                                    <td>@Html.DisplayFor(model => model.GiaTri)</td>
+                                    <th>@Html.DisplayFor(model => model.DonViTinh)</th>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="form-actions no-color mt-4">
+                            <button class="btn-sm btn-danger" type="submit" name="save">Delete<i class="fa fa-trash"></i></button>
+                        </div>
+                    </div> <!-- /.card-footer-->
+                </div><!-- /.card -->
+            </section><!-- /.content -->
+        </div> <!-- /.content-wrapper -->
+    </div><!-- ./wrapper -->
+
+}

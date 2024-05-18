@@ -1,7 +1,7 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.Ghe
 
 @{
-    ViewBag.Title = "Ghe";
+    ViewBag.Title = "Chi tiết ghế";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -32,6 +32,7 @@
                         <thead>
                             <tr>
                                 <th>@Html.DisplayNameFor(model => model.MaGhe)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenGhe)</th>
                                 <th>@Html.DisplayNameFor(model => model.Phong.TenPhong)</th>
                                 <th>@Html.DisplayNameFor(model => model.LoaiGhe)</th>
                                 <th>@Html.DisplayNameFor(model => model.GiaGhe)</th>
@@ -42,6 +43,7 @@
                         <tbody>
                             <tr>
                                 <td>@Html.DisplayFor(model => model.MaGhe)</td>
+                                <td>@Html.DisplayFor(model => model.TenGhe)</td>
                                 <td>@Html.DisplayFor(model => model.Phong.TenPhong)</td>
                                 <td>@Html.DisplayFor(model => model.LoaiGhe)</td>
                                 <td>@Html.DisplayFor(model => model.GiaGhe)</td>

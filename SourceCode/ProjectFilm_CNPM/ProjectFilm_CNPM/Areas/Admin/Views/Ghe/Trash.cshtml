@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Ghe>
+@{
+    ViewBag.Title = "Thùng rác ghế";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
+}
+
+
+@section header{
+    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Public/js/jquery.dataTables.min.js"></script>
+    <script>let table = new DataTable('#myTable');</script>
+}
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">THÙNG RÁC GHẾ</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Index","Ghe")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Số thứ tự</th>
+                                <th>@Html.DisplayNameFor(model => model.TenGhe)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phong.TenPhong)</th>
+                                <th>@Html.DisplayNameFor(model => model.LoaiGhe)</th>
+                                <th>@Html.DisplayNameFor(model => model.GiaGhe)</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenGhe)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phong.TenPhong)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.LoaiGhe)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GiaGhe)</td>
+                                    <td>
+                                        <a href="@Url.Action("Undo","Ghe", new { id = item.MaGhe })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
+                                        <a href="@Url.Action("Delete","Ghe", new { id = item.MaGhe })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    @{ i++;}
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->
