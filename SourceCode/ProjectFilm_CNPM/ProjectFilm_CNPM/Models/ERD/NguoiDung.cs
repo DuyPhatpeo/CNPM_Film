@@ -15,7 +15,6 @@ namespace ProjectFilm_CNPM.Models.ERD
             this.HoaDons = new HashSet<HoaDon>();
         }
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaND { get; set; }
 
         [Required(ErrorMessage = "Tên người dùng không được để trống")]

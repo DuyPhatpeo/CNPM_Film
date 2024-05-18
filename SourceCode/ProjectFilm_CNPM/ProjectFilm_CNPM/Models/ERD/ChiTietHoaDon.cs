@@ -11,7 +11,6 @@ namespace ProjectFilm_CNPM.Models.ERD
     public class ChiTietHoaDon
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaCTHD { get; set; }
 
         [Required(ErrorMessage = "Mã hóa đơn không được để trống")]

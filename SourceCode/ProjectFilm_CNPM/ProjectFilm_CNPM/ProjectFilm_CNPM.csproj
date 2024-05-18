@@ -189,9 +189,9 @@
     </Compile>
     <Compile Include="Library\XMessage.cs" />
     <Compile Include="Library\XString.cs" />
-    <Compile Include="Migrations\202405171352599_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202405171352599_CreatedDatabase.Designer.cs">
-      <DependentUpon>202405171352599_CreatedDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\202405180310444_CreatedDatabase.cs" />
+    <Compile Include="Migrations\202405180310444_CreatedDatabase.designer.cs">
+      <DependentUpon>202405180310444_CreatedDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,6 +200,7 @@
     <Compile Include="Models\ERD\ChuDe.cs" />
     <Compile Include="Models\ERD\Ghe.cs" />
     <Compile Include="Models\ERD\HoaDon.cs" />
+    <Compile Include="Models\ERD\Link.cs" />
     <Compile Include="Models\ERD\Menu.cs" />
     <Compile Include="Models\ERD\NguoiDung.cs" />
     <Compile Include="Models\ERD\Phim.cs" />
@@ -2132,12 +2133,6 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\Message.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Phong\Edit.cshtml" />
@@ -2255,6 +2250,14 @@
     <Content Include="Areas\Admin\Views\BaiViet\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BaiViet\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BaiViet\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Phong\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2336,8 +2339,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405171352599_CreatedDatabase.resx">
-      <DependentUpon>202405171352599_CreatedDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405180310444_CreatedDatabase.resx">
+      <DependentUpon>202405180310444_CreatedDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

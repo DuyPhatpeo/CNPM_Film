@@ -17,7 +17,6 @@ namespace ProjectFilm_CNPM.Models.ERD
             this.ChuDes = new HashSet<ChuDe>();
         }
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int MaPhim { get; set; }
         [Required(ErrorMessage = "Tên phim không được để trống")]
         [Display(Name = "Tên phim")]

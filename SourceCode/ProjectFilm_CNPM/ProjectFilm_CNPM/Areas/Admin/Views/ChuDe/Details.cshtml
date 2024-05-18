@@ -1,99 +1,62 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.ChuDe
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi Tiết Chủ Đề";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var item = Model;
 }
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-<h2>Details</h2>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">CHI TIẾT CHỦ ĐỀ</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Create","ChuDe")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
+                            <a href="@Url.Action("Trash","ChuDe")" class="btn-sm btn-danger"><i class="fa fa-trash"> Thùng rác</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenChuDe)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.TuKhoa)</th>
+                                <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TenChuDe)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TuKhoa)</td>
+                                <td>@Html.DisplayFor(model => model.MoTa)</td>
+                                <th>@Html.DisplayFor(model => model.NgayTao)</th>
+                                <th>@Html.DisplayFor(model => model.NgayCapNhat)</th>
+                                
+                            </tr>
+                        </tbody>
 
-<div>
-    <h4>ChuDe</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Phim.TenPhim)
-        </dt>
+                    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phim.TenPhim)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenRutGon)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenRutGon)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TuKhoa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TuKhoa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenChuDe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenChuDe)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

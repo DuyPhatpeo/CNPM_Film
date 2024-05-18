@@ -11,7 +11,6 @@ namespace ProjectFilm_CNPM.Models.ERD
     public class ThamSo
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Display(Name = "Tên tham số ")]
         public string TenThamSo {  get; set; }

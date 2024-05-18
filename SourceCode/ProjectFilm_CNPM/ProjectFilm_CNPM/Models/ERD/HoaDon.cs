@@ -15,7 +15,6 @@ namespace ProjectFilm_CNPM.Models.ERD
             this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
         }
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaHD { get; set; }
 
         [Required(ErrorMessage = "Mã người dùng không được để trống")]

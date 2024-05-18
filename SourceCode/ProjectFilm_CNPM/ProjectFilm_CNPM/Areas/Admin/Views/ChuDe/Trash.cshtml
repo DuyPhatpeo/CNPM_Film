@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.ChuDe>
+@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">THÙNG RÁC CHỦ ĐỀ</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Index","ChuDe")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenChuDe)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.TuKhoa)</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenChuDe)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TuKhoa)</td>
+                                    <td>
+                                        <a href="@Url.Action("Undo","ChuDe", new { id = item.Id })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
+                                        <a href="@Url.Action("Delete","ChuDe", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

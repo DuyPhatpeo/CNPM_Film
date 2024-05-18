@@ -11,7 +11,6 @@ namespace ProjectFilm_CNPM.Models.ERD
     public class TheLoai
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int MaPhim { get; set; }

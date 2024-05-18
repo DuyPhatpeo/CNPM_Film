@@ -14,7 +14,6 @@ namespace ProjectFilm_CNPM.Models.ERD
             this.Ghes = new HashSet<Ghe>();
         }
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaPhong { get; set; }
 
         [Required(ErrorMessage = "Tên phòng không được để trống")]

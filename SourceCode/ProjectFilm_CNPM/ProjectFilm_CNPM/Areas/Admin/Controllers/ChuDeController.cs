@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
+using ProjectFilm_CNPM.Library;
 using ProjectFilm_CNPM.Models;
 using ProjectFilm_CNPM.Models.ERD;
 
@@ -15,11 +18,11 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Admin/ChuDe
         public ActionResult Index()
         {
-            var chuDes = db.ChuDes.Include(c => c.Phim);
-            return View(chuDes.ToList());
+            var list = db.ChuDes.Where(m => m.TrangThai != 0).ToList();
+            
+            return View(list.ToList());
         }
 
         // GET: Admin/ChuDe/Details/5
@@ -40,7 +43,19 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/ChuDe/Create
         public ActionResult Create()
         {
-            ViewBag.MaPhim = new SelectList(db.Phims, "MaPhim", "TenPhim");
+
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
+
             return View();
         }
 
@@ -49,22 +64,55 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,MaPhim,TenRutGon,MoTa,TuKhoa,TenChuDe,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] ChuDe chuDe)
+        public ActionResult Create(ChuDe chuDe)
         {
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
             if (ModelState.IsValid)
             {
+                //Xử lý tự động cho các trường sau:
+                //---Create At
+                chuDe.NgayTao = DateTime.Now;
+                //---Create By
+                chuDe.NguoiTao = Convert.ToInt32(Session["UserId"]);
+                //Slug
+                chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
+                //Update at
+                chuDe.NgayCapNhat = DateTime.Now;
+                //Update by
+                chuDe.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
                 db.ChuDes.Add(chuDe);
                 db.SaveChanges();
+                //hiển thị thông báo thành công
+                TempData["message"] = new XMessage("success", "Tạo mới phim thành công!");
                 return RedirectToAction("Index");
             }
-
-            ViewBag.MaPhim = new SelectList(db.Phims, "MaPhim", "TenPhim", chuDe.MaPhim);
             return View(chuDe);
         }
 
         // GET: Admin/ChuDe/Edit/5
         public ActionResult Edit(int? id)
         {
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -74,7 +122,6 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MaPhim = new SelectList(db.Phims, "MaPhim", "TenPhim", chuDe.MaPhim);
             return View(chuDe);
         }
 
@@ -83,15 +130,42 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,MaPhim,TenRutGon,MoTa,TuKhoa,TenChuDe,NguoiTao,NgayTao,NguoiCapNhat,NgayCapNhat,TrangThai")] ChuDe chuDe)
+        public ActionResult Edit(ChuDe chuDe)
         {
+            // Lấy ds phim từ csdl
+            var danhSachPhim = db.Phims.ToList();
+
+            // Chuyển ds phim thành SelectListItem
+            var phimList = danhSachPhim.Select(p => new SelectListItem
+            {
+                Value = p.MaPhim.ToString(),
+                Text = p.TenPhim
+            });
+
+            ViewBag.PhimList = phimList;
             if (ModelState.IsValid)
             {
+                //Xử lý tự động cho các trường sau:
+                //---Create At
+                chuDe.NgayTao = DateTime.Now;
+                //---Create By
+                chuDe.NguoiTao = Convert.ToInt32(Session["UserId"]);
+                //Slug
+                chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
+                //Update at
+                chuDe.NgayCapNhat = DateTime.Now;
+                //Update by
+                chuDe.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
+                //Xu ly cho muc TenRutGon
+                chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
                 db.Entry(chuDe).State = EntityState.Modified;
+                //Thong bao thanh cong
+                TempData["message"] = new XMessage("success", "Sửa danh mục thành công");
+                //Cap nhat du lieu, sua them cho phan LienKet phuc vu cho ChuDe
                 db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
-            ViewBag.MaPhim = new SelectList(db.Phims, "MaPhim", "TenPhim", chuDe.MaPhim);
             return View(chuDe);
         }
 
@@ -117,17 +191,116 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             ChuDe chuDe = db.ChuDes.Find(id);
             db.ChuDes.Remove(chuDe);
+            //tim thay mau tin thi xoa, cap nhat cho Links
+            db.ChuDes.Remove(chuDe);
+            if (db.SaveChanges() == 1)
+            {
+                var baiviet = db.BaiViets.Where(bv=> bv.ChuDeBV == chuDe.Id).ToList();
+                foreach(var bv in baiviet)
+                {
+                    db.BaiViets.Remove(bv);
+                }
+            }
+            else
+            {
+                //Thong bao thanh cong
+                TempData["message"] = new XMessage("success", "Xóa chủ đề thành công");
+            }
+
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Trash");
         }
 
-        protected override void Dispose(bool disposing)
+        public ActionResult Status(int? id)
         {
-            if (disposing)
+            if (id == null)
             {
-                db.Dispose();
+                //hien thi thong bao
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            ChuDe chuDe = db.ChuDes.Find(id);
+            if (chuDe == null)
+            {
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                return RedirectToAction("Index");
+            }
+            //cap nhat trang thai
+            chuDe.TrangThai = (chuDe.TrangThai == 1) ? 2 : 1;
+            //cap nhat update at
+            chuDe.NgayCapNhat = DateTime.Now;
+            //cap nhat update by
+            chuDe.NguoiCapNhat = Convert.ToInt32(Session["UserID"]);
+            //update db
+            db.SaveChanges();
+            //hien thi thong bao
+            TempData["message"] = new XMessage("success", "Cập nhật trạng thái thành công");
+            //tro ve trang Index
+            return RedirectToAction("Index");
+        }
+        public ActionResult Undo(int? id)
+        {
+            if (id == null)
+            {
+                //Thong bao that bai
+                TempData["message"] = new XMessage("danger", "Cập nhật trạng thái thất bại");
+                //chuyen huong trang
+                return RedirectToAction("Index", "ChuDe");
+            }
+
+            //khi nhap nut thay doi TrangThai cho mot mau tin
+            ChuDe topics = db.ChuDes.Find(id);
+            //kiem tra id cua categories co ton tai?
+            if (topics == null)
+            {
+                //Thong bao that bai
+                TempData["message"] = new XMessage("danger", "Phục hồi dữ liệu thất bại");
+
+                //chuyen huong trang
+                return RedirectToAction("Index", "ChuDe");
+            }
+            //thay doi trang thai TrangThai tu 1 thanh 2 va nguoc lai
+            topics.TrangThai = 2;
+
+            //cap nhat gia tri cho Nguoi/Ngay cap nhat
+            topics.NguoiCapNhat = Convert.ToInt32(Session["UserId"].ToString());
+            topics.NgayCapNhat = DateTime.Now;
+
+            //Goi ham Update trong TopicDAO
+            db.Entry(topics).State = EntityState.Modified;
+            db.SaveChanges();
+            //Thong bao thanh cong
+            TempData["message"] = new XMessage("success", "Phục hồi dữ liệu thành công");
+
+            //khi cap nhat xong thi chuyen ve Trash
+            return RedirectToAction("Trash", "ChuDe");
+        }
+        public ActionResult DelTrash(int? id)
+        {
+            //khi nhap nut thay doi Status cho mot mau tin
+            ChuDe topics = db.ChuDes.Find(id);
+
+            //thay doi trang thai TrangThai tu 1,2 thanh 0
+            topics.TrangThai = 0;
+
+            //cap nhat gia tri cho Nguoi/Ngay cap nhat
+            topics.NguoiCapNhat = Convert.ToInt32(Session["UserId"].ToString());
+            topics.NgayCapNhat = DateTime.Now;
+
+            //Goi ham Update
+            db.Entry(topics).State = EntityState.Modified;
+            db.SaveChanges();
+
+            //Thong bao thanh cong
+            TempData["message"] = new XMessage("success", "Xóa mẩu tin thành công");
+
+            //khi cap nhat xong thi chuyen ve Index
+            return RedirectToAction("Index", "ChuDe");
+        }
+        public ActionResult Trash(int? id)
+        {
+            var list = db.ChuDes.Where(m => m.TrangThai == 0).ToList();
+            return View(list);
         }
     }
 }

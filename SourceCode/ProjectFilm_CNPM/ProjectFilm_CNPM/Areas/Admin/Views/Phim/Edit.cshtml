@@ -1,11 +1,16 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.Phim
 
 @{
-    ViewBag.Title = "Tạo mới phim";
+    ViewBag.Title = "Thay đổi thông tin";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @using (Html.BeginForm("Edit", "Phim", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaPhim)
+    @Html.HiddenFor(model => model.NguoiTao)
+    @Html.HiddenFor(model => model.NgayTao)
+
     <div class="wrapper">
         <!-- Main Sidebar Container -->
         <!-- Content Wrapper. Contains page content -->
@@ -18,13 +23,14 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <strong class="text-danger">CHỈNH SỬA THÔNG TIN PHIM</strong>
+                                <strong class="text-danger">CHỈNH SỬA PHIM</strong>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="@Url.Action("Index","Phim")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                                <a href="@Url.Action("Index","Phim")" class="btn-sm btn-info"><i class="fa fa-long-arrow-alt-left"> Quay lại</i></a>
                             </div>
                         </div>
                     </div>
+
                     <div class="card-body">
                         <div class="form-horizontal">
                             <div class="row">
@@ -130,9 +136,11 @@
                                 <button class="btn-sm btn-success" type="submit" name="create">Lưu/Thêm<i class="fa fa-save"></i></button>
                             </div>
                         </div>
-                    </div> <!-- /.card-footer-->
+                    </div>
                 </div><!-- /.card -->
             </section><!-- /.content -->
         </div> <!-- /.content-wrapper -->
     </div><!-- ./wrapper -->
+
+
 }

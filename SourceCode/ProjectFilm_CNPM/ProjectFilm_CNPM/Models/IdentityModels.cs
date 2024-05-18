@@ -41,6 +41,7 @@ namespace ProjectFilm_CNPM.Models
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<ThamSo> ThamSos { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<Link> Links { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

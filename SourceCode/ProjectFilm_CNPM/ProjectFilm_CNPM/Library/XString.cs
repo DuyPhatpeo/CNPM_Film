@@ -13,21 +13,23 @@ namespace ProjectFilm_CNPM.Library
         public static string Str_Slug(string s)
         {
             string[][] symbols ={
-                  new String[]{"[áàảãạâấầẩẫậăắằẳẵặ]","a"},
-                  new String[]{"[đ]","d"},
-                  new String[]{"[éèẻẽẹêếềểễệ]","e"},
-                  new String[]{"[íìỉĩị]","i"},
-                  new String[]{"[óòỏõọôốồổỗộơớờởỡợ]","o"},
-                  new String[]{"[úùủũụưứừửữự]","u"},
-                  new String[]{"[ýỳỷỹỵ]","y"},
-                  new String[]{"[\\s'\";,]","-",":"}
-
-            };
+                new String[]{"[áàảãạâấầẩẫậăắằẳẵặ]","a"},
+                new String[]{"[đ]","d"},
+                new String[]{"[éèẻẽẹêếềểễệ]","e"},
+                new String[]{"[íìỉĩị]","i"},
+                new String[]{"[óòỏõọôốồổỗộơớờởỡợ]","o"},
+                new String[]{"[úùủũụưứừửữự]","u"},
+                new String[]{"[ýỳỷỹỵ]","y"}
+    };
             s = s.ToLower();
             foreach (var ss in symbols)
             {
                 s = Regex.Replace(s, ss[0], ss[1]);
             }
+            // Loại bỏ các ký tự không hợp lệ khác trong tên file
+            s = Regex.Replace(s, "[^a-zA-Z0-9_.]+", "-", RegexOptions.Compiled);
+            // Loại bỏ các dấu gạch ngang liền nhau
+            s = Regex.Replace(s, "-{2,}", "-", RegexOptions.Compiled);
             return s;
         }
         public static string ToMD5(this string str)

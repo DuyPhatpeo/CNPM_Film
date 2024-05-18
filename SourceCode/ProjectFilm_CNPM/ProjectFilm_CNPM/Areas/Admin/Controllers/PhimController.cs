@@ -20,7 +20,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/Phim
         public ActionResult Index()
         {
-            var phim = db.Phims.Where(p => p.TrangThai == 1 || p.TrangThai ==2).ToList();
+            var phim = db.Phims.Where(p => p.TrangThai == 1 || p.TrangThai == 2).ToList();
             return View(phim);
         }
 
@@ -84,6 +84,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                         img.SaveAs(PathFile);
                     }
                 }//ket thuc phan upload hinh anh
+                //them moi mau tin vao db
                 db.Phims.Add(phim);
                 db.SaveChanges();
                 //hiển thị thông báo thành công
@@ -118,9 +119,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Phim phim)
         {
+
             if (ModelState.IsValid)
             {
+                db.Phims.Attach(phim);
                 //Xử lý tự động cho các trường sau:
+
                 //---Create At
                 phim.NgayTao = DateTime.Now;
                 //---Create By
@@ -301,7 +305,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             //cap nhat trang thai = 2
             phim.TrangThai = 2;
             //cap nhat update at
-            
+
             //cap nhat NgayCapNhat
             phim.NgayCapNhat = DateTime.Now;
             //cap nhat Nguoi cap nhat
