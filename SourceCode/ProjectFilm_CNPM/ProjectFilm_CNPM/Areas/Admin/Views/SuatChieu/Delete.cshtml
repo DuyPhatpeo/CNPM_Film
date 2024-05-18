@@ -3,79 +3,62 @@
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var item = Model;
 }
 
-<h2>Delete</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="wrapper">
+        <!-- Main Sidebar Container -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>SuatChieu</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Phim.TenPhim)
-        </dt>
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong class="text-danger">XÁC NHẬN XÓA MẪU TIN</strong>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="@Url.Action("Index","SuatChieu")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.MaSuatChieu)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
+                                    <th>@Html.DisplayNameFor(model => model.GioChieu)</th>
+                                    <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                                    <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phim.TenPhim)
-        </dd>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.MaSuatChieu)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GioChieu)</td>
+                                    <th>@Html.DisplayFor(model => model.NgayTao)</th>
+                                    <th>@Html.DisplayFor(model => model.NgayCapNhat)</th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GioChieu)
-        </dt>
+                                </tr>
+                            </tbody>
 
-        <dd>
-            @Html.DisplayFor(model => model.GioChieu)
-        </dd>
+                        </table>
+                        <div class="form-actions no-color mt-4">
+                            <button class="btn-sm btn-danger" type="submit" name="save">Delete<i class="fa fa-trash"></i></button>
+                        </div>
+                    </div> <!-- /.card-footer-->
+                </div><!-- /.card -->
+            </section><!-- /.content -->
+        </div> <!-- /.content-wrapper -->
+    </div><!-- ./wrapper -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayTao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NguoiCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NguoiCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayCapNhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TrangThai)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+}

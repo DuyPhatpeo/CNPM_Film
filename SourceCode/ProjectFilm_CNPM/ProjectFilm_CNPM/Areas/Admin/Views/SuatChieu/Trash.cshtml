@@ -1,20 +1,10 @@
-﻿﻿
-
-@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Phong>
-
+﻿﻿@model IEnumerable < ProjectFilm_CNPM.Models.ERD.SuatChieu>
 @{
-    ViewBag.Title = "Thùng rác";
+    ViewBag.Title = "Thùng rác suất chiếu";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     var i = 1;
 }
 
-@section header{
-    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
-}
-@section footer{
-    <script src="~/Public/js/jquery.dataTables.min.js"></script>
-    <script>let table = new DataTable('#myTable');</script>
-}
 <div class="wrapper">
     <!-- Main Sidebar Container -->
     <!-- Content Wrapper. Contains page content -->
@@ -27,11 +17,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong class="text-danger">THÙNG RÁC PHÒNG</strong>
+                            <strong class="text-danger">THÙNG RÁC SUẤT CHIẾU</strong>
                         </div>
                         <div class="col-md-6 text-right">
-                            @*<a href="@Url.Action("Create","Phong")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>*@
-                            <a href="@Url.Action("Index","Phong")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                            <a href="@Url.Action("Index","SuatChieu")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
                         </div>
                     </div>
                 </div>
@@ -42,8 +31,9 @@
                         <thead>
                             <tr>
                                 <th>Số thứ tự</th>
-                                <th>@Html.DisplayNameFor(model => model.MaPhong)</th>
-                                <th>@Html.DisplayNameFor(model => model.TenPhong)</th>
+                                <th>@Html.DisplayNameFor(model => model.MaSuatChieu)</th>
+                                <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
+                                <th>@Html.DisplayNameFor(model => model.GioChieu)</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
@@ -53,13 +43,14 @@
 
                                 <tr>
                                     <td>@i</td>
-                                    <td>@Html.DisplayFor(modelItem => item.MaPhong)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.TenPhong)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MaSuatChieu)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GioChieu)</td>
                                     <td>
-                                        <a href="@Url.Action("Undo","Phong", new { id = item.MaPhong })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
-                                        <a href="@Url.Action("Delete","Phong", new { id = item.MaPhong })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="@Url.Action("Undo","SuatChieu", new { id = item.MaSuatChieu })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
+                                        <a href="@Url.Action("Delete","SuatChieu", new { id = item.MaSuatChieu })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
-                                    @{ i++;}
+                                    @{i++;}
                                 </tr>
                                 
                             }

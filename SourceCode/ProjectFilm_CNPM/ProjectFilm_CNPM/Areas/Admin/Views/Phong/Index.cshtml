@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Trang phòng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
 @section header{
@@ -38,7 +39,7 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <th>Mã phim</th>
+                                <th>Số thứ tự</th>
                                 <th>@Html.DisplayNameFor(model => model.TenPhong)</th>
                                 <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
                                 <th>Chức năng</th>
@@ -49,7 +50,7 @@
                             {
 
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.MaPhong)</td>
+                                    <td>@i</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenPhong)</td>
                                     <td>@Html.DisplayFor(modelItem => item.NgayTao)</td>
 
@@ -65,7 +66,9 @@
                                         <a href="@Url.Action("Edit","Phong", new { id = item.MaPhong })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                                         <a href="@Url.Action("DelTrash","Phong", new { id = item.MaPhong })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    @{ i++;}
                                 </tr>
+                                
                             }
                         </tbody>
 

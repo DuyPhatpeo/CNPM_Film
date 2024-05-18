@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Danh sách các chủ đề";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
 @section header{
@@ -38,7 +39,7 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                <th>Số thứ tự</th>
                                 <th>@Html.DisplayNameFor(model => model.TenChuDe)</th>
                                 <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
                                 <th>@Html.DisplayNameFor(model => model.TuKhoa)</th>
@@ -50,10 +51,10 @@
                             {
 
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                                    <td>@Html.DisplayFor(modelItem=> item.TenChuDe)</td>
-                                    <td>@Html.DisplayFor(modelItem=> item.Phim.TenPhim)</td>
-                                    <td>@Html.DisplayFor(modelItem=> item.TuKhoa)</td>
+                                    <td>@i</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenChuDe)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TuKhoa)</td>
                                     <td>
                                         @if (item.TrangThai == 1)
                                         {
@@ -67,7 +68,9 @@
                                         <a href="@Url.Action("Details","ChuDe", new { id = item.Id })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
                                         <a href="@Url.Action("DelTrash","ChuDe", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    @{ i++;}
                                 </tr>
+                                
                             }
                         </tbody>
 

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Thùng rác";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
 @section header{
@@ -38,6 +39,7 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
+                                <th>Số thứ tự</th>
                                 <th>Mã phim</th>
                                 <th>@Html.DisplayNameFor(model => model.TenPhim)</th>
                                 <th class="col-md-1">@Html.DisplayNameFor(modelItem => modelItem.Anh)</th>
@@ -53,6 +55,7 @@
                             {
 
                                 <tr>
+                                    <td>@i</td>
                                     <td>@Html.DisplayFor(modelItem => item.MaPhim)</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenPhim)</td>
                                     <td><img src="~/Public/img/phim/@item.Anh" alt="Img" class="img-fluid" /></td>
@@ -92,6 +95,7 @@
                                         <a href="@Url.Action("Delete","Phim", new { id = item.MaPhim })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
+                                @{ i++;}
                             }
                         </tbody>
 

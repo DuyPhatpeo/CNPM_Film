@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.ChuDe>
 @{
-    ViewBag.Title = "Trash";
+    ViewBag.Title = "Thùng rác chủ đề";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 <div class="wrapper">
     <!-- Main Sidebar Container -->
@@ -28,6 +29,7 @@
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
+                                <th>Số thứ tự</th>
                                 <th>@Html.DisplayNameFor(model => model.Id)</th>
                                 <th>@Html.DisplayNameFor(model => model.TenChuDe)</th>
                                 <th>@Html.DisplayNameFor(model => model.Phim.TenPhim)</th>
@@ -40,6 +42,7 @@
                             {
 
                                 <tr>
+                                    <td>@i</td>
                                     <td>@Html.DisplayFor(modelItem => item.Id)</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenChuDe)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Phim.TenPhim)</td>
@@ -48,6 +51,7 @@
                                         <a href="@Url.Action("Undo","ChuDe", new { id = item.Id })" class="btn-sm btn-success"><i class="fa fa-undo"></i></a>
                                         <a href="@Url.Action("Delete","ChuDe", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
+                                    @{ i++;}
                                 </tr>
                             }
                         </tbody>

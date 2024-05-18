@@ -93,7 +93,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 db.ChuDes.Add(chuDe);
                 db.SaveChanges();
                 //hiển thị thông báo thành công
-                TempData["message"] = new XMessage("success", "Tạo mới phim thành công!");
+                TempData["message"] = new XMessage("success", "Tạo mới chủ đề thành công!");
                 return RedirectToAction("Index");
             }
             return View(chuDe);
@@ -160,7 +160,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
                 db.Entry(chuDe).State = EntityState.Modified;
                 //Thong bao thanh cong
-                TempData["message"] = new XMessage("success", "Sửa danh mục thành công");
+                TempData["message"] = new XMessage("success", "Sửa chủ đề thành công");
                 //Cap nhat du lieu, sua them cho phan LienKet phuc vu cho ChuDe
                 db.SaveChanges();
                 
