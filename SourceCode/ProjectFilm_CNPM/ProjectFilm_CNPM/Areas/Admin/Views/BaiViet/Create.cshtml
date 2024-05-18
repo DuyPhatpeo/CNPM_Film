@@ -1,76 +1,109 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.BaiViet
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Thêm mới bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "BaiViet", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>BaiViet</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ChuDeBV, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ChuDeBV, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ChuDeBV, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenBV, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenBV, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenBV, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LienKet, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LienKet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LienKet, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <!-- Main content -->
+        <section class="content my-2">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ChiTiet, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ChiTiet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ChiTiet, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">THÊM MỚI BÀI VIẾT</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Index", "BaiViet")" class="btn-sm btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Anh, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Anh, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="card-body">
+                    @*Phan NOI DUNG*@
+                    <div class="row">
+                        @* Phần nhập tay *@
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label>Tên bài viết <span class="text-danger"> (*)</span></label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.TenBV, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TenBV, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.KieuBV, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KieuBV, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KieuBV, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="form-group">
+                                <label>Mô tả chi tiết <span class="text-danger"> (*)</span></label>
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control", @rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+                            <div class="form-group">
+                                <label>Từ khóa <span class="text-danger"> (*)</span></label>
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.TuKhoa, new { @class = "form-control", @rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.TuKhoa, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Chi tiết bài viết <span class="text-danger"> (*)</span></label>
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(model => model.ChiTiet, new { @class = "form-control", @rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.ChiTiet, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+                        @* Phần lựa chọn *@
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label>Ảnh đại diện <span class="text-danger"></span></label>
+                                <div class="col-md-10">
+                                    <input name="img" type="file" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Chủ đề <span class="text-danger"></span></label>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.ChuDeBV, (IEnumerable<SelectListItem>)@ViewBag.TopicList, "Chủ đề", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ChuDeBV, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Trạng thái <span class="text-danger"> (*)</span></label>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.TrangThai, new[] { new SelectListItem { Text = "Không xuất bản", Value = "2" }, new SelectListItem { Text = "Xuất bản", Value = "1" } }, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button class="btn-sm btn-success" type="submit" name="create"> Lưu [Thêm] <i class="fa fa-save"></i> </button>
+                        </div>
+
+                    </div>
+                </div><!-- /.card-body -->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

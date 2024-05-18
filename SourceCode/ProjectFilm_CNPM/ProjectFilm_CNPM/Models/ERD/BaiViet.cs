@@ -26,6 +26,26 @@ namespace ProjectFilm_CNPM.Models.ERD
         public string Anh { get; set; }
         [Display(Name = "Kiểu bài viết")]
         public string KieuBV { get; set; }
+        [Required(ErrorMessage = "Mô tả không được để trống")]
+        [Display(Name = "Mô tả")]
+        public string MoTa { get; set; }
+        [Required(ErrorMessage = "Từ khóa không được để trống")]
+        [Display(Name = "Từ khóa")]
+        public string TuKhoa { get; set; }
+        [Required(ErrorMessage = "Người tạo không được để trống")]
+        [Display(Name = "Người tạo")]
+        public int NguoiTao { get; set; }
+        [Required(ErrorMessage = "Ngày tạo không được để trống")]
+        [Display(Name = "Ngày tạo")]
+        public DateTime NgayTao { get; set; }
+
+        [Display(Name = "Người cập nhật")]
+        public int? NguoiCapNhat { get; set; }
+        [Display(Name = "Ngày cập nhật")]
+        public DateTime? NgayCapNhat { get; set; }
+        [Required(ErrorMessage = "Trạng thái không được để trống")]
+        [Display(Name = "Trạng thái")]
+        public int TrangThai { get; set; }
         public virtual ChuDe ChuDe {  get; set; }
     }
 }

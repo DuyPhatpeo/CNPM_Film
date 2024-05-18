@@ -194,6 +194,10 @@
     <Compile Include="Migrations\202405180310444_CreatedDatabase.designer.cs">
       <DependentUpon>202405180310444_CreatedDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405181223461_CreatedDatabase1.cs" />
+    <Compile Include="Migrations\202405181223461_CreatedDatabase1.designer.cs">
+      <DependentUpon>202405181223461_CreatedDatabase1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ERD\BaiViet.cs" />
@@ -2313,6 +2317,7 @@
     <Content Include="Areas\Admin\Views\ThamSo\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ThamSo\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\Ghe\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2359,6 +2364,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Public\img\baiviet\" />
     <Folder Include="Public\img\phim\" />
   </ItemGroup>
   <ItemGroup>
@@ -2394,6 +2400,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202405180310444_CreatedDatabase.resx">
       <DependentUpon>202405180310444_CreatedDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405181223461_CreatedDatabase1.resx">
+      <DependentUpon>202405181223461_CreatedDatabase1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

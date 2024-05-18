@@ -1,67 +1,68 @@
 ﻿@model ProjectFilm_CNPM.Models.ERD.BaiViet
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
 
-<div>
-    <h4>BaiViet</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ChuDeBV)
-        </dt>
+    <!-- Main content -->
+    <section class="content my-2">
 
-        <dd>
-            @Html.DisplayFor(model => model.ChuDeBV)
-        </dd>
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger">CHI TIẾT BÀI VIẾT</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Edit","BaiViet",  new { id = Model.Id })" class="btn-sm btn-success"> <i class="fa fa-edit"> Sửa</i></a>
+                        <a href="@Url.Action("Index","BaiViet")" class="btn-sm btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @*Hien thi noi dung thong bao ngay ben tren bang du lieu*@
+                @Html.Partial("Message")
+                <table class="table table-bordered table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Id)</th>
+                            <th>@Html.DisplayNameFor(model => model.ChuDeBV)</th>
+                            <th>@Html.DisplayNameFor(model => model.TenBV)</th>
+                            <th>@Html.DisplayNameFor(model => model.LienKet)</th>
+                            <th>@Html.DisplayNameFor(model => model.ChiTiet)</th>
+                            <th class="col-md-1">@Html.DisplayNameFor(model => model.Anh)</th>
+                            <th>@Html.DisplayNameFor(model => model.KieuBV)</th>
+                            <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+                            <th>@Html.DisplayNameFor(model => model.TuKhoa)</th>
+                            <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                            <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenBV)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenBV)
-        </dd>
+                        </tr>
+                    </thead>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LienKet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LienKet)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ChiTiet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ChiTiet)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Anh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Anh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KieuBV)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KieuBV)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.Id)</td>
+                            <td>@Html.DisplayFor(model => model.ChuDe.TenChuDe)</td>
+                            <td>@Html.DisplayFor(model => model.TenBV)</td>
+                            <td>@Html.DisplayFor(model => model.LienKet)</td>
+                            <td>@Html.DisplayFor(model => model.ChiTiet)</td>
+                            <td><img src="~/Public/img/baiviet/@Model.Anh" alt="Img" class="img-fluid" /></td>
+                            <td>@Html.DisplayFor(model => model.KieuBV)</td>
+                            <td>@Html.DisplayFor(model => model.MoTa)</td>
+                            <td>@Html.DisplayFor(model => model.TuKhoa)</td>
+                            <td>@Html.DisplayFor(model => model.NgayTao)</td>
+                            <td>@Html.DisplayFor(model => model.NgayCapNhat)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.card-body -->
+        </div><!-- /.card -->
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
