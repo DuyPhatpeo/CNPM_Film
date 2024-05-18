@@ -30,12 +30,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             ChuDe chuDe = db.ChuDes.Find(id);
             if (chuDe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             return View(chuDe);
         }
@@ -115,12 +117,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.PhimList = phimList;
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             ChuDe chuDe = db.ChuDes.Find(id);
             if (chuDe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             return View(chuDe);
         }
@@ -174,12 +178,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             ChuDe chuDe = db.ChuDes.Find(id);
             if (chuDe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             return View(chuDe);
         }

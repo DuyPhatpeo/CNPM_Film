@@ -28,12 +28,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             SuatChieu suatChieu = db.SuatChieus.Find(id);
             if (suatChieu == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             return View(suatChieu);
         }
@@ -107,14 +109,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.PhimList = phimList;
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             SuatChieu suatChieu = db.SuatChieus.Find(id);
             if (suatChieu == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
-            
             return View(suatChieu);
         }
 
@@ -162,12 +165,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             SuatChieu suatChieu = db.SuatChieus.Find(id);
             if (suatChieu == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             return View(suatChieu);
         }

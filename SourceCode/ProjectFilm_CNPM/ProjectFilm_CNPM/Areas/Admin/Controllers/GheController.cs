@@ -32,12 +32,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy ghế");
+                return RedirectToAction("Index");
             }
             Ghe ghe = db.Ghes.Find(id);
             if (ghe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy ghế");
+                return RedirectToAction("Index");
             }
             return View(ghe);
         }
@@ -46,7 +48,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         public ActionResult Create()
         {
 
-            // Chuyển ds phim thành SelectListItem
+            // Chuyển ds ghe thành SelectListItem
             var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
             {
                 Value = p.MaPhong.ToString(),
@@ -65,7 +67,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         public ActionResult Create(Ghe ghe)
         {
             
-            // Chuyển ds phim thành SelectListItem
+            // Chuyển ds ghe thành SelectListItem
             var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
             {
                 Value = p.MaPhong.ToString(),
@@ -112,7 +114,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/Ghe/Edit/5
         public ActionResult Edit(int? id)
         {
-            // Chuyển ds phim thành SelectListItem
+            // Chuyển ds ghe thành SelectListItem
             var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
             {
                 Value = p.MaPhong.ToString(),
@@ -123,14 +125,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.LoaiGhe = loaighe;
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy ghế");
+                return RedirectToAction("Index");
             }
             Ghe ghe = db.Ghes.Find(id);
             if (ghe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy ghế");
+                return RedirectToAction("Index");
             }
-           
             return View(ghe);
         }
 
@@ -141,7 +144,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Ghe ghe)
         {
-            // Chuyển ds phim thành SelectListItem
+            // Chuyển ds ghe thành SelectListItem
             var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
             {
                 Value = p.MaPhong.ToString(),
@@ -190,14 +193,17 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy ghế");
+                return RedirectToAction("Index");
             }
             Ghe ghe = db.Ghes.Find(id);
             if (ghe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy ghế");
+                return RedirectToAction("Index");
             }
             return View(ghe);
+
         }
 
         // POST: Admin/Ghe/Delete/5

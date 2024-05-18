@@ -199,16 +199,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
+                return RedirectToAction("Index");
             }
             TheLoai theLoai = db.TheLoais.Find(id);
             if (theLoai == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
+                return RedirectToAction("Index");
             }
             return View(theLoai);
         }

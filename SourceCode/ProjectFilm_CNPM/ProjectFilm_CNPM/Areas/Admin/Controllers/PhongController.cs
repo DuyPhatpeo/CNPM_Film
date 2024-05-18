@@ -65,7 +65,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             Phong phong = db.Phongs.Find(id);
             if (phong == null)
             {
-                TempData["message"] = new XMessage("danger", "Không tìm thấy phim");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy phòng");
                 return RedirectToAction("Index");
             }
             return View(phong);
@@ -104,16 +104,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy phòng");
+                return RedirectToAction("Index");
             }
             Phong phong = db.Phongs.Find(id);
             if (phong == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy phòng");
+                return RedirectToAction("Index");
             }
             return View(phong);
         }

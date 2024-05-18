@@ -53,12 +53,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy tham số");
+                return RedirectToAction("Index");
             }
             ThamSo thamSo = db.ThamSos.Find(id);
             if (thamSo == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy viết");
+                return RedirectToAction("Index");
             }
             return View(thamSo);
         }
@@ -86,12 +88,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy tham số");
+                return RedirectToAction("Index");
             }
             ThamSo thamSo = db.ThamSos.Find(id);
             if (thamSo == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy viết");
+                return RedirectToAction("Index");
             }
             return View(thamSo);
         }

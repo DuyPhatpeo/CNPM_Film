@@ -30,12 +30,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy bài viết");
+                return RedirectToAction("Index");
             }
             BaiViet baiViet = db.BaiViets.Find(id);
             if (baiViet == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy  bài viết");
+                return RedirectToAction("Index");
             }
             return View(baiViet);
         }
@@ -121,12 +123,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.TopicList = topiclist;
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy bài viết");
+                return RedirectToAction("Index");
             }
             BaiViet baiViet = db.BaiViets.Find(id);
             if (baiViet == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy bài viết");
+                return RedirectToAction("Index");
             }
             return View(baiViet);
         }
@@ -200,16 +204,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy bài viết");
+                return RedirectToAction("Index");
             }
             BaiViet baiViet = db.BaiViets.Find(id);
             if (baiViet == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy bài viết");
+                return RedirectToAction("Index");
             }
             return View(baiViet);
         }
