@@ -1,0 +1,7 @@
+﻿﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Menu>
+@foreach (var item in Model)
+{
+    <li class="scroll-to-section">
+        <a href="@item.LienKet">@item.TenMenu</a>
+    </li>
+}
