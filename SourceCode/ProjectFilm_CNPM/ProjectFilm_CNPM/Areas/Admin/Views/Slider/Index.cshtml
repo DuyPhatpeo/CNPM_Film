@@ -1,106 +1,89 @@
-﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Slider>
+﻿﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Slider>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách các slider";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenSlider)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.URL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Anh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SapXep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ViTri)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TuKhoa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenChuDe)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NguoiTao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayTao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NguoiCapNhat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSlider)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.URL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Anh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SapXep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ViTri)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TuKhoa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenChuDe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NguoiTao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayTao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NguoiCapNhat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayCapNhat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrangThai)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@section header{
+    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
 }
+@section footer{
+    <script src="~/Public/js/jquery.dataTables.min.js"></script>
+    <script>let table = new DataTable('#myTable');</script>
+}
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
 
-</table>
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">DANH MỤC SLIDER</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Create","Slider")" class="btn-sm btn-success"><i class="fa fa-plus"> Thêm</i></a>
+                            <a href="@Url.Action("Trash","Slider")" class="btn-sm btn-danger"><i class="fa fa-trash"> Thùng rác</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Số thứ tự</th>
+                                <th>@Html.DisplayNameFor(model => model.TenSlider)</th>
+                                <th class="col-md-1">@Html.DisplayNameFor(modelItem => modelItem.Anh)</th>
+                                <th>@Html.DisplayNameFor(model => model.ViTri)</th>
+                                <th>@Html.DisplayNameFor(model => model.SapXep)</th>
+                                <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenSlider)</td>
+                                    <td><img src="~/Public/img/slider/@item.Anh" alt="Img" class="img-fluid" /></td>
+                                    <td>@Html.DisplayFor(modelItem => item.ViTri)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SapXep)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
+
+
+                                    <td>
+                                        @if (item.TrangThai == 1)
+                                        {
+                                            <a href="@Url.Action("Status","Slider", new { id = item.Id })" class="btn-sm btn-success"><i class="fa fa-toggle-on"></i></a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Url.Action("Status","Slider", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-toggle-off"></i></a>
+                                        }
+                                        <a href="@Url.Action("Edit","Slider", new { id = item.Id })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="@Url.Action("Details","Slider", new { id = item.Id })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("DelTrash","Slider", new { id = item.Id })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    @{ i++; }
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

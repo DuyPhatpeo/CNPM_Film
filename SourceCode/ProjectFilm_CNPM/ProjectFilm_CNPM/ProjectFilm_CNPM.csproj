@@ -2318,6 +2318,7 @@
     <Content Include="Areas\Admin\Views\ThamSo\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\Ghe\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\BaiViet\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2366,6 +2367,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Public\img\baiviet\" />
     <Folder Include="Public\img\phim\" />
+    <Folder Include="Public\img\slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

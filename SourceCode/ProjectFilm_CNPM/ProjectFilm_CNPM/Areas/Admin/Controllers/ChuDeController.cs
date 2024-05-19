@@ -21,7 +21,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var list = db.ChuDes.Where(m => m.TrangThai != 0).ToList();
-            
+
             return View(list.ToList());
         }
 
@@ -30,12 +30,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             ChuDe chuDe = db.ChuDes.Find(id);
             if (chuDe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             return View(chuDe);
         }
@@ -115,12 +117,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.PhimList = phimList;
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             ChuDe chuDe = db.ChuDes.Find(id);
             if (chuDe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             return View(chuDe);
         }
@@ -163,7 +167,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 TempData["message"] = new XMessage("success", "Sửa chủ đề thành công");
                 //Cap nhat du lieu, sua them cho phan LienKet phuc vu cho ChuDe
                 db.SaveChanges();
-                
+
                 return RedirectToAction("Index");
             }
             return View(chuDe);
@@ -174,12 +178,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             ChuDe chuDe = db.ChuDes.Find(id);
             if (chuDe == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy chủ đề");
+                return RedirectToAction("Index");
             }
             return View(chuDe);
         }
@@ -195,8 +201,8 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             db.ChuDes.Remove(chuDe);
             if (db.SaveChanges() == 1)
             {
-                var baiviet = db.BaiViets.Where(bv=> bv.ChuDeBV == chuDe.Id).ToList();
-                foreach(var bv in baiviet)
+                var baiviet = db.BaiViets.Where(bv => bv.ChuDeBV == chuDe.Id).ToList();
+                foreach (var bv in baiviet)
                 {
                     db.BaiViets.Remove(bv);
                 }

@@ -26,7 +26,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/TheLoai
         public ActionResult Index()
         {
-            var list = db.TheLoais.Where(m=> m.TrangThai !=0).ToList();
+            var list = db.TheLoais.Where(m => m.TrangThai != 0).ToList();
             return View(list);
         }
 
@@ -104,7 +104,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 theLoai.NgayCapNhat = DateTime.Now;
                 //Update by
                 theLoai.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
-                
+
                 db.TheLoais.Add(theLoai);
                 db.SaveChanges();
                 //hiển thị thông báo thành công
@@ -185,8 +185,8 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 theLoai.NgayCapNhat = DateTime.Now;
                 //Update by
                 theLoai.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
-                
-                 // Lưu thông tin TheLoai vào cơ sở dữ liệu
+
+                // Lưu thông tin TheLoai vào cơ sở dữ liệu
                 db.Entry(theLoai).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -199,16 +199,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
+                return RedirectToAction("Index");
             }
             TheLoai theLoai = db.TheLoais.Find(id);
             if (theLoai == null)
             {
-                //hien thi thong bao
-                TempData["message"] = new XMessage("danger", "Xóa mẩu tin thất bại");
-                return RedirectToAction("Trash");
+                TempData["message"] = new XMessage("danger", "Không tìm thấy thể loại");
+                return RedirectToAction("Index");
             }
             return View(theLoai);
         }

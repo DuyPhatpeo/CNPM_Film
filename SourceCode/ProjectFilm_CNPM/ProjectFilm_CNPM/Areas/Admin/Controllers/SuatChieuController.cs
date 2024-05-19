@@ -19,7 +19,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/SuatChieu
         public ActionResult Index()
         {
-            var suatChieus = db.SuatChieus.Where(m => m.TrangThai != 0).ToList(); 
+            var suatChieus = db.SuatChieus.Where(m => m.TrangThai != 0).ToList();
             return View(suatChieus);
         }
 
@@ -28,12 +28,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             SuatChieu suatChieu = db.SuatChieus.Find(id);
             if (suatChieu == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             return View(suatChieu);
         }
@@ -72,7 +74,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             });
             if (ModelState.IsValid)
             {
-                
+
                 //Xử lý tự động cho các trường sau:
                 //---NgayTao
                 suatChieu.NgayTao = DateTime.Now;
@@ -107,14 +109,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.PhimList = phimList;
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             SuatChieu suatChieu = db.SuatChieus.Find(id);
             if (suatChieu == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
-            
             return View(suatChieu);
         }
 
@@ -153,7 +156,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
+
             return View(suatChieu);
         }
 
@@ -162,12 +165,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             SuatChieu suatChieu = db.SuatChieus.Find(id);
             if (suatChieu == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
+                return RedirectToAction("Index");
             }
             return View(suatChieu);
         }

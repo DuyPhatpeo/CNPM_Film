@@ -19,7 +19,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/ThamSo
         public ActionResult Index()
         {
-            var list = db.ThamSos.Where(m => m.TrangThai !=0).ToList();
+            var list = db.ThamSos.Where(m => m.TrangThai != 0).ToList();
             return View(list);
         }
 
@@ -53,12 +53,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy tham số");
+                return RedirectToAction("Index");
             }
             ThamSo thamSo = db.ThamSos.Find(id);
             if (thamSo == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy viết");
+                return RedirectToAction("Index");
             }
             return View(thamSo);
         }
@@ -86,12 +88,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy tham số");
+                return RedirectToAction("Index");
             }
             ThamSo thamSo = db.ThamSos.Find(id);
             if (thamSo == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy viết");
+                return RedirectToAction("Index");
             }
             return View(thamSo);
         }
@@ -155,7 +159,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             //thay doi trang thai TrangThai tu 1 thanh 2 va nguoc lai
             thamSo.TrangThai = 2;
 
-            
+
 
             //Goi ham Update trong TopicDAO
             db.Entry(thamSo).State = EntityState.Modified;
@@ -174,7 +178,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             //thay doi trang thai TrangThai tu 1,2 thanh 0
             thamSo.TrangThai = 0;
 
-            
+
             db.Entry(thamSo).State = EntityState.Modified;
             db.SaveChanges();
 
