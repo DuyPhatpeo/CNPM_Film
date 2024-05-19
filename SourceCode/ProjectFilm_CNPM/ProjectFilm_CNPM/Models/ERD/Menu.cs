@@ -33,7 +33,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime NgayTao { get; set; }
         [Display(Name = "Người cập nhật")]
         public int? NguoiCapNhat { get; set; }
-        [Display(Name = "Người cập nhật")]
+        [Display(Name = "Ngày cập nhật")]
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         [Required(ErrorMessage = "Trạng thái không để trống")]

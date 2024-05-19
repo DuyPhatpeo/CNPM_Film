@@ -2319,6 +2319,7 @@
     <Content Include="Areas\Admin\Views\Ghe\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\BaiViet\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Trash.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
