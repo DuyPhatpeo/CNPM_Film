@@ -20,21 +20,6 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/Menu
         public ActionResult Index()
         {
-            /*var topiclist = db.ChuDes.ToList().Select(p => new SelectListItem
-            {
-                Value = p.Id.ToString(),
-                Text = p.TenChuDe
-            });
-            var phimlist = db.Phims.ToList().Select(p => new SelectListItem
-            {
-                Value = p.MaPhim.ToString(),
-                Text = p.TenPhim
-            });
-            var baiViet = db.BaiViets.ToList().Select(p => new SelectListItem
-            {
-                Value = p.Id.ToString(),
-                Text = p.TenBV
-            });*/
             var topiclist = db.ChuDes.ToList();
             var phimlist = db.Phims.ToList();
             var baiViet = db.BaiViets.ToList();
@@ -218,14 +203,17 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                TempData["message"] = new XMessage("danger", "Không tìm thấy menu");
+                return RedirectToAction("Index");
             }
             Menu menus = db.Menus.Find(id);
             if (menus == null)
             {
-                return HttpNotFound();
+                TempData["message"] = new XMessage("danger", "Không tìm thấy menu");
+                return RedirectToAction("Index");
             }
             return View(menus);
+            
         }
 
         /////////////////////////////////////////////////////////////////////////////////////
