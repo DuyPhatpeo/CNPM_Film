@@ -49,7 +49,8 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
-
+        [Display(Name= "Trạng thái")]
+        public bool? TinhTrangGhe {  get; set; }
         // Navigation property
         public virtual Phong Phong { get; set; }
         public ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }

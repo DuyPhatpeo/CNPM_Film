@@ -11,8 +11,6 @@
     <!-- Theme style -->
     <link href="~/Public/dist/css/adminlte.min.css" rel="stylesheet" />
     <!-- Bootstrap tu dinh nghia-->
-    <link href="~/Public/css/LayoutAdmin.css" rel="stylesheet" />
-
     @*Khu vuc header*@
     @RenderSection("header", required: false)
 </head>
@@ -32,6 +30,9 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="@Url.Action("Index","Home")" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="javascript:document.getElementById('logOff').submit()" class="btn btn-outline-dark">Logout</a>
                 </li>
             </ul>
 
@@ -197,3 +198,12 @@
 
 
 </html>
+@if (Request.IsAuthenticated)
+{
+    <div style="display:none">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logOff" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+    </div>
+}

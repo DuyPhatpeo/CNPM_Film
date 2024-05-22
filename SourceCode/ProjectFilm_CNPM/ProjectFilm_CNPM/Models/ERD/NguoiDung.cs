@@ -17,8 +17,8 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Key]
         public int MaND { get; set; }
 
-        [Required(ErrorMessage = "Tên người dùng không được để trống")]
-        [Display(Name = "Tên người dùng")]
+        [Required(ErrorMessage = "Họ và tên không được để trống")]
+        [Display(Name = "Họ và tên")]
         public string TenND { get; set; }
         [Required(ErrorMessage = "Ngày sinh không được để trống")]
         [Display(Name = "Ngày sinh")]
@@ -42,8 +42,15 @@ namespace ProjectFilm_CNPM.Models.ERD
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
+        [StringLength(100, ErrorMessage = "Độ dài của {0} phải ít nhất là {2} ký tự.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
         public string MatKhau { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Xác nhận mật khẩu")]
+        [Compare("MatKhau", ErrorMessage = "Mật khẩu và xác nhận mật khẩu không khớp.")]
+        public string XacNhanMatKhau { get; set; }
 
         [Display(Name = "Vai trò")]
         public string Role { get; set; }

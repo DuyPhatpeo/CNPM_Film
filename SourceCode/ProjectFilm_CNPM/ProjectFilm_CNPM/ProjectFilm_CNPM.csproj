@@ -171,6 +171,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaiVietController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\Admin\Controllers\GheController.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhongController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuatChieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ThamSoController.cs" />
@@ -198,6 +200,10 @@
     <Compile Include="Migrations\202405181223461_CreatedDatabase1.cs" />
     <Compile Include="Migrations\202405181223461_CreatedDatabase1.designer.cs">
       <DependentUpon>202405181223461_CreatedDatabase1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405220900222_CreatedDatabase2.cs" />
+    <Compile Include="Migrations\202405220900222_CreatedDatabase2.designer.cs">
+      <DependentUpon>202405220900222_CreatedDatabase2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -273,6 +279,7 @@
     <Content Include="Public\assets\js\isotope.min.js" />
     <Content Include="Public\assets\js\owl-carousel.js" />
     <Content Include="Public\css\jquery.dataTables.min.css" />
+    <Content Include="Public\css\LayoutAdmin.css" />
     <Content Include="Public\css\main.css" />
     <Content Include="Public\css\style.css" />
     <Content Include="Public\dist\css\adminlte.css" />
@@ -2321,6 +2328,10 @@
     <Content Include="Areas\Admin\Views\BaiViet\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2366,9 +2377,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Module\Slider.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Module\CardItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Public\img\account\" />
     <Folder Include="Public\img\baiviet\" />
     <Folder Include="Public\img\phim\" />
     <Folder Include="Public\img\slider\" />
@@ -2409,6 +2423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405181223461_CreatedDatabase1.resx">
       <DependentUpon>202405181223461_CreatedDatabase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405220900222_CreatedDatabase2.resx">
+      <DependentUpon>202405220900222_CreatedDatabase2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

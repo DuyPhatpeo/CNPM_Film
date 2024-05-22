@@ -13,6 +13,7 @@ using ProjectFilm_CNPM.Models.ERD;
 
 namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PhongController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

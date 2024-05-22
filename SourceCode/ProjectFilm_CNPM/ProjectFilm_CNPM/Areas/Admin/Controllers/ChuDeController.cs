@@ -14,6 +14,7 @@ using ProjectFilm_CNPM.Models.ERD;
 
 namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,Employee")]
     public class ChuDeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
