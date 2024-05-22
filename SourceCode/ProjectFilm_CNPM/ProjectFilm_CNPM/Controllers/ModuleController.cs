@@ -37,8 +37,15 @@ namespace ProjectFilm_CNPM.Controllers
         }
         public ActionResult DetailsItem(int? id)
         {
-
+            if(id == null)
+            {
+                return RedirectToAction("Error404","Site");
+            }
             Phim phim = db.Phims.Find(id);
+            if(phim == null)
+            {
+                return RedirectToAction("Error404", "Site");
+            }
             return View(phim);
         }
     }

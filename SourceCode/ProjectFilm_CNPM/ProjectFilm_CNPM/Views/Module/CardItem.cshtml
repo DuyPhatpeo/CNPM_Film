@@ -18,7 +18,7 @@
                         <h5 class="card-title text-center">@phim.TenPhim</h5>
                         <p class="card-text text-center">@phim.ThoiLuong Phút</p>
                         <div class="d-flex justify-content-around">
-                            <a href="@phim.TenRutGon" class="btn btn-outline-primary">Chi tiết</a>
+                            <a href="@Url.Action("DetailsItem", "Module", new { id = phim.MaPhim })" class="btn btn-outline-primary">Chi tiết</a>
                             <a href="#" class="btn btn-primary">Book Now</a>
                         </div>
                     </div>

@@ -185,7 +185,7 @@
     <Compile Include="Areas\Admin\Controllers\ThamSoController.cs" />
     <Compile Include="Areas\Admin\Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="Global.asax.cs">
@@ -333,6 +333,7 @@
     <Content Include="Public\dist\js\pages\dashboard.js" />
     <Content Include="Public\dist\js\pages\dashboard2.js" />
     <Content Include="Public\dist\js\pages\dashboard3.js" />
+    <Content Include="Public\img\page_not_found.png" />
     <Content Include="Public\js\jquery.dataTables.min.js" />
     <Content Include="Public\js\main.js" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
@@ -2374,11 +2375,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Module\Slider.cshtml" />
     <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Module\CardItem.cshtml" />
+    <Content Include="Views\Module\DetailsItem.cshtml" />
+    <Content Include="Views\Site\Error404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
