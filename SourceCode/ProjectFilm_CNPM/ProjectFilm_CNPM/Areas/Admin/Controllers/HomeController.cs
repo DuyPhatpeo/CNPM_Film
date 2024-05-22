@@ -9,7 +9,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         // GET: Admin/Home
-        [Authorize(Roles ="Admin,Employee")]
+        [Authorize(Roles = "Admin,Employee")]
         public ActionResult Index()
         {
 

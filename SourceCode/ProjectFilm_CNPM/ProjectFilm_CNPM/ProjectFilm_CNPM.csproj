@@ -193,17 +193,9 @@
     </Compile>
     <Compile Include="Library\XMessage.cs" />
     <Compile Include="Library\XString.cs" />
-    <Compile Include="Migrations\202405180310444_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202405180310444_CreatedDatabase.designer.cs">
-      <DependentUpon>202405180310444_CreatedDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405181223461_CreatedDatabase1.cs" />
-    <Compile Include="Migrations\202405181223461_CreatedDatabase1.designer.cs">
-      <DependentUpon>202405181223461_CreatedDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202405220900222_CreatedDatabase2.cs" />
-    <Compile Include="Migrations\202405220900222_CreatedDatabase2.designer.cs">
-      <DependentUpon>202405220900222_CreatedDatabase2.cs</DependentUpon>
+    <Compile Include="Migrations\202405221323342_CreatedDatabase.cs" />
+    <Compile Include="Migrations\202405221323342_CreatedDatabase.Designer.cs">
+      <DependentUpon>202405221323342_CreatedDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2353,7 +2345,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -2379,8 +2370,8 @@
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Module\Slider.cshtml" />
     <Content Include="Views\Account\Create.cshtml" />
-    <Content Include="Views\Module\CardItem.cshtml" />
-    <Content Include="Views\Module\DetailsItem.cshtml" />
+    <Content Include="Views\Site\CardItem.cshtml" />
+    <Content Include="Views\Site\Details.cshtml" />
     <Content Include="Views\Site\Error404.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -2421,14 +2412,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405180310444_CreatedDatabase.resx">
-      <DependentUpon>202405180310444_CreatedDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405181223461_CreatedDatabase1.resx">
-      <DependentUpon>202405181223461_CreatedDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202405220900222_CreatedDatabase2.resx">
-      <DependentUpon>202405220900222_CreatedDatabase2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405221323342_CreatedDatabase.resx">
+      <DependentUpon>202405221323342_CreatedDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

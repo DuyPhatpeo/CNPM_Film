@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Phim>
+
+<div class="container-fluid p-5 movie-details">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between">
+                <h4>Phim</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
+        @foreach (var phim in Model)
+        {
+            <div class="col mb-4">
+                <div class="card h-100 mx-auto">
+                    <img src="~/Public/img/phim/@phim.Anh" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@phim.TenPhim</h5>
+                        <p class="card-text text-center">@phim.ThoiLuong Phút</p>
+                        <div class="d-flex justify-content-around">
+                            <a href="@Url.Action("Details", "", new { id = phim.MaPhim })" class="btn btn-outline-primary">Chi tiết</a>
+                            <a href="#" class="btn btn-primary">Đặt vé</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

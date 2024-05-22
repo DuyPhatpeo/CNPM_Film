@@ -29,24 +29,6 @@ namespace ProjectFilm_CNPM.Controllers
             return PartialView("Slider", list);
 
         }
-        public PartialViewResult CardItem()
-        {
-
-            List<Phim> list = db.Phims.Where(m => m.TrangThai == 1).ToList();
-            return PartialView("CardItem", list);
-        }
-        public ActionResult DetailsItem(int? id)
-        {
-            if(id == null)
-            {
-                return RedirectToAction("Error404","Site");
-            }
-            Phim phim = db.Phims.Find(id);
-            if(phim == null)
-            {
-                return RedirectToAction("Error404", "Site");
-            }
-            return View(phim);
-        }
+        
     }
 }
