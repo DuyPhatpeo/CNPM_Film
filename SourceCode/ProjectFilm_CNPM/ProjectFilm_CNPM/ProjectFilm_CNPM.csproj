@@ -2301,16 +2301,6 @@
     <Content Include="Areas\Admin\Views\Phim\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Phim\Trash.cshtml" />
-    <Content Include="Public\assets\webfonts\fa-brands-400.ttf" />
-    <Content Include="Public\assets\webfonts\fa-brands-400.woff2" />
-    <Content Include="Public\assets\webfonts\fa-regular-400.ttf" />
-    <Content Include="Public\assets\webfonts\fa-regular-400.woff2" />
-    <Content Include="Public\assets\webfonts\fa-solid-900.ttf" />
-    <Content Include="Public\assets\webfonts\fa-solid-900.woff2" />
-    <Content Include="Public\assets\webfonts\fa-v4compatibility.ttf" />
-    <Content Include="Public\assets\webfonts\fa-v4compatibility.woff2" />
-    <Content Include="Public\vendor\jquery\jquery.min.map" />
-    <Content Include="Public\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\TheLoai\Trash.cshtml" />
     <Content Include="Areas\Admin\Views\ThamSo\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ThamSo\Delete.cshtml" />
@@ -2325,6 +2315,16 @@
     <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Public\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Public\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Public\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Public\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Public\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Public\assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="Public\assets\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="Public\assets\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Public\vendor\jquery\jquery.min.map" />
+    <Content Include="Public\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2367,7 +2367,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Site\Home.cshtml" />
-    <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Module\Slider.cshtml" />
     <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Site\CardItem.cshtml" />
@@ -2377,6 +2376,7 @@
     <Content Include="Views\Site\PostPage.cshtml" />
     <Content Include="Views\Site\PhimDetail.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Module\MainMenuSub.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

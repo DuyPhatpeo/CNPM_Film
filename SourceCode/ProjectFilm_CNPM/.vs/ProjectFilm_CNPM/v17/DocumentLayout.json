@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\controllers\\phimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\controllers\\phimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\carditem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\carditem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\controllers\\sitecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\controllers\\sitecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\phimdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\phimdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PhimController.cs",
-              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\PhimController.cs",
-              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\PhimController.cs",
-              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\PhimController.cs",
-              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\PhimController.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:56:07.699Z",
+              "DocumentIndex": 3,
+              "Title": "PhimDetail.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PhimDetail.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\PhimDetail.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PhimDetail.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\PhimDetail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T05:16:11.363Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAtAAAA",
+              "Title": "SiteController.cs",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAQwE8AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:55:56.452Z",
+              "WhenOpened": "2024-05-23T04:41:49.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ModuleController.cs",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Controllers\\ModuleController.cs",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Controllers\\ModuleController.cs",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Controllers\\ModuleController.cs",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Controllers\\ModuleController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T04:41:48.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAD4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T04:11:04.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Home.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\Home.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\Home.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\Home.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\Home.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T04:10:51.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CardItem.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\CardItem.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\CardItem.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\CardItem.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\CardItem.cshtml",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAgwCcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T04:10:48.77Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "ProjectFilm_CNPM\\Areas\\Admin\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:55:49.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
-              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "ProjectFilm_CNPM\\App_Start\\RouteConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T14:55:46.631Z",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-23T04:07:27.037Z",
               "EditorCaption": ""
             }
           ]

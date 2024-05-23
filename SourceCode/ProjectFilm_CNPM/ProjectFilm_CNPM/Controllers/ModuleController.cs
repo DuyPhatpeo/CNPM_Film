@@ -10,7 +10,7 @@ namespace ProjectFilm_CNPM.Controllers
 {
     public class ModuleController : Controller
     {
-        // GET: Module
+        // GET: Module  
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {

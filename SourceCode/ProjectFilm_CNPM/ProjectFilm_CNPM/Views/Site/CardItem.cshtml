@@ -1,30 +1,112 @@
 ﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Phim>
 
-<div class="container-fluid p-5 movie-details">
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex align-items-center justify-content-between">
-                <h4>Phim</h4>
+<head>
+    <style>
+        .movie-details h4::before {
+            content: '';
+            width: 4px;
+            height: 100%;
+            background-color: #7a6ad8;
+            position: absolute;
+            left: -10px;
+            top: 0;
+        }
+
+        .movie-details h4 {
+            position: relative;
+            padding-left: 10px;
+        }
+        .custom-btn {
+            background-color: #7a6ad8;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border 0.3s ease;
+        }
+
+            .custom-btn:hover {
+                background-color: #7a6ad8;
+                border: 2px solid #d3d3d3;
+            }
+
+        .btn-detals {
+            background-color: white;
+            border: 2px solid #7a6ad8;
+            color: #7a6ad8;
+        }
+
+            .btn-detals:hover {
+                background-color: #d3d3d3;
+                color: white;
+            }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+        }
+
+            .card img {
+                transition: transform 0.5s ease;
+            }
+
+            .card:hover img {
+                transform: scale(1.1);
+                filter: blur(4px);
+            }
+        .card-img-top {
+            object-fit: cover;
+            height: 400px;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay .btn {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid p-5 movie-details">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4>Phim</h4>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
-        @foreach (var phim in Model)
-        {
-            <div class="col mb-4">
-                <div class="card h-100 mx-auto">
-                    <img src="~/Public/img/phim/@phim.Anh" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">@phim.TenPhim</h5>
-                        <p class="card-text text-center">@phim.ThoiLuong Phút</p>
-                        <div class="d-flex justify-content-around">
-                            <a href="@Url.Action("Details", "", new { id = phim.MaPhim })" class="btn btn-outline-primary">Chi tiết</a>
-                            <a href="#" class="btn btn-primary">Đặt vé</a>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3 mt-3">
+            @foreach (var phim in Model)
+            {
+                <div class="col mb-4">
+                    <div class="card h-100 mx-auto">
+                        <img src="~/Public/img/phim/@phim.Anh" class="card-img-top img-fluid" alt="...">
+                        <div class="overlay">
+                            <a href="@Url.Action("Details", "", new { id = phim.MaPhim })" class="btn custom-btn btn-detals">Chi tiết</a>
+                            <a href="#" class="btn custom-btn">Đặt vé</a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@phim.TenPhim</h5>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
-
+</body>
