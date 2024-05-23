@@ -23,7 +23,23 @@
             border-left: 4px solid #007bff; 
             height: 10px; 
         }
+        .title-with-line {
+            position: relative;
+            padding-left: 15px;
+        }
 
+            .title-with-line::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 5px;
+                background-color: blue;
+            }
+        .info-item {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <div class="main-banner" id="top">
@@ -40,47 +56,73 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-lg-8 movie-desc-container ml-2">
-                        <div class="d-flex flex-column align-items-center align-items-md-start movie-desc-head">
-                            <h1 class="text-center text-md-start">@item.TenPhim</h1>
+                        <div class="d-flex d-inline-flex align-items-center align-items-md-start movie-desc-head">
+                            <h1 class="text-center text-md-start mb-3 mb-md-0 mr-md-3">@item.TenPhim</h1>
+                            <span class="badge bg-secondary">
+                                @if (item.PhanLoai == 0)
+                                {
+                                    @:T18
+                                }
+                                else if (item.PhanLoai == 1)
+                                {
+                                    @:T16
+                                }
+                                else if (item.PhanLoai == 2)
+                                {
+                                    @:T13
+                                }
+                                else if (item.PhanLoai == 3)
+                                {
+                                    @:K
+                                }
+                                else if (item.PhanLoai == 4)
+                                {
+                                    @:P
+                                }
+                                else if (item.PhanLoai == 5)
+                                {
+                                    @:C
+                                }
+                            </span>
                         </div>
                         <div class="row g-0">
-                            <div class="col-md-6">
-                                <h6 class=" ">Năm phát hành</h6>
-                                <span class=" ">@item.NamPhatHanh</span>
-                            </div>
-                            <div class="col-md-6">
-                                <h6 class=" ">Đạo diễn</h6>
-                                <span class=" ">@item.DaoDien</span>
-                            </div>
-                            <div class="col-md-6">
-                                <h6 class=" ">Thời lượng</h6>
-                                <span class=" ">@item.ThoiLuong phút</span>
-                            </div>
-                            <div class="col-md-6">
-                                <h6 class=" ">Diễn viên</h6>
-                                <span class=" ">@item.DienVien</span>
+                            <div class="col-md-12 info-item d-flex align-items-center">
+                                <div>
+                                    <i class="fa-solid fa-clock "></i>
+                                    <span class="d-inline">@item.ThoiLuong phút</span>
+                                </div>
+                                <div class="mx-2">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span class="d-inline">@item.NamPhatHanh</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="separator"></div>
-                        <div>
-                            <h5>Mô tả</h5>
-                            <p class="synopsis-desc">@item.MoTa</p>
+                        <div class="row g-0">
+                            <div class="col-md-12 info-item">
+                                <h5 class="d-inline">Thể loại: </h5>
+                                <span class="d-inline">Thể loại nằm ở đây</span>
+                            </div>
+                            <div class="col-md-12 info-item">
+                                <h5 class="d-inline">Đạo diễn: </h5>
+                                <span class="d-inline">@item.DaoDien</span>
+                            </div>
+                            <div class="col-md-12 info-item">
+                                <h5 class="d-inline">Diễn viên: </h5>
+                                <span class="d-inline">@item.DienVien</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div>
-
+                    <h5 class="title-with-line">Mô tả</h5>
+                    <p class="synopsis-desc">@item.MoTa</p>
                 </div>
-                <div class="d-flex"><div class="vertical-bar"></div><p>Nội dung phim</p></div>
-                
+
                 <div class="d-flex justify-content-around mt-4">
                     <a href="#" class="btn custom-btn">Đặt vé</a>
                 </div>
             </section>
         </div>
-       
-
-
     </div>
 </div>
 
