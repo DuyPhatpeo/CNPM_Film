@@ -16,8 +16,7 @@ namespace ProjectFilm_CNPM
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Site", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "ProjectFilm_CNPM.Controllers" }
+                defaults: new { controller = "Site", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

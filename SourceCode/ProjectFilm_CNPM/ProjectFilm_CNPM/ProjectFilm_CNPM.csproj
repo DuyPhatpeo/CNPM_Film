@@ -2366,13 +2366,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Site\Home.cshtml" />
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Module\Slider.cshtml" />
     <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Views\Site\CardItem.cshtml" />
     <Content Include="Views\Site\Details.cshtml" />
     <Content Include="Views\Site\Error404.cshtml" />
+    <Content Include="Views\Site\PostTopic.cshtml" />
+    <Content Include="Views\Site\PostPage.cshtml" />
+    <Content Include="Views\Site\PhimDetail.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

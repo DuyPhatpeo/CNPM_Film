@@ -52,7 +52,7 @@ namespace ProjectFilm_CNPM.Models
         [Display(Name = "Tên đăng nhập")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Vui lòng nhập mật khẩu")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

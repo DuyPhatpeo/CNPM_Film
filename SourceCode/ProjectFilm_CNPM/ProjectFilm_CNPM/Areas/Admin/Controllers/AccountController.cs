@@ -149,7 +149,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ViewBag.Error = "Email hoặc mật khẩu không đúng. Vui lòng nhập lại!!!";
                     return View(model);
             }
         }
