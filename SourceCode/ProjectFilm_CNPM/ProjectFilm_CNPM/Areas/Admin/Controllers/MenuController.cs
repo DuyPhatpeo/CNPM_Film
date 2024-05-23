@@ -22,11 +22,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             var topiclist = db.ChuDes.ToList();
             var phimlist = db.Phims.ToList();
-            var baiViet = db.BaiViets.ToList();
-
-            ViewBag.TopList = topiclist;
-            ViewBag.PhimList = phimlist;
-            ViewBag.PostList = baiViet;
+            var baiViet = db.BaiViets.ToList();;
             ViewBag.TopList = topiclist;
             ViewBag.PhimList = phimlist;
             ViewBag.PostList = baiViet;

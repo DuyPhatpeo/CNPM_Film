@@ -1,9 +1,9 @@
-﻿@model ProjectFilm_CNPM.Models.ERD.Phim
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.SuatChieu>
 
 @{
-    ViewBag.Title = "DetailsItem";
+    ViewBag.Title = "Chi tiết phim";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var item = Model;
+    var item = ViewBag.phim;
 }
 <head>
     <style>
@@ -19,16 +19,21 @@
         .custom-btn:hover {
             background-color: #d3d3d3;
         }
+        .vertical-bar {
+            border-left: 4px solid #007bff; 
+            height: 10px; 
+        }
+
     </style>
 </head>
 <div class="main-banner" id="top">
     
 </div>
 <div class="container-fluid p-5">
-    <div class="row">
+    <div class="row ">
         <div class="col-lg-12">
-            <section class="container-fluid p-5 mt-5">
-                <div class="row ">
+            <section class="container-fluid p-5 mt-5 ">
+                <div class="row my-5">
                     <div class="col-md-3 col-lg-4 movie-poster-container">
                         <div class="card movie-poster">
                             <img src="~/Public/img/phim/@item.Anh" alt="" class="card-img-top" />
@@ -63,11 +68,19 @@
                         </div>
                     </div>
                 </div>
+                <div>
+
+                </div>
+                <div class="d-flex"><div class="vertical-bar"></div><p>Nội dung phim</p></div>
+                
                 <div class="d-flex justify-content-around mt-4">
                     <a href="#" class="btn custom-btn">Đặt vé</a>
                 </div>
             </section>
         </div>
+       
+
+
     </div>
 </div>
 

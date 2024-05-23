@@ -2374,9 +2374,9 @@
     <Content Include="Views\Site\Error404.cshtml" />
     <Content Include="Views\Site\PostTopic.cshtml" />
     <Content Include="Views\Site\PostPage.cshtml" />
-    <Content Include="Views\Site\PhimDetail.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Module\MainMenuSub.cshtml" />
+    <Content Include="Views\Site\ListBaiViet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

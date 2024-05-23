@@ -3,6 +3,7 @@
 @foreach (var item in Model)
 {
     <li class="scroll-to-section">
-        <a href="@item.LienKet">@item.TenMenu</a>
+        <a href="@Url.Action("Index", "Site", new { slug = item.LienKet })">@item.TenMenu</a>
     </li>
+
 }

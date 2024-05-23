@@ -69,10 +69,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ChuDe chuDe)
         {
-            // Lấy ds phim từ csdl
             var danhSachPhim = db.Phims.ToList();
-
-            // Chuyển ds phim thành SelectListItem
             var phimList = danhSachPhim.Select(p => new SelectListItem
             {
                 Value = p.MaPhim.ToString(),
@@ -82,25 +79,35 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.PhimList = phimList;
             if (ModelState.IsValid)
             {
-                //Xử lý tự động cho các trường sau:
-                //---Create At
                 chuDe.NgayTao = DateTime.Now;
-                //---Create By
                 chuDe.NguoiTao = Convert.ToInt32(Session["UserId"]);
-                //Slug
                 chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
-                //Update at
                 chuDe.NgayCapNhat = DateTime.Now;
-                //Update by
                 chuDe.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
+
                 db.ChuDes.Add(chuDe);
-                db.SaveChanges();
-                //hiển thị thông báo thành công
-                TempData["message"] = new XMessage("success", "Tạo mới chủ đề thành công!");
-                return RedirectToAction("Index");
+                if (db.SaveChanges() > 0) // Lưu thành công ChuDe
+                {
+                    Link links = new Link
+                    {
+                        URL = chuDe.TenRutGon,
+                        BangLienKet = chuDe.Id,
+                        LoaiLienKet = "chu-de"
+                    };
+                    db.Links.Add(links);
+                    db.SaveChanges(); // Lưu Link
+                    TempData["message"] = new XMessage("success", "Tạo mới chủ đề thành công!");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["message"] = new XMessage("danger", "Tạo mới chủ đề thất bại!");
+                    return RedirectToAction("Index");
+                }
             }
             return View(chuDe);
         }
+
 
         // GET: Admin/ChuDe/Edit/5
         public ActionResult Edit(int? id)
@@ -137,10 +144,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ChuDe chuDe)
         {
-            // Lấy ds phim từ csdl
             var danhSachPhim = db.Phims.ToList();
-
-            // Chuyển ds phim thành SelectListItem
             var phimList = danhSachPhim.Select(p => new SelectListItem
             {
                 Value = p.MaPhim.ToString(),
@@ -150,26 +154,37 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             ViewBag.PhimList = phimList;
             if (ModelState.IsValid)
             {
-                //Xử lý tự động cho các trường sau:
-                //---Create At
-                chuDe.NgayTao = DateTime.Now;
-                //---Create By
-                chuDe.NguoiTao = Convert.ToInt32(Session["UserId"]);
-                //Slug
-                chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
-                //Update at
                 chuDe.NgayCapNhat = DateTime.Now;
-                //Update by
                 chuDe.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
-                //Xu ly cho muc TenRutGon
                 chuDe.TenRutGon = XString.Str_Slug(chuDe.TenChuDe);
-                db.Entry(chuDe).State = EntityState.Modified;
-                //Thong bao thanh cong
-                TempData["message"] = new XMessage("success", "Sửa chủ đề thành công");
-                //Cap nhat du lieu, sua them cho phan LienKet phuc vu cho ChuDe
-                db.SaveChanges();
 
-                return RedirectToAction("Index");
+                db.Entry(chuDe).State = EntityState.Modified;
+                if (db.SaveChanges() > 0) 
+                {
+                    Link links = db.Links.FirstOrDefault(l => l.BangLienKet == chuDe.Id && l.LoaiLienKet == "chu-de");
+                    if (links != null)
+                    {
+                        links.URL = chuDe.TenRutGon;
+                        db.Entry(links).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        Link link = new Link
+                        {
+                            URL = chuDe.TenRutGon,
+                            BangLienKet = chuDe.Id,
+                            LoaiLienKet = "chu-de"
+                        };
+                        db.Links.Add(link);
+                    }
+                    db.SaveChanges(); 
+                    TempData["message"] = new XMessage("success", "Sửa chủ đề thành công");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["message"] = new XMessage("danger", "Sửa chủ đề thất bại!");
+                }
             }
             return View(chuDe);
         }

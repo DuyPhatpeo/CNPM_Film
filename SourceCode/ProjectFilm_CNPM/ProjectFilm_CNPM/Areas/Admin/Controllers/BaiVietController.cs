@@ -104,6 +104,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 }//ket thuc phan upload hinh anh
                 db.BaiViets.Add(baiViet);
                 db.SaveChanges();
+                if (db.SaveChanges() == 1)
+                {
+                    Link links = new Link();
+                    links.URL = baiViet.LienKet;
+                    links.BangLienKet = baiViet.Id;
+                    links.LoaiLienKet = "bai-viet";
+                    db.Links.Add(links);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 
@@ -194,6 +203,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 }//ket thuc phan upload hinh anh
                 db.Entry(baiViet).State = EntityState.Modified;
                 db.SaveChanges();
+                if (db.SaveChanges() == 1)
+                {
+                    Link links = new Link();
+                    links.URL = baiViet.LienKet;
+                    links.BangLienKet = baiViet.Id;
+                    links.LoaiLienKet = "bai-viet";
+                    db.Links.Add(links);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             return View(baiViet);

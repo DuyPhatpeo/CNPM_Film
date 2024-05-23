@@ -23,37 +23,28 @@ namespace ProjectFilm_CNPM.Controllers
             }
             else
             {
-                //tim slug co trong bang link
                 Link links = db.Links.Where(m => m.URL == slug).FirstOrDefault();
-                //kiem tra slug co ton tai trong bang Links hay khong
                 if (links != null)
                 {
-                    //lay ra Type trong bang link
                     string typelink = links.LoaiLienKet;
                     switch (typelink)
                     {
-                        case "topic":
-                            {
-                                return this.PostTopic(slug);
-                            }
-                        case "page":
-                            {
-                                return this.PostPage(slug);
-                            }
+                        case "chu-de":
+                            return this.PostTopic(slug);
+                        case "bai-viet":
+                            return this.PostPage(slug);
                         default:
-                            {
-                                return this.Error404();
-                            }
+                            return this.Error404();
                     }
                 }
                 else
                 {
                     //slug khong co trong bang Links
                     //slug co trong bang product?
-                    Phim phim = db.Phims.Where(m=> m.TenRutGon == slug && m.TrangThai ==1).FirstOrDefault();
+                    Phim phim = db.Phims.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
                     if (phim != null)
                     {
-                        return this.PhimDetail(slug);
+                        return this.Details(slug);
                     }
                     else
                     {
@@ -74,11 +65,6 @@ namespace ProjectFilm_CNPM.Controllers
         {
             return View();
         }
-        public ActionResult PhimDetail(string slug)
-        {
-            Phim phim = db.Phims.Where(m=> m.TenRutGon == slug && m.TrangThai ==1).FirstOrDefault();
-            return View("PhimDetail", phim);
-        }
         public ActionResult PostDetail(BaiViet posts)
         {
             return View("PostDetail");
@@ -91,8 +77,13 @@ namespace ProjectFilm_CNPM.Controllers
         public ActionResult PostTopic(string slug)
         {
             ChuDe topics = db.ChuDes.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
-            return View("PostTopic");
+            if (topics != null)
+            {
+                return View("PostTopic", topics);
+            }
+            return Error404();
         }
+
         public ActionResult Error404()
         {
             return View();
@@ -103,18 +94,27 @@ namespace ProjectFilm_CNPM.Controllers
             List<Phim> list = db.Phims.Where(m => m.TrangThai == 1).ToList();
             return PartialView("CardItem", list);
         }
-        public ActionResult Details(int? id)
+        public ActionResult Details(string slug)
         {
-            if (id == null)
+            if (slug == null)
             {
                 return RedirectToAction("Error404", "Site");
             }
-            Phim phim = db.Phims.Find(id);
+            Phim phim = db.Phims.Where(m=> m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
+            List<SuatChieu> listSuatChieu = db.SuatChieus.Where(m => m.MaPhim == phim.MaPhim).ToList();
             if (phim == null)
             {
                 return RedirectToAction("Error404", "Site");
             }
-            return View(phim);
+            ViewBag.phim = phim;
+            return View(listSuatChieu);
+        }
+        
+        //List của bài viết
+        public PartialViewResult ListBaiViet()
+        {
+            var list = db.BaiViets.Where(m => m.TrangThai == 1).Take(4).ToList();
+            return PartialView("ListTopic",list);
         }
     }
 }
