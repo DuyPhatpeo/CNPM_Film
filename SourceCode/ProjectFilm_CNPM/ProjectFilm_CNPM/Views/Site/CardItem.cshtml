@@ -16,6 +16,7 @@
             position: relative;
             padding-left: 10px;
         }
+
         .custom-btn {
             background-color: #7a6ad8;
             color: white;
@@ -52,12 +53,13 @@
 
             .card:hover img {
                 transform: scale(1.1);
-                filter: blur(4px);
             }
+
         .card-img-top {
             object-fit: cover;
             height: 400px;
         }
+
         .overlay {
             position: absolute;
             top: 0;
@@ -79,8 +81,18 @@
         .overlay .btn {
             margin: 0 5px;
         }
+
+        .overlay img {
+            filter: blur(4px);
+        }
+
+        .overlay:hover img {
+            filter: none;
+        }
     </style>
 </head>
+
+
 
 <body>
     <div class="container-fluid p-5 movie-details">

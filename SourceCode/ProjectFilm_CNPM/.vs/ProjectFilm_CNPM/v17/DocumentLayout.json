@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\posttopic.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\posttopic.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\postpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\postpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\listbaiviet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\listbaiviet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -22,45 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ListBaiViet.cshtml",
               "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
               "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
               "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
               "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAgwCkAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T12:30:05.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PostPage.cshtml",
-              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
-              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
-              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
-              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T12:29:52.69Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PostTopic.cshtml",
-              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PostTopic.cshtml",
-              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\PostTopic.cshtml",
-              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PostTopic.cshtml",
-              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\PostTopic.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-23T12:29:50.662Z",
+              "WhenOpened": "2024-05-23T14:23:40.363Z",
               "EditorCaption": ""
             }
           ]

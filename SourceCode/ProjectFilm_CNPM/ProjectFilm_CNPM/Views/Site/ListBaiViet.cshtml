@@ -1,1 +1,75 @@
-﻿
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.BaiViet>
+
+<head>
+    <style>
+        .baiviet h4::before {
+            content: '';
+            width: 4px;
+            height: 100%;
+            background-color: #7a6ad8;
+            position: absolute;
+            left: -10px;
+            top: 0;
+        }
+
+        .baiviet h4 {
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .card-baiviet {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 20px;
+            border: none;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img-top-baiviet {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-baiviet:hover .card-img-top-baiviet {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid p-5 baiviet">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4>Bài viết</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3 mt-3">
+            @foreach (var baiViet in Model)
+            {
+                <div class="col mb-4">
+                    <div class="card-baiviet">
+                        <img src="~/Public/img/baiviet/@baiViet.Anh" class="card-img-top-baiviet">
+                        <div class="card-body">
+                            <p class="card-text">@baiViet.TenBV</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

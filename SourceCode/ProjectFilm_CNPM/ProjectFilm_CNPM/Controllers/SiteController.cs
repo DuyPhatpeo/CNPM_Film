@@ -69,6 +69,7 @@ namespace ProjectFilm_CNPM.Controllers
         {
             return View("PostDetail");
         }
+        // trang bài viết
         public ActionResult PostPage(string slug)
         {
             BaiViet baiViet = db.BaiViets.Where(m => m.LienKet == slug && m.TrangThai == 1).FirstOrDefault();
@@ -110,11 +111,11 @@ namespace ProjectFilm_CNPM.Controllers
             return View(listSuatChieu);
         }
         
-        //List của bài viết
+        //List của bài viết ở index
         public PartialViewResult ListBaiViet()
         {
             var list = db.BaiViets.Where(m => m.TrangThai == 1).Take(4).ToList();
-            return PartialView("ListTopic",list);
+            return PartialView("ListBaiViet",list);
         }
     }
 }
