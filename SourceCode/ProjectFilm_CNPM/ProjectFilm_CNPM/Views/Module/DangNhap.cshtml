@@ -61,14 +61,17 @@
             <button type="submit" class="btn btn-primary btn-block mx-auto" style="width: 50%;">Đăng nhập</button>
 
         </form>
-       
-        <div class="alert alert-danger mx-3 my-3" role="alert">
-            @Html.Raw(@ViewBag.Error)
-        </div>
-        
+
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger mx-3 my-3" role="alert">
+                @Html.Raw(ViewBag.Error)
+            </div>
+        }
 
 
-        <a href="#" class="mt-3">Quên mật khẩu?</a>
+
+        <div class="mt-3"><a href="#" style="margin-top:30px!important">Quên mật khẩu?</a></div>
         <hr>
         <button type="button" class="btn btn-warning btn-block" onclick="openRegisterPopup()">Đăng ký</button>
     </div>
@@ -88,7 +91,7 @@
         }
 
         function openRegisterPopup() {
-            // Code để mở popup đăng ký
+            window.location.href = '@Url.Action("DangKy", "Module")';
         }
     </script>
 </body>

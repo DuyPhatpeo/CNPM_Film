@@ -2381,6 +2381,7 @@
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Site\ListBaiViet.cshtml" />
     <Content Include="Views\Module\DangNhap.cshtml" />
+    <Content Include="Views\Module\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2388,6 +2389,7 @@
     <Folder Include="Public\img\baiviet\" />
     <Folder Include="Public\img\phim\" />
     <Folder Include="Public\img\slider\" />
+    <Folder Include="Public\img\user\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

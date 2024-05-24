@@ -3,6 +3,7 @@ using ProjectFilm_CNPM.Models.ERD;
 using System;
 using System.Collections.Generic;
 using System.EnterpriseServices;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -66,6 +67,59 @@ namespace ProjectFilm_CNPM.Controllers
                 ViewBag.Error = "<strong>Tài khoản hoặc mật khẩu không đúng</strong>";
                 return View();
             }
+        }
+        public ActionResult DangKy()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangKy(NguoiDung model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Check if the email is not duplicated
+                if (!db.NguoiDungs.Any(m => m.Email == model.Email))
+                {
+                    model.Role = "Users";
+                    model.NgayTao = DateTime.Now;
+                    model.NguoiTao = Convert.ToInt32(Session["UserId"]);
+                    model.NgayCapNhat = DateTime.Now;
+                    model.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
+                    model.TrangThai = 1;
+                    //xu ly hinh anh
+                    var img = Request.Files["img"];//lay thong tin file
+                    if (img.ContentLength != 0)
+                    {
+                        string[] FileExtentions = new string[] { ".jpg", ".jpeg", ".png", ".gif" };
+                        //kiem tra tap tin co hay khong
+                        if (FileExtentions.Contains(img.FileName.Substring(img.FileName.LastIndexOf("."))))//lay phan mo rong cua tap tin
+                        {
+                            string slug = model.MaND.ToString();
+                            //ten file = Slug + phan mo rong cua tap tin
+                            string imgName = slug + img.FileName.Substring(img.FileName.LastIndexOf("."));
+                            model.Anh = imgName;
+                            //upload hinh
+                            string PathDir = "~/Public/img/user/";
+                            string PathFile = Path.Combine(Server.MapPath(PathDir), imgName);
+                            img.SaveAs(PathFile);
+                        }
+                    }//ket thuc phan upload hinh anh
+                    db.NguoiDungs.Add(model);
+                    db.SaveChanges();
+                    return RedirectToAction("DangNhap");
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "Email đã tồn tại!!!.");
+                }
+            }
+
+            return View(model);
+        }
+        public ActionResult DangXuat()
+        {
+            Session["NguoiDung"] = null;
+            return RedirectToAction("Index","Site");
         }
     }
 }
