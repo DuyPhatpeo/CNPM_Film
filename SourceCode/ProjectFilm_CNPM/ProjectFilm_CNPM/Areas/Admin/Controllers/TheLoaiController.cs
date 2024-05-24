@@ -84,18 +84,21 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             });
 
             ViewBag.PhimList = phimList;
-            // Lấy danh sách thể loại từ cơ sở dữ liệu
-            var existingGenres = db.TheLoais.Select(tl => tl.TenTheLoai.ToLower()).ToList();
 
-            // Kiểm tra xem thể loại mới đã tồn tại chưa
-            if (existingGenres.Contains(theLoai.TenTheLoai.ToLower()))
-            {
-                // Nếu thể loại đã tồn tại, hiển thị thông báo lỗi và trả về view Create
-                ModelState.AddModelError("TenTheLoai", "Thể loại này đã tồn tại.");
-                return View(theLoai);
-            }
             if (ModelState.IsValid)
             {
+                // Kiểm tra xem thể loại này đã tồn tại cho phim nào chưa
+                bool genreExistsForMovie = db.TheLoais.Any(tl =>
+                    tl.TenTheLoai.ToLower() == theLoai.TenTheLoai.ToLower() &&
+                    tl.MaPhim == theLoai.MaPhim);
+
+                // Nếu thể loại đã tồn tại cho phim này, hiển thị thông báo lỗi và trả về view Create
+                if (genreExistsForMovie)
+                {
+                    ModelState.AddModelError("TenTheLoai", "Thể loại này đã tồn tại cho phim này.");
+                    return View(theLoai);
+                }
+
                 //Xử lý tự động cho các trường sau:
                 //---Create At
                 theLoai.NgayTao = DateTime.Now;
@@ -115,6 +118,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 
             return View(theLoai);
         }
+
 
         // GET: Admin/TheLoai/Edit/5
         public ActionResult Edit(int? id)

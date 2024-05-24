@@ -14,6 +14,7 @@ using ProjectFilm_CNPM.Models.ERD;
 
 namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BaiVietController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

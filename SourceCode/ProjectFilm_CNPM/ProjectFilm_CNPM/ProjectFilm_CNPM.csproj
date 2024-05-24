@@ -325,6 +325,9 @@
     <Content Include="Public\dist\js\pages\dashboard.js" />
     <Content Include="Public\dist\js\pages\dashboard2.js" />
     <Content Include="Public\dist\js\pages\dashboard3.js" />
+    <Content Include="Public\img\icon\eye-slash.svg" />
+    <Content Include="Public\img\icon\eye.svg" />
+    <Content Include="Public\img\icon_login.svg" />
     <Content Include="Public\img\page_not_found.png" />
     <Content Include="Public\js\jquery.dataTables.min.js" />
     <Content Include="Public\js\main.js" />
@@ -2377,6 +2380,7 @@
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Site\ListBaiViet.cshtml" />
+    <Content Include="Views\Module\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

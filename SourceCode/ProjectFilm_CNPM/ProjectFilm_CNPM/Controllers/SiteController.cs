@@ -102,6 +102,12 @@ namespace ProjectFilm_CNPM.Controllers
                 return RedirectToAction("Error404", "Site");
             }
             Phim phim = db.Phims.Where(m=> m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
+            // Lấy tất cả các thể loại của phim
+            var listTheLoai = (from tl in db.TheLoais
+                               join p in db.Phims on tl.MaPhim equals p.MaPhim
+                               where p.MaPhim == phim.MaPhim
+                               select tl).ToList();
+            ViewBag.listTheLoai = listTheLoai;
             List<SuatChieu> listSuatChieu = db.SuatChieus.Where(m => m.MaPhim == phim.MaPhim).ToList();
             if (phim == null)
             {

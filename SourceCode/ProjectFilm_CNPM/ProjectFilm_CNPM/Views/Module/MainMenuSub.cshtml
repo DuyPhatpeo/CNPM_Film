@@ -1,9 +1,71 @@
-﻿﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.Menu>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <ul class="nav">
+        <li class="scroll-to-section">
+            <a href="">Phim</a>
+            <div class="dropdown-content">
+                @foreach (var item in ViewBag.phim)
+                {
+                    <a href="@Url.Action("Details", "Site", new { id = item.MaPhim })">@item.TenPhim</a>
+                }
+            </div>
+        </li>
+        <li class="scroll-to-section">
+            <a href="">Chủ đề</a>
+            <div class="dropdown-content">
+                @foreach (var item in ViewBag.page)
+                {
+                    <a href="@Url.Action("Details", "Page", new { id = item.Id})">@item.TenBV</a>
+                }
+            </div>
+        </li>
+        <li class="scroll-to-section">
+            <a href="">Bài viết</a>
+            <div class="dropdown-content">
+                @foreach (var item in ViewBag.topic)
+                {
+                    <a href="@Url.Action("Details", "Topic", new { id = item.Id })">@item.TenChuDe</a>
+                }
+            </div>
+        </li>
+        @if (Session["NguoiDung"] == null)
+        {
+            <!-- If user is not logged in, display "Đăng nhập" -->
+            <li class="scroll-to-section">
+                <a href="@Url.Action("DangNhap","Module")">Đăng nhập</a>
+            </li>
+        }
+        else
+        {
+            ProjectFilm_CNPM.Models.ERD.NguoiDung nguoiDung;
+            {
+                // Get the user's ID from the session
+                int maND = (int)Session["NguoiDung"];
 
-@foreach (var item in Model)
-{
-    <li class="scroll-to-section">
-        <a href="@Url.Action("Index", "Site", new { slug = item.LienKet })">@item.TenMenu</a>
-    </li>
+                // Instantiate an instance of ApplicationDbContext
+                var dbContext = new ProjectFilm_CNPM.Models.ApplicationDbContext();
 
-}
+                // Query the NguoiDungs DbSet to find the user with the given ID
+                nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
+            }
+
+            <!-- If user is logged in, display the username -->
+            <li class="">
+                <a href="#">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
+            </li>
+            <li class="">
+                <a href="#">Đăng xuất</a>
+            </li>
+        }
+
+
+
+
+    </ul>
+</body>
+</html>

@@ -104,8 +104,17 @@
                             </div>
                             <div class="col-md-12 info-item">
                                 <h5 class="d-inline">Thể loại: </h5>
-                                <span class="d-inline">Thể loại nằm ở đây</span>
+                                @foreach (var theLoai in ViewBag.listTheLoai)
+                                {
+                                    <span class="d-inline">@theLoai.TenTheLoai</span>
+                                    if (theLoai != ViewBag.listTheLoai[ViewBag.listTheLoai.Count - 1])
+                                    {
+                                        <span class="d-inline">, </span>
+                                    }
+                                }
                             </div>
+
+
                             <div class="col-md-12 info-item">
                                 <h5 class="d-inline">Đạo diễn: </h5>
                                 <span class="d-inline">@item.DaoDien</span>

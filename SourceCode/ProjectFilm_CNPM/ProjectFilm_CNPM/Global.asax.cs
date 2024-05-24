@@ -20,7 +20,7 @@ namespace ProjectFilm_CNPM
         protected void Session_Start()
         {
             Session["UserID"] = "1";
-            Session["UserCustomer"] = "";
+            Session["NguoiDung"] = null;
         }
     }
 }
