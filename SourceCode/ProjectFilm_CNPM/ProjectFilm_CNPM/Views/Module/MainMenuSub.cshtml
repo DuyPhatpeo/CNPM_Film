@@ -1,31 +1,79 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+﻿<head>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li.scroll-to-section {
+            position: relative;
+            display: inline-block;
+        }
+
+            li.scroll-to-section a {
+                text-decoration: none;
+                padding: 10px;
+                display: block;
+                color: black;
+            }
+
+            li.scroll-to-section .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #7a6ad8;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                min-width: 160px;
+                border-radius: 8px;
+            }
+
+                li.scroll-to-section .dropdown-content a {
+                    color: white;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center; 
+                    line-height: normal; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; 
+                }
+
+                    li.scroll-to-section .dropdown-content a:hover {
+                        background-color: #6a5ac8;
+                    }
+
+            li.scroll-to-section:hover .dropdown-content {
+                display: block;
+            }
+
+    </style>
 </head>
 <body>
     <ul class="nav">
         <li class="scroll-to-section">
-            <a href="">Phim</a>
+            <a href="#">Phim</a>
             <div class="dropdown-content">
                 @foreach (var item in ViewBag.phim)
                 {
-                    <a href="@Url.Action("Details", "Site", new { id = item.MaPhim })">@item.TenPhim</a>
+                    <a href="@Url.Action("Details", "", new { slug = item.TenRutGon })">
+                        @item.TenPhim
+                    </a>
                 }
             </div>
         </li>
         <li class="scroll-to-section">
-            <a href="">Chủ đề</a>
+            <a href="#">Chủ đề</a>
             <div class="dropdown-content">
                 @foreach (var item in ViewBag.page)
                 {
-                    <a href="@Url.Action("Details", "Page", new { id = item.Id})">@item.TenBV</a>
+                    <a href="@Url.Action("Details", "Page", new { id = item.Id })">@item.TenBV</a>
                 }
             </div>
         </li>
         <li class="scroll-to-section">
-            <a href="">Bài viết</a>
+            <a href="#">Bài viết</a>
             <div class="dropdown-content">
                 @foreach (var item in ViewBag.topic)
                 {
@@ -62,10 +110,5 @@
                 <a href="@Url.Action("DangXuat")">Đăng xuất</a>
             </li>
         }
-
-
-
-
     </ul>
 </body>
-</html>
