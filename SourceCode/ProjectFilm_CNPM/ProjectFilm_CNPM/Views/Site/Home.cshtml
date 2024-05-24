@@ -3,9 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @Html.Action("Slider", "Module")
+<div class="container">
+    @Html.Action("CardItem", "Site")
 
-@Html.Action("CardItem", "Site")
-
-@Html.Action("ListBaiViet", "Site")
+    @Html.Action("ListBaiViet", "Site")
+</div>
