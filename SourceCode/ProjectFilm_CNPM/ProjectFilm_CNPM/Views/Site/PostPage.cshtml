@@ -1,8 +1,20 @@
-﻿
+﻿@model ProjectFilm_CNPM.Models.ERD.BaiViet
+s
 @{
     ViewBag.Title = "PostPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var item = Model;
 }
 
-<h2>PostPage</h2>
+<div class="main-banner" id="top">
 
+</div>
+<div class="container mt-5">
+    <h1 class="display-4 text-center">@item.TenBV</h1>
+    <div class="text-center my-4">
+        <img src="~/Public/img/baiviet/@item.Anh" class="img-fluid">
+    </div>
+    <div class="article-content">
+        <p class="synopsis-desc">@item.ChiTiet</p>
+    </div>
+</div>

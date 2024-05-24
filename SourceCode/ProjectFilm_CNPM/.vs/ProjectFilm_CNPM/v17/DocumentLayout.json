@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\postpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\postpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\controllers\\sitecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\controllers\\sitecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|d:\\cnpm_film\\sourcecode\\projectfilm_cnpm\\projectfilm_cnpm\\views\\site\\listbaiviet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C9C3C48A-BA9C-49DF-B13D-FE15788FCDAD}|ProjectFilm_CNPM\\ProjectFilm_CNPM.csproj|solutionrelative:projectfilm_cnpm\\views\\site\\listbaiviet.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -19,12 +31,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PostPage.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\PostPage.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-24T02:06:40.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SiteController.cs",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Controllers\\SiteController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T02:02:24.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\Details.cshtml",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAAHkAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-24T01:53:43.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ListBaiViet.cshtml",
               "DocumentMoniker": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
               "RelativeDocumentMoniker": "ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
               "ToolTip": "D:\\CNPM_Film\\SourceCode\\ProjectFilm_CNPM\\ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
               "RelativeToolTip": "ProjectFilm_CNPM\\Views\\Site\\ListBaiViet.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAgwCkAAAAUAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAADUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-23T14:23:40.363Z",
               "EditorCaption": ""

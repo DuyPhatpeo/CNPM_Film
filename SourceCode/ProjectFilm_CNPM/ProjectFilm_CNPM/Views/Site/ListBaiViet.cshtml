@@ -62,12 +62,14 @@
             @foreach (var baiViet in Model)
             {
                 <div class="col mb-4">
-                    <div class="card-baiviet">
-                        <img src="~/Public/img/baiviet/@baiViet.Anh" class="card-img-top-baiviet">
-                        <div class="card-body">
-                            <p class="card-text">@baiViet.TenBV</p>
+                    @*<a href="@Html.Action("PostPage", "Site")">*@
+                        <div class="card-baiviet">
+                            <img src="~/Public/img/baiviet/@baiViet.Anh" class="card-img-top-baiviet">
+                            <div class="card-body">
+                                <p class="card-text">@baiViet.TenBV</p>
+                            </div>
                         </div>
-                    </div>
+                   @* </a>*@
                 </div>
             }
         </div>
