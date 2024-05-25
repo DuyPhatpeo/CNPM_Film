@@ -101,7 +101,9 @@ namespace ProjectFilm_CNPM.Controllers
             {
                 return RedirectToAction("Error404", "Site");
             }
-            Phim phim = db.Phims.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
+
+            Phim phim = db.Phims.FirstOrDefault(m => m.TenRutGon == slug && m.TrangThai == 1);
+
             if (phim == null)
             {
                 return RedirectToAction("Error404", "Site");
@@ -112,28 +114,39 @@ namespace ProjectFilm_CNPM.Controllers
                                join p in db.Phims on tl.MaPhim equals p.MaPhim
                                where p.MaPhim == phim.MaPhim
                                select tl).ToList();
+
             ViewBag.listTheLoai = listTheLoai;
 
-            // Lấy tất cả các suất chiếu của phim
+            
             List<SuatChieu> listSuatChieu = db.SuatChieus.Where(m => m.MaPhim == phim.MaPhim).ToList();
 
+
+            var distinctDates = listSuatChieu.Select(s => s.GioChieu.Date).Distinct().OrderBy(d => d).ToList();
+
+            // Tạo một Dictionary để lưu trữ danh sách suất chiếu cho mỗi ngày
+            Dictionary<DateTime, List<SuatChieu>> suatChieusByDate = new Dictionary<DateTime, List<SuatChieu>>();
+
+            foreach (var date in distinctDates)
+            {
+                // Lọc ra danh sách suất chiếu cho ngày hiện tại và sắp xếp theo thời gian
+                var suatChieusForDate = listSuatChieu.Where(s => s.GioChieu.Date == date).OrderBy(s => s.GioChieu).ToList();
+
+                // Thêm vào Dictionary
+                suatChieusByDate.Add(date, suatChieusForDate);
+            }
+
             ViewBag.phim = phim;
-            ViewBag.listSuatChieu = listSuatChieu;
+            ViewBag.suatChieusByDate = suatChieusByDate;
 
             return View();
         }
+
 
         //list bài viết ở trang index
         public PartialViewResult ListBaiViet()
         {
             var list = db.BaiViets.Where(m => m.TrangThai == 1).Take(4).ToList();
-            return PartialView("ListBaiViet",list);
-        }
-        public PartialViewResult ListGioChieu(DateTime ngayChieu)
-        {
-            var suatGioChieu = db.SuatChieus.Where(s => s.GioChieu.Date == ngayChieu.Date).ToList();
-            ViewBag.SuatChieus = suatGioChieu;
-            return PartialView("ListGioChieu");
+            return PartialView("ListBaiViet", list);
         }
 
 

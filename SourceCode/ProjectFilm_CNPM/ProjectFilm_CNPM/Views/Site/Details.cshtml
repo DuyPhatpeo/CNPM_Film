@@ -173,38 +173,35 @@
                     <p class="synopsis-desc">@item.MoTa</p>
                 </div>
                 <div>
-                    <div><h5 class="title-with-line mt-5">Lịch chiếu</h5></div>
-
+                    <h5 class="title-with-line mt-5">Lịch chiếu</h5>
                     <div class="showtime-container" id="gioChieuContainer">
-                        @{
-                            var isFirst = true;
-                        }
-                        <div class="showtime-container" id="gioChieuContainer">
-                            @{
-                                
-                            }
-                            @foreach (var suatChieu in ViewBag.listSuatChieu)
-                            {
-                                <div class="showtime-item px-5 @(isFirst ? "selected" : "")" tabindex="-1" data-ngaychieu="@suatChieu.GioChieu">
-                                    <a class="flex-wrap flex d-flex align-items-center text-center text-sm py-2" style="width:80px; height:65px;border-radius:5px;cursor:pointer">
-                                        <span class="w-100" style="display:inline-block">
-                                            @suatChieu.GioChieu.ToString("dd/MM") <!-- Display only the date -->
-                                        </span>
-                                        <span class="w-100" style="display:inline-block">
-                                            @suatChieu.GioChieu.ToString("HH:mm") <!-- Display only the time -->
-                                        </span>
-                                    </a>
+                        @foreach (var kvp in ViewBag.suatChieusByDate)
+                        {
+                            <div class="row col-12">
+                                <div class="d-flex flex-wrap">
+                                    <div class="d-flex align-items-center" style="margin-right: 30px;">
+                                        <span class="font-weight-bold">@kvp.Key.ToString("dddd")</span>
+                                        <span class="mx-2">@kvp.Key.ToString("dd/MM")</span>
+                                    </div>
+                                    @foreach (var suatChieu in kvp.Value)
+                                    {
+                                        <div class="row-cols-4 d-flex justify-content-center align-items-center" style="margin-right:30px">
+                                            <div class="flex flex-row d-flex py-5" style="column-gap:.75rem;flex-wrap:wrap;col-gap:.56rem;flex-direction:row;">
+                                                <button type="button" class="btn py-2 px-6 md:px-6 px-6 border rounded text-sm hover:bg-blue-10 active:bg-blue-10 transition-all duration-500 easy-in-out hover:text-white showtime_btn" style="font-size: .875rem; font-weight: 400; padding-left: 1rem; padding-right: 1rem; margin-right: 0.5rem; margin-bottom: 0.25rem;">
+                                                    @suatChieu.GioChieu.ToString("HH:mm")
+                                                </button>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
-                                isFirst = false;
-                            }
-                        </div>
-
+                            </div>
+                        }
                     </div>
 
-                    @Html.Partial("ListGioChieu")
 
 
                 </div>
+
             </section>
             <div class="d-flex justify-content-around mt-4">
                 <a href="#" class="btn custom-btn">Đặt vé</a>
@@ -212,37 +209,3 @@
         </div>
     </div>
 </div>
-<script>
-    // Vanilla JavaScript for handling showtime item clicks
-    document.addEventListener("DOMContentLoaded", function () {
-        var showtimeItems = document.querySelectorAll(".showtime-item");
-
-        showtimeItems.forEach(function (item) {
-            item.addEventListener("click", function () {
-                showtimeItems.forEach(function (el) {
-                    el.classList.remove("selected");
-                });
-                item.classList.add("selected");
-            });
-        });
-    });
-
-    // jQuery for AJAX request to update showtimes
-    $(document).ready(function () {
-        $(".showtime-item").click(function () {
-            var ngayChieu = $(this).data("ngaychieu");
-            $.ajax({
-                url: '@Url.Action("ListGioChieu", "Site")',
-                type: 'GET',
-                data: { NgayChieu: ngayChieu },
-                success: function (result) {
-                    $("#gioChieuContainer").html(result);
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                    // Handle errors gracefully
-                }
-            });
-        });
-    });
-</script>
