@@ -11,51 +11,70 @@
             display: inline-block;
         }
 
+            li.scroll-to-section .dropdown-toggle,
             li.scroll-to-section a {
                 text-decoration: none;
-                padding: 10px;
+                padding: 10px 15px;
                 display: block;
-                color: black;
+                color: white;
+                background-color: #7a6ad8;
+                border: none;
+                cursor: pointer;
             }
 
             li.scroll-to-section .dropdown-content {
                 display: none;
                 position: absolute;
-                background-color: #7a6ad8;
+                background-color: white; /* White background for dropdown */
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                 z-index: 1;
                 min-width: 160px;
-                border-radius: 8px;
+                padding: 0; /* Remove padding to ensure items are close */
             }
 
                 li.scroll-to-section .dropdown-content a {
-                    color: white;
-                    padding: 12px 16px;
+                    color: black; /* Black text for dropdown items */
+                    padding: 8px 12px; /* Adjust padding for closer items */
                     text-decoration: none;
                     display: block;
-                    text-align: center; 
-                    line-height: normal; 
+                    text-align: center;
+                    line-height: normal;
                     display: flex;
                     align-items: center;
-                    justify-content: center; 
+                    justify-content: center;
                 }
 
                     li.scroll-to-section .dropdown-content a:hover {
-                        background-color: #6a5ac8;
+                        background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background on hover */
                     }
 
-            li.scroll-to-section:hover .dropdown-content {
+            li.scroll-to-section:hover .dropdown-content,
+            .dropdown:hover .dropdown-menu {
                 display: block;
             }
-        .dropdown:hover > .dropdown-menu {
-            display: block;
-        }
 
         .dropdown > .dropdown-toggle:active {
             pointer-events: none;
         }
-        .header-area .main-nav .nav li a{
-            border-radius:0px!important;
+
+        .header-area .main-nav .nav li a {
+            border-radius: 0px !important;
+        }
+
+        .btn-primary {
+            background-color: #7a6ad8;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                background-color: #6a5ac8;
+            }
+
+        .text-warning {
+            color: #ffc107 !important;
         }
     </style>
 </head>
@@ -63,28 +82,21 @@
     <ul class="nav">
         <li class="scroll-to-section">
             <div class="dropdown">
-                <button data-mdb-button-init
-                        data-mdb-ripple-init data-mdb-dropdown-init class="btn btn-primary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-mdb-toggle="dropdown"
-                        aria-expanded="false">
+                <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
                     Phim
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    @foreach(var item in ViewBag.phim)
-            {
-                <li>
-                    @*<img src="~/Public/img/phim/@item.Anh" class="img-fluid" />*@
-                    <a class="dropdown-item text-primary" href="@Url.Action("Details", "Site", new { slug = item.TenRutGon })">@item.TenPhim</a>
-                </li>
-            }
-                    
+                </a>
+                <ul class="dropdown-content">
+                    @foreach (var item in ViewBag.phim)
+                    {
+                        <a href="@Url.Action("Details", "Site", new { slug = item.TenRutGon })">@item.TenPhim</a>
+                    }
                 </ul>
             </div>
         </li>
         <li class="scroll-to-section">
-            <a href="#">Bài viết</a>
+            <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
+                Bài viết
+            </a>
             <div class="dropdown-content">
                 @foreach (var item in ViewBag.page)
                 {
@@ -93,7 +105,9 @@
             </div>
         </li>
         <li class="scroll-to-section">
-            <a href="#">Chủ đề</a>
+            <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
+                Chủ đề
+            </a>
             <div class="dropdown-content">
                 @foreach (var item in ViewBag.topic)
                 {
@@ -111,15 +125,14 @@
         {
             ProjectFilm_CNPM.Models.ERD.NguoiDung nguoiDung;
             {
-
                 int maND = (int)Session["NguoiDung"];
                 var dbContext = new ProjectFilm_CNPM.Models.ApplicationDbContext();
                 nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
             }
-            <li class="">
+            <li class="scroll-to-section">
                 <a href="#">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
             </li>
-            <li class="">
+            <li class="scroll-to-section">
                 <a href="@Url.Action("DangXuat")">Đăng xuất</a>
             </li>
         }
