@@ -47,43 +47,62 @@
             li.scroll-to-section:hover .dropdown-content {
                 display: block;
             }
+        .dropdown:hover > .dropdown-menu {
+            display: block;
+        }
 
+        .dropdown > .dropdown-toggle:active {
+            pointer-events: none;
+        }
+        .header-area .main-nav .nav li a{
+            border-radius:0px!important;
+        }
     </style>
 </head>
 <body>
     <ul class="nav">
         <li class="scroll-to-section">
-            <a href="#">Phim</a>
+            <div class="dropdown">
+                <button data-mdb-button-init
+                        data-mdb-ripple-init data-mdb-dropdown-init class="btn btn-primary dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-mdb-toggle="dropdown"
+                        aria-expanded="false">
+                    Phim
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @foreach(var item in ViewBag.phim)
+            {
+                <li>
+                    @*<img src="~/Public/img/phim/@item.Anh" class="img-fluid" />*@
+                    <a class="dropdown-item text-primary" href="@Url.Action("Details", "Site", new { slug = item.TenRutGon })">@item.TenPhim</a>
+                </li>
+            }
+                    
+                </ul>
+            </div>
+        </li>
+        <li class="scroll-to-section">
+            <a href="#">Bài viết</a>
             <div class="dropdown-content">
-                @foreach (var item in ViewBag.phim)
+                @foreach (var item in ViewBag.page)
                 {
-                    <a href="@Url.Action("Details", "", new { slug = item.TenRutGon })">
-                        @item.TenPhim
-                    </a>
+                    <a href="@Url.Action("PostPage", "Site", new { id = item.Id })">@item.TenBV</a>
                 }
             </div>
         </li>
         <li class="scroll-to-section">
             <a href="#">Chủ đề</a>
             <div class="dropdown-content">
-                @foreach (var item in ViewBag.page)
-                {
-                    <a href="@Url.Action("Details", "Page", new { id = item.Id })">@item.TenBV</a>
-                }
-            </div>
-        </li>
-        <li class="scroll-to-section">
-            <a href="#">Bài viết</a>
-            <div class="dropdown-content">
                 @foreach (var item in ViewBag.topic)
                 {
-                    <a href="@Url.Action("Details", "Topic", new { id = item.Id })">@item.TenChuDe</a>
+                    <a href="@Url.Action("PostTopic", "Site", new { id = item.Id })">@item.TenChuDe</a>
                 }
             </div>
         </li>
         @if (Session["NguoiDung"] == null)
         {
-            <!-- If user is not logged in, display "Đăng nhập" -->
             <li class="scroll-to-section">
                 <a href="@Url.Action("DangNhap","Module")">Đăng nhập</a>
             </li>
@@ -92,17 +111,11 @@
         {
             ProjectFilm_CNPM.Models.ERD.NguoiDung nguoiDung;
             {
-                // Get the user's ID from the session
+
                 int maND = (int)Session["NguoiDung"];
-
-                // Instantiate an instance of ApplicationDbContext
                 var dbContext = new ProjectFilm_CNPM.Models.ApplicationDbContext();
-
-                // Query the NguoiDungs DbSet to find the user with the given ID
                 nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
             }
-
-            <!-- If user is logged in, display the username -->
             <li class="">
                 <a href="#">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
             </li>

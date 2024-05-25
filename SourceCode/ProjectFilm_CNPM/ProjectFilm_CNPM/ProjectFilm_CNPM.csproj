@@ -2382,6 +2382,7 @@
     <Content Include="Views\Site\ListBaiViet.cshtml" />
     <Content Include="Views\Module\DangNhap.cshtml" />
     <Content Include="Views\Module\DangKy.cshtml" />
+    <Content Include="Views\Site\ListGioChieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

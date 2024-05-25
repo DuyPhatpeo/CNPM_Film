@@ -29,10 +29,10 @@ namespace ProjectFilm_CNPM.Controllers
                     string typelink = links.LoaiLienKet;
                     switch (typelink)
                     {
+                        case "phim":
+                            return this.Details(slug);
                         case "chu-de":
                             return this.PostTopic(slug);
-                        case "bai-viet":
-                            return this.PostPage(slug);
                         default:
                             return this.Error404();
                     }
@@ -70,10 +70,10 @@ namespace ProjectFilm_CNPM.Controllers
             return View("PostDetail");
         }
         // trang bài viết
-        public ActionResult PostPage(String slug)
+        public ActionResult PostPage(string slug)
         {
             BaiViet baiViet = db.BaiViets.Where(m => m.LienKet == slug && m.TrangThai == 1).FirstOrDefault();
-            return View("PostPage");
+            return View(baiViet);
         }
         public ActionResult PostTopic(string slug)
         {
@@ -101,26 +101,42 @@ namespace ProjectFilm_CNPM.Controllers
             {
                 return RedirectToAction("Error404", "Site");
             }
-            Phim phim = db.Phims.Where(m=> m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
+            Phim phim = db.Phims.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
+            if (phim == null)
+            {
+                return RedirectToAction("Error404", "Site");
+            }
+
             // Lấy tất cả các thể loại của phim
             var listTheLoai = (from tl in db.TheLoais
                                join p in db.Phims on tl.MaPhim equals p.MaPhim
                                where p.MaPhim == phim.MaPhim
                                select tl).ToList();
             ViewBag.listTheLoai = listTheLoai;
+
+            // Lấy tất cả các suất chiếu của phim
             List<SuatChieu> listSuatChieu = db.SuatChieus.Where(m => m.MaPhim == phim.MaPhim).ToList();
-            if (phim == null)
-            {
-                return RedirectToAction("Error404", "Site");
-            }
+
             ViewBag.phim = phim;
-            return View(listSuatChieu);
+            ViewBag.listSuatChieu = listSuatChieu;
+
+            return View();
         }
-        
+
+        //list bài viết ở trang index
         public PartialViewResult ListBaiViet()
         {
             var list = db.BaiViets.Where(m => m.TrangThai == 1).Take(4).ToList();
             return PartialView("ListBaiViet",list);
         }
+        public PartialViewResult ListGioChieu(DateTime ngayChieu)
+        {
+            var suatGioChieu = db.SuatChieus.Where(s => s.GioChieu.Date == ngayChieu.Date).ToList();
+            ViewBag.SuatChieus = suatGioChieu;
+            return PartialView("ListGioChieu");
+        }
+
+
+
     }
 }

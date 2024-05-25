@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.SuatChieu>
+
+<div class="flex flex-row d-flex py-5" style="column-gap:.75rem;flex-wrap:wrap;row-gap:.25rem;flex-direction:row;">
+    @foreach (var suatChieu in ViewBag.SuatChieus)
+    {
+        <button type="button" class="btn py-2 px-6 md:px-6 px-6 border rounded text-sm hover:bg-blue-10 active:bg-blue-10 transition-all duration-500 easy-in-out hover:text-white showtime_btn" style="font-size: .875rem; font-weight: 400; padding-left: 2rem; padding-right: 2rem;">
+            @suatChieu.GioChieu.ToString("HH:mm")
+        </button>
+    }
+</div>
+
+

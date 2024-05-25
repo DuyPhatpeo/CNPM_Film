@@ -7,6 +7,7 @@
 }
 <head>
     <style>
+
         .custom-btn {
             background-color: #7a6ad8;
             color: white;
@@ -16,13 +17,15 @@
             transition: background-color 0.3s ease;
         }
 
-        .custom-btn:hover {
-            background-color: #d3d3d3;
-        }
+            .custom-btn:hover {
+                background-color: #d3d3d3;
+            }
+
         .vertical-bar {
-            border-left: 4px solid #007bff; 
-            height: 10px; 
+            border-left: 4px solid #007bff;
+            height: 10px;
         }
+
         .title-with-line {
             position: relative;
             padding-left: 15px;
@@ -37,13 +40,52 @@
                 width: 5px;
                 background-color: blue;
             }
+
         .info-item {
             margin-bottom: 10px;
         }
+
+        .showtime-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .showtime-item {
+            margin: 5px;
+        }
+
+        .showtime_btn {
+            /*            background-color: #7a6ad8;
+
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;*/
+            color: black;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            .showtime_btn:hover {
+                background-color: #007bff; /* Màu primary */
+                color: white;
+                transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
+            }
+
+        .showtime-item a {
+            color: black;
+        }
+
+        .showtime-item.selected {
+            border-radius: 10px;
+            background-color: #007bff;
+        }
+
+            .showtime-item.selected a {
+                color: white;
+            }
     </style>
 </head>
 <div class="main-banner" id="top">
-    
+
 </div>
 <div class="container">
     <div class="row ">
@@ -130,15 +172,77 @@
                     <h5 class="title-with-line">Mô tả</h5>
                     <p class="synopsis-desc">@item.MoTa</p>
                 </div>
+                <div>
+                    <div><h5 class="title-with-line mt-5">Lịch chiếu</h5></div>
 
-                <div class="d-flex justify-content-around mt-4">
-                    <a href="#" class="btn custom-btn">Đặt vé</a>
+                    <div class="showtime-container" id="gioChieuContainer">
+                        @{
+                            var isFirst = true;
+                        }
+                        <div class="showtime-container" id="gioChieuContainer">
+                            @{
+                                
+                            }
+                            @foreach (var suatChieu in ViewBag.listSuatChieu)
+                            {
+                                <div class="showtime-item px-5 @(isFirst ? "selected" : "")" tabindex="-1" data-ngaychieu="@suatChieu.GioChieu">
+                                    <a class="flex-wrap flex d-flex align-items-center text-center text-sm py-2" style="width:80px; height:65px;border-radius:5px;cursor:pointer">
+                                        <span class="w-100" style="display:inline-block">
+                                            @suatChieu.GioChieu.ToString("dd/MM") <!-- Display only the date -->
+                                        </span>
+                                        <span class="w-100" style="display:inline-block">
+                                            @suatChieu.GioChieu.ToString("HH:mm") <!-- Display only the time -->
+                                        </span>
+                                    </a>
+                                </div>
+                                isFirst = false;
+                            }
+                        </div>
+
+                    </div>
+
+                    @Html.Partial("ListGioChieu")
+
+
                 </div>
             </section>
+            <div class="d-flex justify-content-around mt-4">
+                <a href="#" class="btn custom-btn">Đặt vé</a>
+            </div>
         </div>
     </div>
 </div>
+<script>
+    // Vanilla JavaScript for handling showtime item clicks
+    document.addEventListener("DOMContentLoaded", function () {
+        var showtimeItems = document.querySelectorAll(".showtime-item");
 
+        showtimeItems.forEach(function (item) {
+            item.addEventListener("click", function () {
+                showtimeItems.forEach(function (el) {
+                    el.classList.remove("selected");
+                });
+                item.classList.add("selected");
+            });
+        });
+    });
 
-
-
+    // jQuery for AJAX request to update showtimes
+    $(document).ready(function () {
+        $(".showtime-item").click(function () {
+            var ngayChieu = $(this).data("ngaychieu");
+            $.ajax({
+                url: '@Url.Action("ListGioChieu", "Site")',
+                type: 'GET',
+                data: { NgayChieu: ngayChieu },
+                success: function (result) {
+                    $("#gioChieuContainer").html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                    // Handle errors gracefully
+                }
+            });
+        });
+    });
+</script>
