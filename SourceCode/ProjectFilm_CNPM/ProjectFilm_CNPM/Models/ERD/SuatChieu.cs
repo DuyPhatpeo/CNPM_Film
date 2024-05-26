@@ -10,7 +10,8 @@ namespace ProjectFilm_CNPM.Models.ERD
     [Table("SuatChieu")]
     public class SuatChieu
     {
-        public SuatChieu() {
+        public SuatChieu()
+        {
             this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
         }
         [Key]
@@ -20,6 +21,10 @@ namespace ProjectFilm_CNPM.Models.ERD
         [ForeignKey("Phim")]
         [Display(Name = "Mã phim")]
         public int MaPhim { get; set; }
+        [Required(ErrorMessage = "Mã phong không được để trống")]
+        [ForeignKey("Phong")]
+        [Display(Name = "Mã phòng")]
+        public int MaPhong { get; set; }
 
         [Required(ErrorMessage = "Giờ chiếu không được để trống")]
         [Display(Name = "Giờ chiếu")]
@@ -46,5 +51,6 @@ namespace ProjectFilm_CNPM.Models.ERD
         // Navigation property
         public virtual Phim Phim { get; set; }
         public ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public virtual Phong Phong { get; set; }
     }
 }

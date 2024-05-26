@@ -14,6 +14,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         public int Id { get; set; }
         [Required(ErrorMessage = "Chủ đề bài viết không được để trống")]
         [Display(Name = "Chủ đề bài viết")]
+        [ForeignKey("ChuDe")]
         public int ChuDeBV { get; set; }
         [Required(ErrorMessage = "Tên bài viết không được để trống")]
         [Display(Name = "Tên bài viết")]

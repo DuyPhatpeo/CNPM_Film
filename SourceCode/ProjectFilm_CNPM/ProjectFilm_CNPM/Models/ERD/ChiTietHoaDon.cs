@@ -18,11 +18,6 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Display(Name = "Mã hóa đơn")]
         public int MaHD { get; set; }
 
-        [Required(ErrorMessage = "Mã ghế không được để trống")]
-        [ForeignKey("Ghe")]
-        [Display(Name = "Mã ghế")]
-        public int MaGhe { get; set; }
-
         [Required(ErrorMessage = "Mã suất chiếu không được để trống")]
         [ForeignKey("SuatChieu")]
         [Display(Name = "Mã suất chiếu")]
@@ -50,7 +45,6 @@ namespace ProjectFilm_CNPM.Models.ERD
 
         // Navigation properties
         public virtual HoaDon HoaDon { get; set; }
-        public virtual Ghe Ghe { get; set; }
         public virtual SuatChieu SuatChieu { get; set; }
     }
 }
