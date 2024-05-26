@@ -22,7 +22,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         public string TenND { get; set; }
         [Required(ErrorMessage = "Ngày sinh không được để trống")]
         [Display(Name = "Ngày sinh")]
-        public DateTime? NgaySinh { get; set; }
+        public DateTime NgaySinh { get; set; }
 
         [Display(Name = "Giới tính")]
         [Required(ErrorMessage = "Giới tính không được để trống")]

@@ -61,18 +61,19 @@
 
         .form-group {
             margin-bottom: 1.5rem;
+            position: relative;
         }
 
             .form-group label {
                 font-weight: bold;
             }
 
-        .update-button {
-            background-color: #ff8c00;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+        .input-container {
+            position: relative;
+        }
+
+        .form-control {
+            padding-left: 40px; /* Add padding to the left to make space for the icon */
         }
 
         .icon {
@@ -81,6 +82,14 @@
             transform: translateY(-50%);
             left: 10px;
             color: #6c757d;
+        }
+
+        .update-button {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
         }
 
         .input-group-text {
@@ -119,58 +128,48 @@
                 <form>
                     <div class="form-group">
                         <label for="fullName">Họ và tên</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user icon"></i></span>
-                            </div>
+                        <div class="input-container">
+                            <i class="fas fa-user icon"></i>
                             <input type="text" class="form-control" id="fullName" value="@item.TenND" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="dob">Ngày sinh</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt icon"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="dob" value="@item.NgaySinh" readonly>
+                        <div class="input-container">
+                            <i class="fas fa-calendar-alt icon"></i>
+                            <input type="text" class="form-control" id="dob" value="@item.NgaySinh.ToString("dd/MM/yyyy")" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon3"><i class="fas fa-envelope icon"></i></span>
-                            </div>
+                        <div class="input-container">
+                            <i class="fas fa-envelope icon"></i>
                             <input type="email" class="form-control" id="email" value="@item.Email" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon4"><i class="fas fa-phone icon"></i></span>
-                            </div>
+                        <div class="input-container">
+                            <i class="fas fa-phone icon"></i>
                             <input type="text" class="form-control" id="phone" value="@item.SDT" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Giới tính</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="true" checked disabled>
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="true" @(item.GioiTinh == true ? "checked" : "") disabled>
                             <label class="form-check-label" for="male">Nam</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="false" disabled>
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="false" @(item.GioiTinh == false ? "checked" : "") disabled>
                             <label class="form-check-label" for="female">Nữ</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Mật khẩu</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon5"><i class="fas fa-lock icon"></i></span>
-                            </div>
-                            <input type="password" class="form-control" id="password" value="••••••••" readonly>
+                        <div class="input-container">
+                            <i class="fas fa-lock icon"></i>
+                            <input type="password" class="form-control" id="password" value="@item.MatKhau" readonly>
                         </div>
                     </div>
                 </form>
@@ -178,4 +177,3 @@
         </div>
     </div>
 </div>
-
