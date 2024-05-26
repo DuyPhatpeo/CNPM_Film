@@ -137,7 +137,7 @@
                 nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
             }
             <li class="scroll-to-section">
-                <a href="#">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
+                <a href="@Url.Action("Profile","Site")">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
             </li>
             <li class="scroll-to-section">
                 <a href="@Url.Action("DangXuat")">Đăng xuất</a>
