@@ -28,7 +28,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Required(ErrorMessage = "Giới tính không được để trống")]
         public bool? GioiTinh { get; set; }
         [Required(ErrorMessage = "Số điện thoại không được để trống")]
-        [StringLength(10)]
+        [StringLength(10, ErrorMessage = "Số điện thoại phải có độ dài tối đa là 10 ký tự.")]
 
         [Display(Name = "Số điện thoại")]
         public string SDT { get; set; }

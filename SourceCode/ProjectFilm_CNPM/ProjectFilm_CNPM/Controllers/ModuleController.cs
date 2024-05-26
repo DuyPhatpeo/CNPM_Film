@@ -72,6 +72,7 @@ namespace ProjectFilm_CNPM.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult DangKy(NguoiDung model)
         {
@@ -88,6 +89,7 @@ namespace ProjectFilm_CNPM.Controllers
                     model.TrangThai = 1;
                     db.NguoiDungs.Add(model);
                     db.SaveChanges();
+                    // Assuming 'DangNhap' is the name of the action method for login
                     return RedirectToAction("DangNhap");
                 }
                 else
@@ -95,9 +97,9 @@ namespace ProjectFilm_CNPM.Controllers
                     ModelState.AddModelError("Email", "Email đã tồn tại!!!.");
                 }
             }
-
             return View(model);
         }
+
         public ActionResult DangXuat()
         {
             Session["NguoiDung"] = null;
