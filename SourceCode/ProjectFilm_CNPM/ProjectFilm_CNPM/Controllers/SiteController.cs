@@ -158,7 +158,11 @@ namespace ProjectFilm_CNPM.Controllers
                                .ToList();
             return Json(seats, JsonRequestBehavior.AllowGet);
         }
-
+        public ActionResult VeXemPhim()
+        {
+            return View();
+        }
+        
         [HttpPost]
         public ActionResult TaoHoaDon()
         {
@@ -174,7 +178,6 @@ namespace ProjectFilm_CNPM.Controllers
             // Parse dữ liệu JSON
             var requestData = JObject.Parse(requestBody);
             int maSuatChieu = int.Parse(requestData["maSuatChieu"]?.ToString());
-            var maNguoiDung = Session["NguoiDung"]?.ToString();
             var selectedSeats = requestData["selectedSeats"]?.Select(x => int.Parse(x.ToString())).ToList();
             HoaDon hoaDon = new HoaDon();
             hoaDon.NgayLapHD = DateTime.Now;
@@ -185,8 +188,7 @@ namespace ProjectFilm_CNPM.Controllers
             hoaDon.NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.MaND = Convert.ToInt32(Session["NguoiDung"]);
             db.HoaDons.Add(hoaDon);
-            db.SaveChanges();
-            if (db.SaveChanges() != 0)
+            if (db.SaveChanges() != 0) // Kiểm tra nếu lưu hoá đơn thành công
             {
                 foreach (var seat in selectedSeats)
                 {
@@ -204,11 +206,13 @@ namespace ProjectFilm_CNPM.Controllers
                     };
                     db.ChiTietHoaDons.Add(chiTietHoaDon);
                 }
-                db.SaveChanges();
+                db.SaveChanges(); // Lưu các chi tiết hóa đơn
+                return RedirectToAction("VeXemPhim");
             }
+            return RedirectToAction("VeXemPhim");
 
-            return View();
         }
+
 
     }
 }

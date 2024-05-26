@@ -2383,6 +2383,7 @@
     <Content Include="Views\Module\DangNhap.cshtml" />
     <Content Include="Views\Module\DangKy.cshtml" />
     <Content Include="Views\Site\TaoHoaDon.cshtml" />
+    <Content Include="Views\Site\VeXemPhim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
