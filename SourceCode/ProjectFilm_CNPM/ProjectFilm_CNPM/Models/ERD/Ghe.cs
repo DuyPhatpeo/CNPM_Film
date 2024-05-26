@@ -11,7 +11,7 @@ namespace ProjectFilm_CNPM.Models.ERD
     public class Ghe
     {
         public Ghe() {
-           
+            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
         }
         [Key]
         public int MaGhe { get; set; }
@@ -53,5 +53,6 @@ namespace ProjectFilm_CNPM.Models.ERD
         public bool? TinhTrangGhe {  get; set; }    
         // Navigation property
         public virtual Phong Phong { get; set; }
+        public ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
     }
 }

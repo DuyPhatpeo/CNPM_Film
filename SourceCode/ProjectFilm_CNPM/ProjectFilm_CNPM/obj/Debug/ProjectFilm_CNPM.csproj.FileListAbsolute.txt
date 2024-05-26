@@ -216,5 +216,5 @@ C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFil
 C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.pdb
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.Migrations.CreatedDatabase.resources
 D:\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.GenerateResource.cache
-C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.Migrations.create.resources
+C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.Migrations.created.resources
 C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.GenerateResource.cache

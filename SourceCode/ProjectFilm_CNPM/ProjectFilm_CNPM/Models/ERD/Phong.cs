@@ -12,7 +12,6 @@ namespace ProjectFilm_CNPM.Models.ERD
     {
         public Phong() {
             this.Ghes = new HashSet<Ghe>();
-            this.SuatChieus = new HashSet<SuatChieu>();
         }
         [Key]
         public int MaPhong { get; set; }
@@ -36,7 +35,5 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
-        public ICollection<Ghe> Ghes { get; set; }
-        public ICollection<SuatChieu> SuatChieus { get; set; }
-    }
+        public ICollection<Ghe> Ghes { get; set; }    }
 }

@@ -1,7 +1,9 @@
-﻿using ProjectFilm_CNPM.Models;
+﻿using Newtonsoft.Json.Linq;
+using ProjectFilm_CNPM.Models;
 using ProjectFilm_CNPM.Models.ERD;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -139,19 +141,13 @@ namespace ProjectFilm_CNPM.Controllers
             return PartialView("ListBaiViet", list);
         }
 
-        public JsonResult GetTinhTrangGhe(int maPhong)
+        public JsonResult GetTinhTrangGhe()
         {
             if (Session["NguoiDung"] == null)
             {
                 return Json(new { redirectToLogin = true }, JsonRequestBehavior.AllowGet);
             }
-
-            if (maPhong == 0)
-            {
-                return Json(new { success = false, message = "Mã phòng không hợp lệ." }, JsonRequestBehavior.AllowGet);
-            }
-
-            var seats = db.Ghes.Where(g => g.MaPhong == maPhong && g.TinhTrangGhe == false && g.TrangThai ==1)
+            var seats = db.Ghes.Where(g=> g.TinhTrangGhe == false && g.TrangThai ==1)
                                .Select(g => new
                                {
                                    g.MaGhe,
@@ -161,6 +157,57 @@ namespace ProjectFilm_CNPM.Controllers
                                })
                                .ToList();
             return Json(seats, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult TaoHoaDon()
+        {
+            if (Session["NguoiDung"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+            string requestBody;
+            using (var reader = new StreamReader(Request.InputStream))
+            {
+                requestBody = reader.ReadToEnd();
+            }
+            // Parse dữ liệu JSON
+            var requestData = JObject.Parse(requestBody);
+            int maSuatChieu = int.Parse(requestData["maSuatChieu"]?.ToString());
+            var maNguoiDung = Session["NguoiDung"]?.ToString();
+            var selectedSeats = requestData["selectedSeats"]?.Select(x => int.Parse(x.ToString())).ToList();
+            HoaDon hoaDon = new HoaDon();
+            hoaDon.NgayLapHD = DateTime.Now;
+            hoaDon.NgayTao = DateTime.Now;
+            hoaDon.NgayCapNhat = DateTime.Now;
+            hoaDon.TrangThai = 1;
+            hoaDon.NguoiTao = Convert.ToInt32(Session["NguoiDung"]);
+            hoaDon.NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
+            hoaDon.MaND = Convert.ToInt32(Session["NguoiDung"]);
+            db.HoaDons.Add(hoaDon);
+            db.SaveChanges();
+            if (db.SaveChanges() != 0)
+            {
+                foreach (var seat in selectedSeats)
+                {
+                    ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon
+                    {
+                        MaHD = hoaDon.MaHD,
+                        MaSuatChieu = maSuatChieu,
+                        MaGhe = seat,
+                        BapNuoc = false,
+                        NgayTao = DateTime.Now,
+                        NgayCapNhat = DateTime.Now,
+                        TrangThai = 1,
+                        NguoiTao = Convert.ToInt32(Session["NguoiDung"]),
+                        NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"])
+                    };
+                    db.ChiTietHoaDons.Add(chiTietHoaDon);
+                }
+                db.SaveChanges();
+            }
+
+            return View();
         }
 
     }

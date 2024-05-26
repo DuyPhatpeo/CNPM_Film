@@ -193,9 +193,9 @@
     </Compile>
     <Compile Include="Library\XMessage.cs" />
     <Compile Include="Library\XString.cs" />
-    <Compile Include="Migrations\202405260239160_create.cs" />
-    <Compile Include="Migrations\202405260239160_create.designer.cs">
-      <DependentUpon>202405260239160_create.cs</DependentUpon>
+    <Compile Include="Migrations\202405260824518_created.cs" />
+    <Compile Include="Migrations\202405260824518_created.designer.cs">
+      <DependentUpon>202405260824518_created.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2382,6 +2382,7 @@
     <Content Include="Views\Site\ListBaiViet.cshtml" />
     <Content Include="Views\Module\DangNhap.cshtml" />
     <Content Include="Views\Module\DangKy.cshtml" />
+    <Content Include="Views\Site\TaoHoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2422,8 +2423,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202405260239160_create.resx">
-      <DependentUpon>202405260239160_create.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202405260824518_created.resx">
+      <DependentUpon>202405260824518_created.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
