@@ -5,20 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace ProjectFilm_CNPM.Controllers
 {
     public class SiteController : Controller
     {
-        // GET: Home
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index(string slug = null)
         {
             if (slug == null)
             {
-                //chuyen ve trang chu
                 return RedirectToAction("Home", "Site");
             }
             else
@@ -39,8 +36,6 @@ namespace ProjectFilm_CNPM.Controllers
                 }
                 else
                 {
-                    //slug khong co trong bang Links
-                    //slug co trong bang product?
                     Phim phim = db.Phims.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
                     if (phim != null)
                     {
@@ -61,20 +56,23 @@ namespace ProjectFilm_CNPM.Controllers
                 }
             }
         }
+
         public ActionResult Home()
         {
             return View();
         }
+
         public ActionResult PostDetail(BaiViet posts)
         {
             return View("PostDetail");
         }
-        // trang bài viết
+
         public ActionResult PostPage(string slug)
         {
             BaiViet baiViet = db.BaiViets.Where(m => m.LienKet == slug && m.TrangThai == 1).FirstOrDefault();
             return View(baiViet);
         }
+
         public ActionResult PostTopic(string slug)
         {
             ChuDe topics = db.ChuDes.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
@@ -89,12 +87,13 @@ namespace ProjectFilm_CNPM.Controllers
         {
             return View();
         }
+
         public PartialViewResult CardItem()
         {
-
             List<Phim> list = db.Phims.Where(m => m.TrangThai == 1).ToList();
             return PartialView("CardItem", list);
         }
+
         public ActionResult Details(string slug)
         {
             if (slug == null)
@@ -109,7 +108,6 @@ namespace ProjectFilm_CNPM.Controllers
                 return RedirectToAction("Error404", "Site");
             }
 
-            // Lấy tất cả các thể loại của phim
             var listTheLoai = (from tl in db.TheLoais
                                join p in db.Phims on tl.MaPhim equals p.MaPhim
                                where p.MaPhim == phim.MaPhim
@@ -117,21 +115,15 @@ namespace ProjectFilm_CNPM.Controllers
 
             ViewBag.listTheLoai = listTheLoai;
 
-            
             List<SuatChieu> listSuatChieu = db.SuatChieus.Where(m => m.MaPhim == phim.MaPhim).ToList();
-
 
             var distinctDates = listSuatChieu.Select(s => s.GioChieu.Date).Distinct().OrderBy(d => d).ToList();
 
-            // Tạo một Dictionary để lưu trữ danh sách suất chiếu cho mỗi ngày
             Dictionary<DateTime, List<SuatChieu>> suatChieusByDate = new Dictionary<DateTime, List<SuatChieu>>();
 
             foreach (var date in distinctDates)
             {
-                // Lọc ra danh sách suất chiếu cho ngày hiện tại và sắp xếp theo thời gian
                 var suatChieusForDate = listSuatChieu.Where(s => s.GioChieu.Date == date).OrderBy(s => s.GioChieu).ToList();
-
-                // Thêm vào Dictionary
                 suatChieusByDate.Add(date, suatChieusForDate);
             }
 
@@ -141,23 +133,35 @@ namespace ProjectFilm_CNPM.Controllers
             return View();
         }
 
-
-        //list bài viết ở trang index
         public PartialViewResult ListBaiViet()
         {
             var list = db.BaiViets.Where(m => m.TrangThai == 1).Take(4).ToList();
             return PartialView("ListBaiViet", list);
         }
-        public ActionResult GetTinhTrangGhe(int maPhong)
+
+        public JsonResult GetTinhTrangGhe(int maPhong)
         {
-           
-            var availableSeats = db.Ghes.Where(g => g.MaPhong == maPhong && g.TinhTrangGhe == false).ToList();
+            if (Session["NguoiDung"] == null)
+            {
+                return Json(new { redirectToLogin = true }, JsonRequestBehavior.AllowGet);
+            }
 
-            
-            return Json(availableSeats, JsonRequestBehavior.AllowGet);
+            if (maPhong == 0)
+            {
+                return Json(new { success = false, message = "Mã phòng không hợp lệ." }, JsonRequestBehavior.AllowGet);
+            }
+
+            var seats = db.Ghes.Where(g => g.MaPhong == maPhong && g.TinhTrangGhe == false && g.TrangThai ==1)
+                               .Select(g => new
+                               {
+                                   g.MaGhe,
+                                   g.TinhTrangGhe,
+                                   g.GiaGhe,
+                                   g.LoaiGhe
+                               })
+                               .ToList();
+            return Json(seats, JsonRequestBehavior.AllowGet);
         }
-
-
 
     }
 }

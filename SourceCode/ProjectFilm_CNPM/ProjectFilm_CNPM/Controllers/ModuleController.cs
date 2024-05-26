@@ -86,24 +86,6 @@ namespace ProjectFilm_CNPM.Controllers
                     model.NgayCapNhat = DateTime.Now;
                     model.NguoiCapNhat = Convert.ToInt32(Session["UserId"]);
                     model.TrangThai = 1;
-                    //xu ly hinh anh
-                    var img = Request.Files["img"];//lay thong tin file
-                    if (img.ContentLength != 0)
-                    {
-                        string[] FileExtentions = new string[] { ".jpg", ".jpeg", ".png", ".gif" };
-                        //kiem tra tap tin co hay khong
-                        if (FileExtentions.Contains(img.FileName.Substring(img.FileName.LastIndexOf("."))))//lay phan mo rong cua tap tin
-                        {
-                            string slug = model.MaND.ToString();
-                            //ten file = Slug + phan mo rong cua tap tin
-                            string imgName = slug + img.FileName.Substring(img.FileName.LastIndexOf("."));
-                            model.Anh = imgName;
-                            //upload hinh
-                            string PathDir = "~/Public/img/user/";
-                            string PathFile = Path.Combine(Server.MapPath(PathDir), imgName);
-                            img.SaveAs(PathFile);
-                        }
-                    }//ket thuc phan upload hinh anh
                     db.NguoiDungs.Add(model);
                     db.SaveChanges();
                     return RedirectToAction("DangNhap");

@@ -13,7 +13,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient( to right, rgb(162, 216, 162), rgb(102, 194, 102) );
+            background: #7a6ad8;
         }
 
         .tickets {
@@ -62,7 +62,7 @@
             min-height: 150px;
             position: relative;
         }
-
+        
         .status {
             width: 100%;
             display: flex;
@@ -100,14 +100,24 @@
                 outline: 0.2mm solid rgb(120, 120, 120);
                 border-radius: 0.3mm;
             }
-
-            .item:nth-child(2)::before {
-                background: rgb(180, 180, 180);
-                outline: none;
+            .item.vip::before {
+                background-color: red; /* Màu nền cho ghế VIP */
             }
 
-            .item:nth-child(3)::before {
-                background: rgb(28, 185, 120);
+            .item.double::before {
+                background-color: purple; /* Màu nền cho ghế đôi */
+            }
+
+            .item.single::before {
+                background-color: white; /* Màu nền cho ghế đơn */
+            }
+
+            .item.booked::before {
+                background-color: rgb(180, 180, 180); /* Màu nền cho ghế đã đặt */
+            }
+
+            .item.selected::before {
+                border: 2px solid #007bff;
                 outline: none;
             }
 
@@ -123,14 +133,29 @@
         .seat {
             width: 20px;
             height: 20px;
-            background: white;
             border-radius: 0.5mm;
             outline: 0.3mm solid rgb(180, 180, 180);
             cursor: pointer;
         }
 
+        .seat.vip {
+            background: red; /* Màu đỏ cho ghế vip */
+        }
+
+        .seat.double {
+            background: purple; /* Màu tím cho ghế đôi */
+        }
+
+        .seat.single {
+            background:white;
+        }
+
+        .seat.booked {
+            background: rgb(180, 180, 180); /* Màu xám cho ghế đã đặt */
+        }
+
         .all-seats input:checked + label {
-            background: rgb(28, 185, 120);
+            border: 2px solid #007bff;
             outline: none;
         }
 
@@ -411,8 +436,8 @@
                                     @foreach (var suatChieu in kvp.Value)
                                     {
                                         <div class="row-cols-4 d-flex justify-content-center align-items-center" style="margin-right:30px">
-                                            <div class="flex flex-row d-flex py-5" style="column-gap:.75rem;flex-wrap:wrap;col-gap:.56rem;flex-direction:row;">
-                                                <button type="button" class="btn py-2 px-6 md:px-6 px-6 border rounded text-sm hover:bg-blue-10 active:bg-blue-10 transition-all duration-500 easy-in-out hover:text-white showtime_btn" style="font-size: .875rem; font-weight: 400; padding-left: 1rem; padding-right: 1rem; margin-right: 0.5rem; margin-bottom: 0.25rem;">
+                                            <div class="flex flex-row d-flex py-5" style="column-gap:.75rem;flex-wrap:wrap;flex-direction:row;">
+                                                <button type="button" class="btn py-2 px-6 md:px-6 px-6 border rounded text-sm hover:bg-blue-10 active:bg-blue-10 transition-all duration-500 easy-in-out hover:text-white showtime_btn" data-maphong="@suatChieu.MaPhong" style="font-size: .875rem; font-weight: 400; padding-left: 1rem; padding-right: 1rem; margin-right: 0.5rem; margin-bottom: 0.25rem;">
                                                     @suatChieu.GioChieu.ToString("HH:mm")
                                                 </button>
                                             </div>
@@ -431,13 +456,15 @@
                             </div>
                             <div class="seats">
                                 <div class="status">
-                                    <div class="item">Available</div>
-                                    <div class="item">Booked</div>
-                                    <div class="item">Selected</div>
+                                    <div class="item vip">Ghế VIP</div>   
+                                    <div class="item double">Ghế đôi</div>
+                                    <div class="item single">Ghế đơn</div>
+                                    <div class="item booked">Ghế đã có người đặt</div>
+                                    <div class="item selected">Ghế được chọn</div>
                                 </div>
                                 <div class="all-seats">
-                                    <input type="checkbox" name="tickets" id="s1" />
-                                    <label for="s1" class="seat booked"></label>
+                                    @*<input type="checkbox" name="tickets" id="s1" />
+            <label for="s1" class="seat booked"></label>*@
                                 </div>
                             </div>
                             
@@ -478,21 +505,100 @@
 
     let tickets = seats.querySelectorAll("input");
     tickets.forEach((ticket) => {
-        ticket.addEventListener("change", () => {
-            let amount = document.querySelector(".amount").innerHTML;
-            let count = document.querySelector(".count").innerHTML;
-            amount = Number(amount);
-            count = Number(count);
+    ticket.addEventListener("change", () => {
+        let amount = document.querySelector(".amount").innerHTML;
+        let count = document.querySelector(".count").innerHTML;
+        amount = Number(amount);
+        count = Number(count);
 
-            if (ticket.checked) {
-                count += 1;
-                amount += 200;
+        if (ticket.checked) {
+            count += 1;
+            amount += ghe.GiaGhe; // Thay đổi giá trị từ 200 sang ghe.GiaGhe
+        } else {
+            count -= 1;
+            amount -= ghe.GiaGhe; // Thay đổi giá trị từ 200 sang ghe.GiaGhe
+        }
+        document.querySelector(".amount").innerHTML = amount;
+        document.querySelector(".count").innerHTML = count;
+    });
+});
+
+    function fetchSeats(maPhong) {
+    $.ajax({
+        url: '@Url.Action("GetTinhTrangGhe", "Site")',
+        type: 'GET',
+        data: { maPhong: maPhong },
+        success: function(data) {
+            if (data.redirectToLogin) {
+                window.location.href = '@Url.Action("DangNhap", "Module")';
             } else {
-                count -= 1;
-                amount -= 200;
+                displaySeats(data);
             }
-            document.querySelector(".amount").innerHTML = amount;
-            document.querySelector(".count").innerHTML = count;
+        },
+        error: function() {
+            alert("Error fetching seats.");
+        }
+    });
+}
+
+
+    function displaySeats(seats) {
+        let seatsContainer = document.querySelector(".all-seats");
+        seatsContainer.innerHTML = ''; // Clear existing seats
+
+        seats.forEach(seat => {
+            let booked = seat.TinhTrangGhe ? 'booked' : '';
+            let seatClass = '';
+            switch (seat.LoaiGhe) {
+                case 'VIP':
+                    seatClass = 'vip';
+                    break;
+                case 'Đôi':
+                    seatClass = 'double';
+                    break;
+                case 'Đơn':
+                    seatClass = 'single';
+                    break;
+                default:
+                    seatClass = '';
+                    break;
+            }
+            seatsContainer.insertAdjacentHTML(
+                "beforeend",
+                '<input type="checkbox" name="tickets" id="s' + seat.MaGhe + '" />' +
+                '<label for="s' + seat.MaGhe + '" class="seat ' + seatClass + ' ' + booked + '"></label>'
+            );
+
+        });
+
+        let tickets = seatsContainer.querySelectorAll("input");
+        tickets.forEach((ticket) => {
+            ticket.addEventListener("change", () => {
+                let amount = document.querySelector(".amount").innerHTML;
+                let count = document.querySelector(".count").innerHTML;
+                let giaGhe = seats.find(seat => seat.MaGhe === parseInt(ticket.id.substring(1))).GiaGhe;
+                amount = Number(amount);
+                count = Number(count);
+                // Sử dụng giá của ghế từ dữ liệu trả về
+                if (ticket.checked) {
+                    count += 1;
+                    amount += giaGhe;
+                } else {
+                    count -= 1;
+                    amount -= giaGhe;
+                }
+                document.querySelector(".amount").innerHTML = amount;
+                document.querySelector(".count").innerHTML = count;
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.showtime_btn').forEach(button => {
+            button.addEventListener('click', function() {
+                let maPhong = $(this).data('maphong');
+                fetchSeats(maPhong);
+            });
         });
     });
 </script>
