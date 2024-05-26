@@ -74,6 +74,16 @@
                 transition: opacity 0.5s ease;
             }
 
+            .card {
+                position: relative;
+            }
+
+            .overlay .badge {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
             .card:hover .overlay {
                 opacity: 1;
             }
@@ -110,6 +120,32 @@
                     <div class="card h-100 mx-auto">
                         <img src="~/Public/img/phim/@phim.Anh" class="card-img-top img-fluid" alt="...">
                         <div class="overlay">
+                            <span class="badge bg-secondary">
+                                @if (phim.PhanLoai == 0)
+                                {
+                                    @:T18
+                                }
+                                else if (phim.PhanLoai == 1)
+                                {
+                                    @:T16
+                                }
+                                else if (phim.PhanLoai == 2)
+                                {
+                                    @:T13
+                                }
+                                else if (phim.PhanLoai == 3)
+                                {
+                                    @:K
+                                }
+                                else if (phim.PhanLoai == 4)
+                                {
+                                    @:P
+                                }
+                                else if (phim.PhanLoai == 5)
+                                {
+                                    @:C
+                                }
+                            </span>
                             <a href="@Url.Action("Details", "", new { slug = phim.TenRutGon })" class="btn custom-btn btn-detals">Chi tiết</a>
                             <a href="#" class="btn custom-btn">Đặt vé</a>
                         </div>

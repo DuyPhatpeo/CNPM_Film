@@ -10,14 +10,13 @@
             padding: 170px 0px 120px 0px;
         }
 
-        .main-banner .item {
-            /*background-repeat: no-repeat;*/
-            background-position: center center;
-            background-size: cover;
-            border-radius: 25px;
-            padding: 100px 100px;
-            margin-left: 130px;
-        }
+            .main-banner .item {
+                background-position: center center;
+                background-size: cover;
+                border-radius: 25px;
+                padding: 150px 100px;
+                margin-left: 130px;
+            }
 
         .owl-carousel .owl-prev:last-child {
             display: none;
@@ -33,10 +32,7 @@
                     @foreach (var slider in Model)
                     {
                         <div class="item" style="background-image: url('Public/img/slider/@slider.Anh');">
-                            <div class="header-text">
-                                @*<h2>@slider.TenSlider</h2>
-                                <p>@slider.TuKhoa</p>*@
-                            </div>
+                            
                         </div>
                     }
                    
