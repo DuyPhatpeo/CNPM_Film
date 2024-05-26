@@ -21,7 +21,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         [ForeignKey("Phim")]
         [Display(Name = "Mã phim")]
         public int MaPhim { get; set; }
-        [Required(ErrorMessage = "Mã phong không được để trống")]
+        [Required(ErrorMessage = "Mã phòng không được để trống")]
         [ForeignKey("Phong")]
         [Display(Name = "Mã phòng")]
         public int MaPhong { get; set; }

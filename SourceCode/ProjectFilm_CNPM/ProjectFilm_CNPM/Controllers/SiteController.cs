@@ -148,6 +148,14 @@ namespace ProjectFilm_CNPM.Controllers
             var list = db.BaiViets.Where(m => m.TrangThai == 1).Take(4).ToList();
             return PartialView("ListBaiViet", list);
         }
+        public ActionResult GetTinhTrangGhe(int maPhong)
+        {
+           
+            var availableSeats = db.Ghes.Where(g => g.MaPhong == maPhong && g.TinhTrangGhe == false).ToList();
+
+            
+            return Json(availableSeats, JsonRequestBehavior.AllowGet);
+        }
 
 
 

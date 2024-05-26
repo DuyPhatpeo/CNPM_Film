@@ -44,6 +44,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/SuatChieu/Create
         public ActionResult Create()
         {
+            var danhsachPhong = db.Phongs.ToList();
             var danhSachPhim = db.Phims.ToList();
 
             // Chuyển ds phim thành SelectListItem
@@ -52,8 +53,14 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 Value = p.MaPhim.ToString(),
                 Text = p.TenPhim
             });
-
+            var phongList = danhsachPhong.Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
             ViewBag.PhimList = phimList;
+            ViewBag.PhongList = phongList;
+
             return View();
         }
 
@@ -64,7 +71,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SuatChieu suatChieu)
         {
-            // Lấy ds phim từ csdl
+            var danhsachPhong = db.Phongs.ToList();
             var danhSachPhim = db.Phims.ToList();
 
             // Chuyển ds phim thành SelectListItem
@@ -73,6 +80,13 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 Value = p.MaPhim.ToString(),
                 Text = p.TenPhim
             });
+            var phongList = danhsachPhong.Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
+            ViewBag.PhimList = phimList;
+            ViewBag.PhongList = phongList;
             if (ModelState.IsValid)
             {
 
@@ -97,7 +111,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/SuatChieu/Edit/5
         public ActionResult Edit(int? id)
         {
-            // Lấy ds phim từ csdl
+            var danhsachPhong = db.Phongs.ToList();
             var danhSachPhim = db.Phims.ToList();
 
             // Chuyển ds phim thành SelectListItem
@@ -106,8 +120,13 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 Value = p.MaPhim.ToString(),
                 Text = p.TenPhim
             });
-
+            var phongList = danhsachPhong.Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
             ViewBag.PhimList = phimList;
+            ViewBag.PhongList = phongList;
             if (id == null)
             {
                 TempData["message"] = new XMessage("danger", "Không tìm thấy suất chiếu");
@@ -129,7 +148,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SuatChieu suatChieu)
         {
-            // Lấy ds phim từ csdl
+            var danhsachPhong = db.Phongs.ToList();
             var danhSachPhim = db.Phims.ToList();
 
             // Chuyển ds phim thành SelectListItem
@@ -138,8 +157,13 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 Value = p.MaPhim.ToString(),
                 Text = p.TenPhim
             });
-
+            var phongList = danhsachPhong.Select(p => new SelectListItem
+            {
+                Value = p.MaPhong.ToString(),
+                Text = p.TenPhong
+            });
             ViewBag.PhimList = phimList;
+            ViewBag.PhongList = phongList;
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:
