@@ -217,6 +217,7 @@
     <Compile Include="Models\ERD\BaiViet.cs" />
     <Compile Include="Models\ERD\ChiTietHoaDon.cs" />
     <Compile Include="Models\ERD\ChuDe.cs" />
+    <Compile Include="Models\ERD\DoanhThuViewModel.cs" />
     <Compile Include="Models\ERD\Ghe.cs" />
     <Compile Include="Models\ERD\HoaDon.cs" />
     <Compile Include="Models\ERD\Link.cs" />
@@ -2345,6 +2346,7 @@
     <Content Include="Public\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\HoaDon\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDon\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DoanhThu\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2405,7 +2407,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\DoanhThu\" />
     <Folder Include="Public\img\account\" />
     <Folder Include="Public\img\baiviet\" />
     <Folder Include="Public\img\phim\" />
