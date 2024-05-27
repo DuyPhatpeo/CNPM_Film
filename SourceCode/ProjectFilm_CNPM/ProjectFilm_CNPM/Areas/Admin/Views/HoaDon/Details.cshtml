@@ -44,10 +44,10 @@
                                 <th>@Html.DisplayNameFor(model => model.SuatChieu.GioChieu)</th>
                                 <th>@Html.DisplayNameFor(model => model.HoaDon.NguoiDung.TenND)</th>
                                 <th>@Html.DisplayNameFor(model => model.Ghe.TenGhe)</th>
+                                <th>@Html.DisplayNameFor(model => model.Ghe.GiaGhe)</th>
                                 <th>@Html.DisplayNameFor(model => model.Ghe.Phong.TenPhong)</th>
                                 <th>@Html.DisplayNameFor(model => model.BapNuoc)</th>
                                 <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
-                                <th>@Html.DisplayNameFor(model => model.Ghe.GiaGhe)</th>
                                 
                             </tr>
                         </thead>
@@ -61,8 +61,8 @@
                                     <td>@Html.DisplayFor(modelItem => item.SuatChieu.GioChieu)</td>
                                     <td>@Html.DisplayFor(modelItem => item.HoaDon.NguoiDung.TenND)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Ghe.TenGhe)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Ghe.Phong.TenPhong)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Ghe.GiaGhe)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Ghe.Phong.TenPhong)</td>
                                     <td>
                                         @if (item.BapNuoc)
                                         {
@@ -73,7 +73,6 @@
                                             <span>Không</span>
                                         }
                                     </td>
-
                                     <td>@Html.DisplayFor(modelItem => item.NgayTao)</td>
 
                                     @{ i++; }

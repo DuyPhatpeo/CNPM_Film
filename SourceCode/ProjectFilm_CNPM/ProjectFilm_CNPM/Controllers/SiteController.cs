@@ -149,7 +149,7 @@ namespace ProjectFilm_CNPM.Controllers
             {
                 return Json(new { redirectToLogin = true }, JsonRequestBehavior.AllowGet);
             }
-            var seats = db.Ghes.Where(g=> g.TrangThai == 1)
+            var seats = db.Ghes.Where(g => g.TrangThai == 1)
                                .Select(g => new
                                {
                                    g.MaGhe,
@@ -204,16 +204,13 @@ namespace ProjectFilm_CNPM.Controllers
                         NgayCapNhat = DateTime.Now,
                         TrangThai = 1,
                         NguoiTao = Convert.ToInt32(Session["NguoiDung"]),
-                        NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
+                        NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"])
                     };
                     db.ChiTietHoaDons.Add(chiTietHoaDon);
                 }
             }
             db.SaveChanges();
             return Json(new { success = true });
-
         }
-
-        
     }
 }
