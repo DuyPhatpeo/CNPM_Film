@@ -59,6 +59,29 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-chart-line" aria-hidden="true"></i>
+                                <p>
+                                    Báo cáo
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("DoanhThuTheoPhim","DoanhThu")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Doanh thu theo phim</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("DoanhThuKhachHang","DoanhThu")" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Doanh thu khách hàng</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">

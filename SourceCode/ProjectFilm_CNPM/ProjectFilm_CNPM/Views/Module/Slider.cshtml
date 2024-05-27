@@ -32,10 +32,14 @@
                     @foreach (var slider in Model)
                     {
                         <div class="item" style="background-image: url('Public/img/slider/@slider.Anh');">
-                            
+                            <div class="header-text">
+                                <h2>@slider.TenSlider</h2>
+                            </div>
                         </div>
                     }
-                   
+                    <button role="presentation" class="owl-prev">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </div>

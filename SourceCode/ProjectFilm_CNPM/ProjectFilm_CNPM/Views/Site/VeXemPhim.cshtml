@@ -4,13 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Ticket</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .ticket-container {
             border: 2px dashed #7a6ad8;
@@ -49,7 +44,8 @@
 
         .btn-custom {
             background-color: #7a6ad8;
-            border-color: #7a6ad8;
+            border: 2px solid #fff;
+            border-radius: 5px;
             color: white;
         }
 
@@ -59,37 +55,39 @@
             }
     </style>
 </head>
-<body>
-    <div class="main-banner" id="top">
+<div class="main-banner" id="top">
 
+</div>
+<div class="ticket-container mt-4">
+    <div class="ticket-header">
+        <h4 style="text-transform:uppercase" class="d-flex justify-content-center align-items-center mt-2">@ViewBag.TenPhim</h4>
     </div>
-    <div class="ticket-container mt-4">
-        <div class="ticket-header">
-            <h4 style="text-transform:uppercase" class="d-flex justify-content-center align-items-center mt-2">@ViewBag.TenPhim</h4>
-        </div>
-        <div class="ticket-body">
-            <div class="ticket-details">
-                <div class="ticket-poster">
-                    <img src="~/Public/img/phim/@ViewBag.AnhPhim" alt="" class="img-fluid" style="max-width: 150px; border-radius: 10px;">
-                </div>
-                <div class="ticket-info">
-                    <p><strong>Galaxy Nha Trang Center - @ViewBag.TenPhong</strong></p>
-                    <p>Suất: <strong>@ViewBag.GioChieu.ToString("HH:mm")</strong> - @ViewBag.GioChieu.ToString("dddd", new System.Globalization.CultureInfo("vi-VN")) @ViewBag.GioChieu.ToString("dd/MM")</p>
-                    <p>Loại ghế:  @string.Join(", ", ViewBag.loaighe)</p>
-                    <p>Ghế: @string.Join(", ", ViewBag.DanhSachGhe)</p>
-                    <p><strong>Tổng cộng: @(ViewBag.TongGia.ToString("N0")) đ</strong></p>
-
-
-                </div>
+    <div class="ticket-body">
+        <div class="ticket-details">
+            <div class="ticket-poster">
+                <img src="~/Public/img/phim/@ViewBag.AnhPhim" alt="" class="img-fluid" style="max-width: 150px; border-radius: 10px;">
+            </div>
+            <div class="ticket-info">
+                <p><strong>Galaxy Nha Trang Center - @ViewBag.TenPhong</strong></p>
+                <p>Suất: <strong>@ViewBag.GioChieu.ToString("HH:mm")</strong> - @ViewBag.GioChieu.ToString("dddd", new System.Globalization.CultureInfo("vi-VN")) @ViewBag.GioChieu.ToString("dd/MM")</p>
+                <p>Loại ghế:  @string.Join(", ", ViewBag.loaighe)</p>
+                <p>Ghế: @string.Join(", ", ViewBag.DanhSachGhe)</p>
+                <p><strong>Tổng cộng: @(ViewBag.TongGia.ToString("N0")) đ</strong></p>
             </div>
         </div>
-        <div class="ticket-footer">
-            <button class="btn btn-custom">Thanh Toán</button>
-            <a><button class="btn btn-secondary">Quay Lại</button></a>
-        </div>
     </div>
+    <div class="ticket-footer">
+        <button class="btn btn-custom" id="payButton">Thanh Toán</button>
+        <a href="/"><button class="btn btn-secondary">Quay Lại</button></a>
+    </div>
+    <div class="alert alert-success mt-3" id="successMessage" style="display: none;">
+        Thanh toán thành công!
+    </div>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+<script>
+   
+    document.getElementById('payButton').addEventListener('click', function () {
+        document.getElementById('successMessage').style.display = 'block';
+    });
+</script>
