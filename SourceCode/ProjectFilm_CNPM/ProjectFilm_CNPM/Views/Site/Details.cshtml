@@ -518,10 +518,10 @@
 
         if (ticket.checked) {
             count += 1;
-            amount += ghe.GiaGhe; 
+            amount += ghe.GiaGhe;
         } else {
             count -= 1;
-            amount -= ghe.GiaGhe; 
+            amount -= ghe.GiaGhe;
         }
         document.querySelector(".amount").innerHTML = amount;
         document.querySelector(".count").innerHTML = count;
@@ -617,12 +617,12 @@
     document.querySelector('.custom-btn').addEventListener('click', function() {
     let selectedSeats = [];
     document.querySelectorAll('.all-seats input:checked').forEach(checkbox => {
-        selectedSeats.push(checkbox.id.substring(1)); 
+        selectedSeats.push(checkbox.id.substring(1));
     });
 
-    let maSuatChieu = ''; 
+    let maSuatChieu = '';
     document.querySelectorAll('.showtime_btn').forEach(button => {
-        if (button.classList.contains('active')) { 
+        if (button.classList.contains('active')) {
             maSuatChieu = button.getAttribute('data-masuatchieu');
         }
     });
@@ -643,6 +643,17 @@
         type: 'POST',
         data: JSON.stringify(requestData),
         contentType: 'application/json',
+        success: function (response) {
+            if (response.success) {
+                window.location.href = '@Url.Action("VeXemPhim", "Site")';
+
+            } else {
+                alert('Đặt vé thất bại. Vui lòng đặt lại sau.');
+            }
+        },
+        error: function () {
+            alert('Lỗi khi đặt vé!!! :<');
+        }
     });
 });
 

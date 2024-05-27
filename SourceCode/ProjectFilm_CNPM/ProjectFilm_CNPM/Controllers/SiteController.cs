@@ -166,11 +166,11 @@ namespace ProjectFilm_CNPM.Controllers
         }
 
         [HttpPost]
-        public ActionResult TaoHoaDon()
+        public JsonResult TaoHoaDon()
         {
             if (Session["NguoiDung"] == null)
             {
-                return RedirectToAction("Index");
+                return Json(new { success = false });
             }
             string requestBody;
             using (var reader = new StreamReader(Request.InputStream))
@@ -209,8 +209,8 @@ namespace ProjectFilm_CNPM.Controllers
                     db.ChiTietHoaDons.Add(chiTietHoaDon);
                 }
             }
-            db.SaveChanges(); 
-            return RedirectToAction("VeXemPhim");
+            db.SaveChanges();
+            return Json(new { success = true });
 
         }
 
