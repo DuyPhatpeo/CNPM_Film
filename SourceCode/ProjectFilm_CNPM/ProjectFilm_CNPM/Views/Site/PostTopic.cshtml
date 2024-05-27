@@ -1,8 +1,15 @@
-﻿@model ProjectFilm_CNPM.Models.ERD.ChuDe
+﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.BaiViet> 
 @{
-    ViewBag.Title = "PostTopic";
+    ViewBag.Title = "Chủ đề bài viết";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var topic = ViewBag.Topics;
 }
 
-<h2>PostTopic</h2>
+<h2>
+    @topic.TenChuDe
+</h2>
+@foreach(var item in Model)
+            {
+                <h1>@item.TenBV</h1>
+            }
 

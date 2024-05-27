@@ -480,7 +480,7 @@
                                 <div class="amount">0</div>
                             </div>
                             <div class="d-flex justify-content-around mt-4">
-                                <button type="submit" name="submit" class="btn custom-btn d-flex justify-content-around mt-4" value="Submit">Đăng ký</button>
+                                <button type="submit" name="submit" class="btn custom-btn d-flex justify-content-around mt-4" value="Submit">Mua vé</button>
                             </div>
                         </div>
                     </div>
@@ -518,10 +518,10 @@
 
         if (ticket.checked) {
             count += 1;
-            amount += ghe.GiaGhe; // Thay đổi giá trị từ 200 sang ghe.GiaGhe
+            amount += ghe.GiaGhe; 
         } else {
             count -= 1;
-            amount -= ghe.GiaGhe; // Thay đổi giá trị từ 200 sang ghe.GiaGhe
+            amount -= ghe.GiaGhe; 
         }
         document.querySelector(".amount").innerHTML = amount;
         document.querySelector(".count").innerHTML = count;
@@ -617,10 +617,10 @@
     document.querySelector('.custom-btn').addEventListener('click', function() {
     let selectedSeats = [];
     document.querySelectorAll('.all-seats input:checked').forEach(checkbox => {
-        selectedSeats.push(checkbox.id.substring(1)); // Get the seat ID without the prefix 's'
+        selectedSeats.push(checkbox.id.substring(1)); 
     });
 
-    let maSuatChieu = ''; // Retrieve maSuatChieu from the showtime button, for example
+    let maSuatChieu = ''; 
     document.querySelectorAll('.showtime_btn').forEach(button => {
         if (button.classList.contains('active')) { 
             maSuatChieu = button.getAttribute('data-masuatchieu');
@@ -643,17 +643,6 @@
         type: 'POST',
         data: JSON.stringify(requestData),
         contentType: 'application/json',
-        success: function(response) {
-            if (response.success) {
-                alert('Booking successful!');
-                
-            } else {
-                alert('Booking failed. Please try again.');
-            }
-        },
-        error: function() {
-            alert('Error submitting booking.');
-        }
     });
 });
 

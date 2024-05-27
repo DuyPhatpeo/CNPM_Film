@@ -80,7 +80,9 @@ namespace ProjectFilm_CNPM.Controllers
             ChuDe topics = db.ChuDes.Where(m => m.TenRutGon == slug && m.TrangThai == 1).FirstOrDefault();
             if (topics != null)
             {
-                return View("PostTopic", topics);
+                ViewBag.Topics = topics;
+                var baiViet = db.BaiViets.Where(m => m.ChuDeBV == topics.Id).ToList();
+                return View("PostTopic", baiViet);
             }
             return Error404();
         }
@@ -206,14 +208,13 @@ namespace ProjectFilm_CNPM.Controllers
                     };
                     db.ChiTietHoaDons.Add(chiTietHoaDon);
                 }
-                db.SaveChanges(); // Lưu các chi tiết hóa đơn
-                return RedirectToAction("VeXemPhim");
             }
+            db.SaveChanges(); 
             return RedirectToAction("VeXemPhim");
 
         }
 
-        public ActionResult Profile()
+        public ActionResult ProfileUser()
         {
             int maND = Convert.ToInt32(Session["NguoiDung"]);
             NguoiDung nguoiDung = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();

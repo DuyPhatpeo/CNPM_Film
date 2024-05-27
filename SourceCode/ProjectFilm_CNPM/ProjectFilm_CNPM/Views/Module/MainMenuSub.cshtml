@@ -100,7 +100,7 @@
                 </ul>
             </div>
         </li>
-        <li class="scroll-to-section">
+        @*<li class="scroll-to-section">
             <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
                 Bài viết
             </a>
@@ -110,7 +110,7 @@
                     <a href="@Url.Action("PostPage", "Site", new { id = item.Id })">@item.TenBV</a>
                 }
             </div>
-        </li>
+        </li>*@
         <li class="scroll-to-section">
             <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
                 Chủ đề
@@ -137,7 +137,7 @@
                 nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
             }
             <li class="scroll-to-section">
-                <a href="@Url.Action("Profile","Site")">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
+                <a href="@Url.Action("ProfileUser","Site")">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
             </li>
             <li class="scroll-to-section">
                 <a href="@Url.Action("DangXuat")">Đăng xuất</a>
