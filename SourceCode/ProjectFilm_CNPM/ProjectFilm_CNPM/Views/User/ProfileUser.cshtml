@@ -96,10 +96,28 @@
             background-color: transparent;
             border: none;
         }
-
+        .progress{
+            margin-top: 10px;
+        }
         .progress-bar {
             transition: width 0.6s ease;
         }
+        .input-container {
+            position: relative;
+        }
+
+        .icon-container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+        }
+
+        .icon {
+            color: #6c757d;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <div class="main-banner" id="top"></div>
@@ -111,7 +129,19 @@
                     <h4>@item.TenND</h4>
                 </div>
                 <div class="spending-info">
-                    <h5>Tổng chi tiêu 2024</h5>
+                    @if (ViewBag.Tongtien < 2000000)
+                    {
+                        <span>Thành viên</span>
+                    }
+                    else if (ViewBag.Tongtien < 5000000)
+                    {
+                        <span>VIP</span>
+                    }
+                    else
+                    {
+                        <span>Platinum</span>
+                    }
+                    <h5 class="mt-1">Tổng chi tiêu 2024</h5>
                     <div class="progress">
                         <div id="progressBar" class="progress-bar" role="progressbar" style="width: @(ViewBag.Tongtien / 2000000 * 100)%;" aria-valuenow="@ViewBag.Tongtien" aria-valuemin="0" aria-valuemax="4000000"></div>
                     </div>
@@ -170,6 +200,9 @@
                         <div class="input-container">
                             <i class="fas fa-lock icon"></i>
                             <input type="password" class="form-control" id="password" value="@item.MatKhau" readonly>
+                            <div class="icon-container">
+                                <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password')"></i>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -210,4 +243,17 @@
             }
         });
     });
+    function togglePasswordVisibility(inputId) {
+        var passwordInput = document.getElementById(inputId);
+        var toggleIcon = document.querySelector(`#${inputId} ~ .toggle-password`);
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
 </script>
