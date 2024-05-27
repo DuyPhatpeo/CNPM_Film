@@ -4,12 +4,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var topic = ViewBag.Topics;
 }
+<head>
+    <style>
+        h2 {
+            color: #343a40;
+            border-bottom: 2px solid #343a40;
+            padding-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
 
-<h2>
-    @topic.TenChuDe
-</h2>
-@foreach(var item in Model)
-            {
-                <h1>@item.TenBV</h1>
+            h2::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 5px;
+                background-color: #007bff;
             }
 
+        .movie-item img {
+            border-radius: 8px;
+        }
+
+        .movie-item h3 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<div class="main-banner" id="top">
+
+</div>
+<div class="container mt-4">
+    <h2 class="mb-4">@topic.TenChuDe</h2>
+    <div class="movie-list">
+        @foreach (var item in Model)
+        {
+            <div class="movie-item row mb-4">
+                <div class="col-md-4">
+                    <img src="~/Public/img/baiviet/@item.Anh" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h3><a href="@Url.Action("PostPage", "Site", new { slug = item.LienKet })" target="_blank">@item.TenBV</a></h3>
+                    <p>@item.MoTa</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

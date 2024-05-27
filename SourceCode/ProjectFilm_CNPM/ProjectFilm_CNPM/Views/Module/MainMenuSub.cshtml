@@ -100,17 +100,6 @@
                 </ul>
             </div>
         </li>
-        @*<li class="scroll-to-section">
-            <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
-                Bài viết
-            </a>
-            <div class="dropdown-content">
-                @foreach (var item in ViewBag.page)
-                {
-                    <a href="@Url.Action("PostPage", "Site", new { id = item.Id })">@item.TenBV</a>
-                }
-            </div>
-        </li>*@
         <li class="scroll-to-section">
             <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
                 Chủ đề
@@ -118,7 +107,7 @@
             <div class="dropdown-content">
                 @foreach (var item in ViewBag.topic)
                 {
-                    <a href="@Url.Action("PostTopic", "Site", new { id = item.Id })">@item.TenChuDe</a>
+                    <a href="@Url.Action("PostTopic", "Site", new { slug = item.TenRutGon })">@item.TenChuDe</a>
                 }
             </div>
         </li>
