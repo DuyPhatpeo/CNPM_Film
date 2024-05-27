@@ -4,17 +4,69 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var item = Model;
 }
+<head>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #343a40;
+            padding-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+            h2::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 5px;
+                background-color: #007bff;
+            }
+
+        .movie-item img {
+            border-radius: 8px;
+        }
+
+        .movie-item h3 {
+            color: #007bff;
+        }
+
+        .movie-details {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-embed {
+            margin-top: 20px;
+        }
+
+            .image-embed img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+        .movie-details p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
 <div class="main-banner" id="top">
 
 </div>
-<div class="container">
-    <h1 class="display-4 text-center">@item.TenBV</h1>
-    <div class="text-center my-4">
-        <img src="~/Public/img/baiviet/@item.Anh" class="img-fluid w-75">
-    </div>
-    <div class="article-content">
-        <p class="synopsis-desc">@item.ChiTiet</p>
+<div class="container mt-4">
+    <h2 class="mb-4">@item.TenBV</h2>
+    <div class="movie-details">
+        <div class="image-embed">
+            <img src="~/Public/img/baiviet/@item.Anh" alt="Bài viết hình ảnh">
+        </div>
+        <p>@item.ChiTiet</p>
     </div>
 </div>
-
