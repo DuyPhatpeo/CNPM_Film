@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.EnterpriseServices;
+using Antlr.Runtime.Tree;
 
 namespace ProjectFilm_CNPM.Models.ERD
 {
@@ -41,29 +43,8 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
-        // Navigation property
+        public int TongTien {  get; set; }
         public virtual NguoiDung NguoiDung { get; set; }
         public ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        [NotMapped]
-        public int TongTien
-        {
-            get
-            {
-                int tongTien = 0;
-
-                var chiTietHoaDonList = ChiTietHoaDons.ToList();
-
-                foreach (var chiTiet in chiTietHoaDonList)
-                {
-                    if (chiTiet.MaHD == MaHD)
-                    {
-                        tongTien += chiTiet.Ghe.GiaGhe;
-                    }
-                }
-
-                return tongTien;
-            }
-        }
-
     }
 }

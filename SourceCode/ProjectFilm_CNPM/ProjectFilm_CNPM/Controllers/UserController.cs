@@ -16,7 +16,7 @@ namespace ProjectFilm_CNPM.Controllers
         {
             int maND = Convert.ToInt32(Session["NguoiDung"]);
             NguoiDung nguoiDung = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
-
+            
             return View(nguoiDung);
         }
         public ActionResult DangNhap()

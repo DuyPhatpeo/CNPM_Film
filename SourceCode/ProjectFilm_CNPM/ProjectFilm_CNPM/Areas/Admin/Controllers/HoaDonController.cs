@@ -14,8 +14,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/HoaDon
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
-        {
-
+        { 
             return View(db.HoaDons.ToList());
         }
         public ActionResult Details(int? id)

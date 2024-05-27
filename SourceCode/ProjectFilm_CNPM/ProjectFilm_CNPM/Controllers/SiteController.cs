@@ -161,7 +161,7 @@ namespace ProjectFilm_CNPM.Controllers
             return Json(seats, JsonRequestBehavior.AllowGet);
         }
         public ActionResult VeXemPhim()
-        {
+        { 
             return View();
         }
 
@@ -180,12 +180,17 @@ namespace ProjectFilm_CNPM.Controllers
             // Parse dữ liệu JSON
             var requestData = JObject.Parse(requestBody);
             int maSuatChieu = int.Parse(requestData["maSuatChieu"]?.ToString());
+            int total = int.Parse(requestData["totalPrice"]?.ToString());
             var selectedSeats = requestData["selectedSeats"]?.Select(x => int.Parse(x.ToString())).ToList();
             HoaDon hoaDon = new HoaDon();
             hoaDon.NgayLapHD = DateTime.Now;
             hoaDon.NgayTao = DateTime.Now;
             hoaDon.NgayCapNhat = DateTime.Now;
             hoaDon.TrangThai = 1;
+            hoaDon.TongTien = total;
+            int maND = Convert.ToInt32(Session["NguoiDung"]);
+            NguoiDung nd = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
+            nd.TongTienTichLuy += total;
             hoaDon.NguoiTao = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.MaND = Convert.ToInt32(Session["NguoiDung"]);

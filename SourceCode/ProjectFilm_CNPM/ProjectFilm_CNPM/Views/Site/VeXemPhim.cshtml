@@ -4,5 +4,91 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>VeXemPhim</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .ticket-container {
+            border: 2px dashed #7a6ad8;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+            background-color: #fff;
+        }
 
+        .ticket-header, .ticket-footer {
+            background-color: #7a6ad8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .ticket-footer {
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+        }
+
+        .ticket-body {
+            padding: 20px;
+        }
+
+        .ticket-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ticket-info {
+            margin-bottom: 10px;
+        }
+
+        .btn-custom {
+            background-color: #7a6ad8;
+            border-color: #7a6ad8;
+            color: white;
+        }
+
+            .btn-custom:hover {
+                background-color: #5a50b2;
+                border-color: #5a50b2;
+            }
+    </style>
+</head>
+<body>
+    <div class="main-banner" id="top">
+
+    </div>
+    <div class="ticket-container mt-4">
+        <div class="ticket-header">
+            <h4>Furiosa: Câu Chuyện Từ Max Điên</h4>
+        </div>
+        <div class="ticket-body">
+            <div class="ticket-details">
+                <div class="ticket-poster">
+                    <img src="path-to-image.jpg" alt="Furiosa Movie Poster" class="img-fluid" style="max-width: 150px; border-radius: 10px;">
+                </div>
+                <div class="ticket-info">
+                    <p><strong>Galaxy Nha Trang Center - RAP 4</strong></p>
+                    <p>Suất: <strong>12:00</strong> - Thứ Hai, 27/05/2024</p>
+                    <p>4x Người Lớn - Member: 240.000 đ</p>
+                    <p>Ghế: J8, J9, J10, J11</p>
+                    <p>2x iCombo 1 Big Extra STD: 198.000 đ</p>
+                    <p><strong>Tổng cộng: 438.000 đ</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="ticket-footer">
+            <button class="btn btn-custom">Thanh Toán</button>
+            <button class="btn btn-secondary">Quay Lại</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

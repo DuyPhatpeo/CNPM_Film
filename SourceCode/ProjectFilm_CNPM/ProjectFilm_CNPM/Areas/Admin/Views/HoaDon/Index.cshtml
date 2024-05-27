@@ -43,14 +43,13 @@
                                 <th>@Html.DisplayNameFor(model => model.MaHD)</th>
                                 <th>@Html.DisplayNameFor(model => model.NguoiDung.TenND)</th>
                                 <th>@Html.DisplayNameFor(model => model.NgayLapHD)</th>
-                                <th>@Html.DisplayNameFor(model => model.TongTien)</th>
+                                <th>Tổng tiền</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-
                                 <tr>
                                     <td>@i</td>
                                     <td>@Html.DisplayFor(modelItem => item.MaHD)</td>
@@ -62,8 +61,8 @@
                                     </td>
                                     @{ i++; }
                                 </tr>
-
                             }
+
                         </tbody>
 
                     </table>

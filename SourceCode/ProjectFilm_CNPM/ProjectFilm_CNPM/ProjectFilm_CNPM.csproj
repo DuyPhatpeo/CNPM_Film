@@ -199,6 +199,14 @@
     <Compile Include="Migrations\202405260824518_created.designer.cs">
       <DependentUpon>202405260824518_created.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405270653176_createdv2.cs" />
+    <Compile Include="Migrations\202405270653176_createdv2.designer.cs">
+      <DependentUpon>202405270653176_createdv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405270658367_createv3.cs" />
+    <Compile Include="Migrations\202405270658367_createv3.designer.cs">
+      <DependentUpon>202405270658367_createv3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ERD\BaiViet.cs" />
@@ -2431,6 +2439,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202405260824518_created.resx">
       <DependentUpon>202405260824518_created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405270653176_createdv2.resx">
+      <DependentUpon>202405270653176_createdv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405270658367_createv3.resx">
+      <DependentUpon>202405270658367_createv3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

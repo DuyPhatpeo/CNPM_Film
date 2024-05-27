@@ -70,8 +70,9 @@ namespace ProjectFilm_CNPM.Models.ERD
         public DateTime? NgayCapNhat { get; set; }
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
+        public int TongTienTichLuy { get; set; }
         public ICollection<HoaDon> HoaDons { get; set; }
-        [NotMapped] // Không map thuộc tính này vào cơ sở dữ liệu
+        /*[NotMapped] // Không map thuộc tính này vào cơ sở dữ liệu
         public int TongTienHoaDon
         {
             get
@@ -87,6 +88,6 @@ namespace ProjectFilm_CNPM.Models.ERD
                 }
                 return total;
             }
-        }
+        }*/
     }
 }

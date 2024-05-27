@@ -476,8 +476,8 @@
                         </div>
                         <div class="price">
                             <div class="total">
-                                <span> <span class="count">0</span> Tickets </span>
-                                <div class="amount">0</div>
+                                <span> <span class="count">0</span> Vé </span>
+                                <div class="totalPrice">0</div>
                             </div>
                             <div class="d-flex justify-content-around mt-4">
                                 <button type="submit" name="submit" class="btn custom-btn d-flex justify-content-around mt-4" value="Submit">Mua vé</button>
@@ -511,19 +511,19 @@
     let tickets = seats.querySelectorAll("input");
     tickets.forEach((ticket) => {
     ticket.addEventListener("change", () => {
-        let amount = document.querySelector(".amount").innerHTML;
+        let totalPrice = document.querySelector(".totalPrice").innerHTML;
         let count = document.querySelector(".count").innerHTML;
-        amount = Number(amount);
+        totalPrice = Number(totalPrice);
         count = Number(count);
 
         if (ticket.checked) {
             count += 1;
-            amount += ghe.GiaGhe;
+            totalPrice += ghe.GiaGhe;
         } else {
             count -= 1;
-            amount -= ghe.GiaGhe;
+            totalPrice -= ghe.GiaGhe;
         }
-        document.querySelector(".amount").innerHTML = amount;
+        document.querySelector(".totalPrice").innerHTML = totalPrice;
         document.querySelector(".count").innerHTML = count;
     });
 });
@@ -579,20 +579,20 @@
         let tickets = seatsContainer.querySelectorAll("input");
         tickets.forEach((ticket) => {
             ticket.addEventListener("change", () => {
-                let amount = document.querySelector(".amount").innerHTML;
+                let totalPrice = document.querySelector(".totalPrice").innerHTML;
                 let count = document.querySelector(".count").innerHTML;
                 let giaGhe = seats.find(seat => seat.MaGhe === parseInt(ticket.id.substring(1))).GiaGhe;
-                amount = Number(amount);
+                totalPrice = Number(totalPrice);
                 count = Number(count);
                 // Sử dụng giá của ghế từ dữ liệu trả về
                 if (ticket.checked) {
                     count += 1;
-                    amount += giaGhe;
+                    totalPrice += giaGhe;
                 } else {
                     count -= 1;
-                    amount -= giaGhe;
+                    totalPrice -= giaGhe;
                 }
-                document.querySelector(".amount").innerHTML = amount;
+                document.querySelector(".totalPrice").innerHTML = totalPrice;
                 document.querySelector(".count").innerHTML = count;
             });
         });
@@ -626,15 +626,11 @@
             maSuatChieu = button.getAttribute('data-masuatchieu');
         }
     });
-
-    // Debugging statements
-    console.log("Selected Seats:", selectedSeats);
-    console.log("Selected Showtime:", maSuatChieu);
-
-    // Prepare data for AJAX call
+        let totalPrice = document.querySelector('.totalPrice').innerText;
     let requestData = {
         maSuatChieu: maSuatChieu,
         selectedSeats: selectedSeats,
+        totalPrice: totalPrice
     };
 
     // Make AJAX call to TaoHoaDon action
