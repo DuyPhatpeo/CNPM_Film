@@ -22,7 +22,7 @@ namespace ProjectFilm_CNPM
         {
             Session["UserID"] = "1";
             Session["NguoiDung"] = null;
-            Session["MaHoaDon"] = 36;
+            Session["MaHoaDon"] = null;
         }
     }
 }

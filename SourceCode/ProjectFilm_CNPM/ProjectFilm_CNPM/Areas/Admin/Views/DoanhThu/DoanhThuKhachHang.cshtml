@@ -1,0 +1,74 @@
+﻿@model List<Tuple<ProjectFilm_CNPM.Models.ERD.NguoiDung, int>>
+
+@{
+    ViewBag.Title = "Doanh thu theo phim";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
+}
+
+@section header{
+    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Public/js/jquery.dataTables.min.js"></script>
+    <script>let table = new DataTable('#myTable');</script>
+}
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">ĐIỂM TÍCH LŨY KHÁCH HÀNG</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Số thứ tự</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số tiền tích lũy (VNĐ)</th>
+                                <th>Loại khách hàng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Item1.TenND</td>
+                                    <td>@item.Item2.ToString("N0") đ</td>
+                                    <td>
+                                        @if (item.Item2 < 2000000)
+                                        {
+                                            <span>Thành viên</span>
+                                        }
+                                        else if (item.Item2 < 5000000)
+                                        {
+                                            <span>VIP</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Platinum</span>
+                                        }
+                                    </td>
+                                    @{ i++;}
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

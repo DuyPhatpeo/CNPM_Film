@@ -8,13 +8,14 @@ using System.Web.Mvc;
 
 namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DoanhThuController : Controller
     {
         // GET: Admin/DoanhThu
         private readonly ApplicationDbContext db = new ApplicationDbContext();
-        public ActionResult Index()
+        public ActionResult DoanhThuTheoPhim()
         {
-            var totalRevenuePerMovie = db.ChiTietHoaDons
+            var doanhthutheophim = db.ChiTietHoaDons
                 .Where(cthd => cthd.HoaDon.TrangThai == 1) 
                 .Join(db.SuatChieus, cthd => cthd.MaSuatChieu, sc => sc.MaSuatChieu, (cthd, sc) => new { cthd, sc }) 
                 .GroupBy(x => x.sc.MaPhim)
@@ -28,7 +29,29 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 })
                 .ToList();
 
-            return View(totalRevenuePerMovie);
+            return View(doanhthutheophim);
         }
+        public ActionResult DoanhThuKhachHang()
+        {
+            // Lấy danh sách khách hàng từ cơ sở dữ liệu
+            var danhSachKhachHang = db.NguoiDungs.ToList();
+
+            // Tạo một danh sách để lưu thông tin về số tiền tích lũy của mỗi khách hàng
+            var thongTinTichLuyKhachHang = new List<Tuple<NguoiDung, int>>();
+
+            foreach (var khachHang in danhSachKhachHang)
+            {
+                int? tongTienTichLuy = db.HoaDons
+                    .Where(hd => hd.MaND == khachHang.MaND)
+                    .Sum(hd => (int?)hd.TongTien); // Sử dụng kiểu dữ liệu nullable int?
+
+                // Kiểm tra nếu tổng tiền tích lũy là null, thì gán giá trị mặc định là 0
+                int tongTien = tongTienTichLuy ?? 0;
+
+                thongTinTichLuyKhachHang.Add(new Tuple<NguoiDung, int>(khachHang, tongTien));
+            }
+            return View(thongTinTichLuyKhachHang);
+        }
+
     }
 }

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HoaDonController : Controller
     {
         // GET: Admin/HoaDon

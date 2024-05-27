@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         // GET: Admin/Home
