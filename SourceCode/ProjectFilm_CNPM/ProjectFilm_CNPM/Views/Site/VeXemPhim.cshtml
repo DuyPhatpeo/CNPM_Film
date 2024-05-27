@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "VeXemPhim";
+    ViewBag.Title = "Vé xem phim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -65,26 +65,27 @@
     </div>
     <div class="ticket-container mt-4">
         <div class="ticket-header">
-            <h4>Furiosa: Câu Chuyện Từ Max Điên</h4>
+            <h4 style="text-transform:uppercase" class="d-flex justify-content-center align-items-center mt-2">@ViewBag.TenPhim</h4>
         </div>
         <div class="ticket-body">
             <div class="ticket-details">
                 <div class="ticket-poster">
-                    <img src="path-to-image.jpg" alt="Furiosa Movie Poster" class="img-fluid" style="max-width: 150px; border-radius: 10px;">
+                    <img src="~/Public/img/phim/@ViewBag.AnhPhim" alt="" class="img-fluid" style="max-width: 150px; border-radius: 10px;">
                 </div>
                 <div class="ticket-info">
-                    <p><strong>Galaxy Nha Trang Center - RAP 4</strong></p>
-                    <p>Suất: <strong>12:00</strong> - Thứ Hai, 27/05/2024</p>
-                    <p>4x Người Lớn - Member: 240.000 đ</p>
-                    <p>Ghế: J8, J9, J10, J11</p>
-                    <p>2x iCombo 1 Big Extra STD: 198.000 đ</p>
-                    <p><strong>Tổng cộng: 438.000 đ</strong></p>
+                    <p><strong>Galaxy Nha Trang Center - @ViewBag.TenPhong</strong></p>
+                    <p>Suất: <strong>@ViewBag.GioChieu.ToString("HH:mm")</strong> - @ViewBag.GioChieu.ToString("dddd", new System.Globalization.CultureInfo("vi-VN")) @ViewBag.GioChieu.ToString("dd/MM")</p>
+                    <p>Loại ghế:  @string.Join(", ", ViewBag.loaighe)</p>
+                    <p>Ghế: @string.Join(", ", ViewBag.DanhSachGhe)</p>
+                    <p><strong>Tổng cộng: @(ViewBag.TongGia.ToString("N0")) đ</strong></p>
+
+
                 </div>
             </div>
         </div>
         <div class="ticket-footer">
             <button class="btn btn-custom">Thanh Toán</button>
-            <button class="btn btn-secondary">Quay Lại</button>
+            <a><button class="btn btn-secondary">Quay Lại</button></a>
         </div>
     </div>
 

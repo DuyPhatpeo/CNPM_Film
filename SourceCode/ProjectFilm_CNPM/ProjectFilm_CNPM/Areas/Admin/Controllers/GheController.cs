@@ -99,7 +99,6 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 ghe.NgayTao = DateTime.Now;
                 //---Create By
                 ghe.NguoiTao = Convert.ToInt32(Session["UserId"]);
-                ghe.TinhTrangGhe = false;
                 //Update at
                 ghe.NgayCapNhat = DateTime.Now;
                 //Update by
@@ -177,7 +176,6 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 ghe.NgayTao = DateTime.Now;
                 //---Create By
                 ghe.NguoiTao = Convert.ToInt32(Session["UserId"]);
-                ghe.TinhTrangGhe = false;
                 //Update at
                 ghe.NgayCapNhat = DateTime.Now;
                 //Update by

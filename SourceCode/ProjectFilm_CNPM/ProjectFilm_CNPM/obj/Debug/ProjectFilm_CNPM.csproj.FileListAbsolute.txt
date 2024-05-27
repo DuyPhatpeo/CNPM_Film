@@ -220,3 +220,4 @@ C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFil
 C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.csproj.GenerateResource.cache
 C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.Migrations.createdv2.resources
 C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.Migrations.createv3.resources
+C:\Users\Vu Phuc\Documents\CNPM\CNPM_Film\SourceCode\ProjectFilm_CNPM\ProjectFilm_CNPM\obj\Debug\ProjectFilm_CNPM.Migrations.createv31.resources

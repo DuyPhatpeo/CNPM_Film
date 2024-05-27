@@ -1,3 +1,4 @@
+using ProjectFilm_CNPM.Models.ERD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace ProjectFilm_CNPM
         {
             Session["UserID"] = "1";
             Session["NguoiDung"] = null;
+            Session["MaHoaDon"] = 36;
         }
     }
 }

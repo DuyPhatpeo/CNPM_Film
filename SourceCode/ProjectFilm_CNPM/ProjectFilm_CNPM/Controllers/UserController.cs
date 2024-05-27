@@ -2,6 +2,7 @@
 using ProjectFilm_CNPM.Models.ERD;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,7 +17,16 @@ namespace ProjectFilm_CNPM.Controllers
         {
             int maND = Convert.ToInt32(Session["NguoiDung"]);
             NguoiDung nguoiDung = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
+            var danhSachHoaDon = db.HoaDons.Where(hd => hd.MaND == maND).ToList();
+
             
+            int tongTienTichLuy = 0;
+            foreach (var hoaDon in danhSachHoaDon)
+            {
+                tongTienTichLuy += hoaDon.TongTien;
+            }
+
+            ViewBag.Tongtien = tongTienTichLuy;
             return View(nguoiDung);
         }
         public ActionResult DangNhap()

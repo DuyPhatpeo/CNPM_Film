@@ -153,7 +153,6 @@ namespace ProjectFilm_CNPM.Controllers
                                .Select(g => new
                                {
                                    g.MaGhe,
-                                   g.TinhTrangGhe,
                                    g.GiaGhe,
                                    g.LoaiGhe
                                })
@@ -161,8 +160,39 @@ namespace ProjectFilm_CNPM.Controllers
             return Json(seats, JsonRequestBehavior.AllowGet);
         }
         public ActionResult VeXemPhim()
-        { 
-            return View();
+        {
+            int? maHoaDon = Session["MaHoaDon"] as int?;
+            if (maHoaDon != null)
+            {
+                var cthdlist = db.ChiTietHoaDons.Where(m => m.MaHD == maHoaDon).ToList();
+                ViewBag.TongGia = db.HoaDons.Where(m => m.MaHD == maHoaDon).Select(hd => hd.TongTien).FirstOrDefault();
+                if (cthdlist.Any())
+                {
+                    // Lấy thông tin từ ChiTietHoaDon đầu tiên vì cùng một mã hóa đơn có thể có nhiều chi tiết hóa đơn khác nhau
+                    var cthd = cthdlist.First();
+
+                    // Lấy ra tên phim từ cthd.SuatChieu.Phim.TenPhim
+                    ViewBag.TenPhim = cthd.SuatChieu.Phim.TenPhim;
+                    ViewBag.TenPhong = cthd.Ghe.Phong.TenPhong;
+                    ViewBag.AnhPhim = cthd.SuatChieu.Phim.Anh;
+                    List<string> loaighe = cthdlist.Select(ct=> ct.Ghe.LoaiGhe).ToList();
+                    ViewBag.loaighe = loaighe;
+                    // Lấy ra danh sách ghế từ cthd.Ghe.TenGhe
+                    List<string> danhSachGhe = cthdlist.Select(ct => ct.Ghe.TenGhe).ToList();
+                    ViewBag.DanhSachGhe = danhSachGhe;
+
+                    // Lấy ra giờ chiếu từ cthd.SuatChieu.GioChieu
+                    ViewBag.GioChieu = cthd.SuatChieu.GioChieu;
+
+                    // Xóa mã hóa đơn khỏi Session sau khi đã sử dụng xong
+                    //Session.Remove("MaHoaDon");
+
+                    return View();
+                }
+            }
+
+            // Nếu không có mã hóa đơn hoặc không tìm thấy chi tiết hóa đơn nào tương ứng, chuyển hướng đến trang lỗi 404
+            return RedirectToAction("Error404", "Site");
         }
 
         [HttpPost]
@@ -189,8 +219,7 @@ namespace ProjectFilm_CNPM.Controllers
             hoaDon.TrangThai = 1;
             hoaDon.TongTien = total;
             int maND = Convert.ToInt32(Session["NguoiDung"]);
-            NguoiDung nd = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
-            nd.TongTienTichLuy += total;
+
             hoaDon.NguoiTao = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.MaND = Convert.ToInt32(Session["NguoiDung"]);
@@ -215,6 +244,7 @@ namespace ProjectFilm_CNPM.Controllers
                 }
             }
             db.SaveChanges();
+            Session["MaHoaDon"] = hoaDon.MaHD;
             return Json(new { success = true });
         }
     }
