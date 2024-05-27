@@ -71,5 +71,22 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Display(Name = "Trạng thái")]
         public int? TrangThai { get; set; }
         public ICollection<HoaDon> HoaDons { get; set; }
+        [NotMapped] // Không map thuộc tính này vào cơ sở dữ liệu
+        public int TongTienHoaDon
+        {
+            get
+            {
+                int total = 0;
+                var list = HoaDons.ToList();
+                foreach(HoaDon hd in list)
+                {
+                    if(hd.MaND == MaND)
+                    {
+                        total += hd.TongTien;
+                    }
+                }
+                return total;
+            }
+        }
     }
 }

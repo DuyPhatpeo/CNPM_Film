@@ -17,12 +17,12 @@ namespace ProjectFilm_CNPM
             routes.MapRoute(
             name: "dangnhap",
             url: "dang-nhap",
-            defaults: new { controller = "Module", action = "DangNhap" }
+            defaults: new { controller = "User", action = "DangNhap" }
         );
             routes.MapRoute(
             name: "dangky",
             url: "dang-ky",
-            defaults: new { controller = "Module", action = "DangKy" }
+            defaults: new { controller = "User", action = "DangKy" }
         );
             routes.MapRoute(
               name: "Siteslug",

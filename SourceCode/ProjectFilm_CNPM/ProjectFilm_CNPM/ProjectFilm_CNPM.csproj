@@ -175,6 +175,7 @@
     <Compile Include="Areas\Admin\Controllers\BaiVietController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
     <Compile Include="Areas\Admin\Controllers\GheController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PhimController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2328,6 +2330,8 @@
     <Content Include="Public\assets\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Public\vendor\jquery\jquery.min.map" />
     <Content Include="Public\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\Admin\Views\HoaDon\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\Details.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2380,10 +2384,11 @@
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Module\MainMenuSub.cshtml" />
     <Content Include="Views\Site\ListBaiViet.cshtml" />
-    <Content Include="Views\Module\DangNhap.cshtml" />
-    <Content Include="Views\Module\DangKy.cshtml" />
+    <Content Include="Views\User\DangNhap.cshtml" />
+    <Content Include="Views\User\DangKy.cshtml" />
     <Content Include="Views\Site\TaoHoaDon.cshtml" />
     <Content Include="Views\Site\VeXemPhim.cshtml" />
+    <Content Include="Views\User\ProfileUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

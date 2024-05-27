@@ -44,6 +44,26 @@ namespace ProjectFilm_CNPM.Models.ERD
         // Navigation property
         public virtual NguoiDung NguoiDung { get; set; }
         public ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        [NotMapped]
+        public int TongTien
+        {
+            get
+            {
+                int tongTien = 0;
+
+                var chiTietHoaDonList = ChiTietHoaDons.ToList();
+
+                foreach (var chiTiet in chiTietHoaDonList)
+                {
+                    if (chiTiet.MaHD == MaHD)
+                    {
+                        tongTien += chiTiet.Ghe.GiaGhe;
+                    }
+                }
+
+                return tongTien;
+            }
+        }
 
     }
 }

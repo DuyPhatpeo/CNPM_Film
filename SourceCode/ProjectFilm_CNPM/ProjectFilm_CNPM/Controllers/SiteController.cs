@@ -149,7 +149,7 @@ namespace ProjectFilm_CNPM.Controllers
             {
                 return Json(new { redirectToLogin = true }, JsonRequestBehavior.AllowGet);
             }
-            var seats = db.Ghes.Where(g => g.TinhTrangGhe == false && g.TrangThai == 1)
+            var seats = db.Ghes.Where(g=> g.TrangThai == 1)
                                .Select(g => new
                                {
                                    g.MaGhe,
@@ -204,7 +204,7 @@ namespace ProjectFilm_CNPM.Controllers
                         NgayCapNhat = DateTime.Now,
                         TrangThai = 1,
                         NguoiTao = Convert.ToInt32(Session["NguoiDung"]),
-                        NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"])
+                        NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
                     };
                     db.ChiTietHoaDons.Add(chiTietHoaDon);
                 }
@@ -214,12 +214,6 @@ namespace ProjectFilm_CNPM.Controllers
 
         }
 
-        public ActionResult ProfileUser()
-        {
-            int maND = Convert.ToInt32(Session["NguoiDung"]);
-            NguoiDung nguoiDung = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
-
-            return View(nguoiDung);
-        }
+        
     }
 }

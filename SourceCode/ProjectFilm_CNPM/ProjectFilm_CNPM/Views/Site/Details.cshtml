@@ -535,13 +535,13 @@
         data: { },
         success: function(data) {
             if (data.redirectToLogin) {
-                window.location.href = '@Url.Action("DangNhap", "Module")';
+                window.location.href = '@Url.Action("DangNhap", "User")';
             } else {
                 displaySeats(data);
             }
         },
         error: function() {
-            alert("Error fetching seats.");
+            alert("Lỗi khi lấy danh sách ghế.");
         }
     });
 }

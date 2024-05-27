@@ -114,7 +114,7 @@
         @if (Session["NguoiDung"] == null)
         {
             <li class="scroll-to-section">
-                <a href="@Url.Action("DangNhap","Module")">Đăng nhập</a>
+                <a href="@Url.Action("DangNhap","User")">Đăng nhập</a>
             </li>
         }
         else
@@ -126,10 +126,10 @@
                 nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
             }
             <li class="scroll-to-section">
-                <a href="@Url.Action("ProfileUser","Site")">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
+                <a href="@Url.Action("ProfileUser","User")">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
             </li>
             <li class="scroll-to-section">
-                <a href="@Url.Action("DangXuat")">Đăng xuất</a>
+                <a href="@Url.Action("DangXuat","User")">Đăng xuất</a>
             </li>
         }
     </ul>
