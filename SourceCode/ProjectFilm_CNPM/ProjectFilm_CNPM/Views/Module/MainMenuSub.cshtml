@@ -4,6 +4,7 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+            border-radius: 8px;
         }
 
         li.scroll-to-section {
@@ -22,34 +23,37 @@
                 cursor: pointer;
             }
 
-            li.scroll-to-section .dropdown-content {
+            li.scroll-to-section .dropdown-list {
                 display: none;
                 position: absolute;
-                background-color: white; /* White background for dropdown */
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                background-color: black;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                 z-index: 1;
-                min-width: 160px;
-                padding: 0; /* Remove padding to ensure items are close */
+                padding: 0;
+                border: 1px solid #ccc;
             }
 
-                li.scroll-to-section .dropdown-content a {
-                    color: black; /* Black text for dropdown items */
-                    padding: 8px 12px; /* Adjust padding for closer items */
+                li.scroll-to-section .dropdown-list a {
+                    color: white;
+                    background-color: black;
+                    padding: 8px 12px;
                     text-decoration: none;
                     display: block;
                     text-align: center;
+                    white-space: nowrap;
                     line-height: normal;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    border-radius: 8px;
                 }
 
-                    li.scroll-to-section .dropdown-content a:hover {
-                        background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background on hover */
+                    li.scroll-to-section .dropdown-list a:hover {
+                        color: #7a6ad8;
+                        background-color: black;
                     }
 
-            li.scroll-to-section:hover .dropdown-content,
-            .dropdown:hover .dropdown-menu {
+            li.scroll-to-section:hover .dropdown-list {
                 display: block;
             }
 
@@ -82,17 +86,13 @@
     <ul class="nav">
         <li class="scroll-to-section">
             <div class="dropdown">
-                <a href="/">
-                    Home
-                </a>
+                <a href="/">Home</a>
             </div>
         </li>
         <li class="scroll-to-section">
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
-                    Phim
-                </a>
-                <ul class="dropdown-content">
+                <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">Phim</a>
+                <ul class="dropdown-list">
                     @foreach (var item in ViewBag.phim)
                     {
                         <a href="@Url.Action("Details", "Site", new { slug = item.TenRutGon })">@item.TenPhim</a>
@@ -101,10 +101,8 @@
             </div>
         </li>
         <li class="scroll-to-section">
-            <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">
-                Chủ đề
-            </a>
-            <div class="dropdown-content">
+            <a href="#" class="dropdown-toggle" id="dropdownMenuButton" aria-expanded="false">Chủ đề</a>
+            <div class="dropdown-list">
                 @foreach (var item in ViewBag.topic)
                 {
                     <a href="@Url.Action("PostTopic", "Site", new { slug = item.TenRutGon })">@item.TenChuDe</a>
