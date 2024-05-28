@@ -190,6 +190,7 @@
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2406,6 +2407,7 @@
     <Content Include="Views\Site\TaoHoaDon.cshtml" />
     <Content Include="Views\Site\VeXemPhim.cshtml" />
     <Content Include="Views\User\ProfileUser.cshtml" />
+    <Content Include="Views\TimKiem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

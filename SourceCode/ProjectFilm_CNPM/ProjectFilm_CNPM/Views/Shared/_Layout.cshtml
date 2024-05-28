@@ -62,8 +62,8 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Serach Start ***** -->
                         <div class="search-input">
-                            <form id="search" action="#">
-                                <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                            <form id="search" action="@Url.Action("Index","TimKiem")" method="post">
+                                <input type="text" placeholder="Type Something" id='searchString' name="searchString" value="@ViewBag.searchString" onkeypress="handle" />
                                 <i class="fa fa-search"></i>
                             </form>
                         </div>

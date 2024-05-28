@@ -42,7 +42,7 @@
 
             .profile-card .spending-info {
                 text-align: center;
-                margin-top: 20px;
+                margin-top: 10px;
             }
 
         .profile-form {
@@ -53,7 +53,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         .form-control[readonly] {
             background-color: #e9ecef;
             opacity: 1;
@@ -101,6 +100,8 @@
         }
         .progress-bar {
             transition: width 0.6s ease;
+            background-color:orangered
+   
         }
         .input-container {
             position: relative;
@@ -131,15 +132,15 @@
                 <div class="spending-info">
                     @if (ViewBag.Tongtien < 2000000)
                     {
-                        <span>Thành viên</span>
+                        <span style="color:blue">Thành viên</span>
                     }
                     else if (ViewBag.Tongtien < 5000000)
                     {
-                        <span>VIP</span>
+                        <span style="color:yellow">VIP</span>
                     }
                     else
                     {
-                        <span>Platinum</span>
+                        <span style="color:purple">Platinum</span>
                     }
                     <h5 class="mt-1">Tổng chi tiêu 2024</h5>
                     <div class="progress">
