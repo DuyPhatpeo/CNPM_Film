@@ -5,6 +5,7 @@
             padding: 0;
             margin: 0;
             border-radius: 8px;
+            
         }
 
         .dropdown-list {
@@ -33,10 +34,33 @@
                 justify-content: center;
                 border-radius: 8px;
             }
+        li.scroll-to-section .dropdown-list {
+            display: none;
+            position: absolute;
+            background-color: white !important;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 5px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
 
-                .dropdown-list a:hover {
-                    color: white;
-                    background-color: #94d2bd;
+            li.scroll-to-section .dropdown-list a {
+                background-color: white;
+                padding: 8px 12px;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                white-space: nowrap;
+                line-height: normal !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+                li.scroll-to-section .dropdown-list a:hover {
+                    color: white !important;
+                    background-color: #3414e4;
                 }
 
         li.scroll-to-section:hover .dropdown-list {
@@ -63,17 +87,16 @@
                 background-color: #6a5ac8;
             }
 
-        .text-warning {
-            color: #ffc107 !important;
+        .text-user {
+            color: #00ffef !important;
+            font-weight:bold
         }
     </style>
 </head>
 <body>
     <ul class="nav">
         <li class="scroll-to-section">
-            <div class="dropdown">
-                <a href="/">Home</a>
-            </div>
+             <a href="/">Trang Chủ</a>
         </li>
         <li class="scroll-to-section">
             <div class="dropdown">
@@ -81,7 +104,7 @@
                 <ul class="dropdown-list">
                     @foreach (var item in ViewBag.phim)
                     {
-                        <a href="@Url.Action("Details", "Site", new { slug = item.TenRutGon })">@item.TenPhim</a>
+                        <a class="text-dark" href="@Url.Action("Details", "Site", new { slug = item.TenRutGon })">@item.TenPhim</a>
                     }
                 </ul>
             </div>
@@ -91,7 +114,7 @@
             <div class="dropdown-list">
                 @foreach (var item in ViewBag.topic)
                 {
-                    <a href="@Url.Action("PostTopic", "Site", new { slug = item.TenRutGon })">@item.TenChuDe</a>
+                    <a class="text-dark" href="@Url.Action("PostTopic", "Site", new { slug = item.TenRutGon })">@item.TenChuDe</a>
                 }
             </div>
         </li>
@@ -110,7 +133,7 @@
                 nguoiDung = dbContext.NguoiDungs.FirstOrDefault(nd => nd.MaND == maND);
             }
             <li class="scroll-to-section">
-                <a href="@Url.Action("ProfileUser","User")">Xin chào<span class="text-warning"> @nguoiDung.TenND</span></a>
+                <a href="@Url.Action("ProfileUser","User")">Chào,<span class="text-user"> @nguoiDung.TenND</span></a>
             </li>
             <li class="scroll-to-section">
                 <a href="@Url.Action("DangXuat","User")">Đăng xuất</a>
