@@ -7,55 +7,41 @@
             border-radius: 8px;
         }
 
-        li.scroll-to-section {
-            position: relative;
-            display: inline-block;
+        .dropdown-list {
+            color: black;
+            display: none;
+            position: absolute;
+            background-color: #94d2bd;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
 
-            li.scroll-to-section .dropdown-toggle,
-            li.scroll-to-section a {
+            .dropdown-list a {
+                color: black;
+                background-color: #94d2bd;
+                padding: 8px 12px;
                 text-decoration: none;
-                padding: 10px 15px;
                 display: block;
-                color: white;
-                background-color: #7a6ad8;
-                border: none;
-                cursor: pointer;
+                text-align: center;
+                white-space: nowrap;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
             }
 
-            li.scroll-to-section .dropdown-list {
-                display: none;
-                position: absolute;
-                background-color: black;
-                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                z-index: 1;
-                padding: 0;
-                border: 1px solid #ccc;
-            }
-
-                li.scroll-to-section .dropdown-list a {
+                .dropdown-list a:hover {
                     color: white;
-                    background-color: black;
-                    padding: 8px 12px;
-                    text-decoration: none;
-                    display: block;
-                    text-align: center;
-                    white-space: nowrap;
-                    line-height: normal;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 8px;
+                    background-color: #94d2bd;
                 }
 
-                    li.scroll-to-section .dropdown-list a:hover {
-                        color: #7a6ad8;
-                        background-color: black;
-                    }
-
-            li.scroll-to-section:hover .dropdown-list {
-                display: block;
-            }
+        li.scroll-to-section:hover .dropdown-list {
+            display: block;
+        }
 
         .dropdown > .dropdown-toggle:active {
             pointer-events: none;

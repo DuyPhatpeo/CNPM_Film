@@ -24,7 +24,7 @@ namespace ProjectFilm_CNPM.Models.ERD
         [Display(Name = "Tên rút gọn")]
         public string TenRutGon { get; set; }
         [Required(ErrorMessage = "Thời lượng không được để trống")]
-        [Display(Name = "Thời lượng")]
+        [Display(Name = "Thời lượng(Phút)")]
         public int ThoiLuong { get; set; }
         [Display(Name = "Hình ảnh")]
         public string Anh { get; set; }
