@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using ProjectFilm_CNPM.Library;
 using ProjectFilm_CNPM.Models;
+using ProjectFilm_CNPM.Models.ERD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(IdentityRole model)
         {
+            bool check = db.Roles.Any(p => p.Name == model.Name);
+            if (check)
+            {
+                ModelState.AddModelError("TenPhim", "Tên quyền đã tồn tại trong hệ thống.");
+                return View(model);
+            }
             if (ModelState.IsValid)
             {
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
@@ -55,6 +62,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(IdentityRole model)
         {
+            bool check = db.Roles.Any(p => p.Name == model.Name);
+            if (check)
+            {
+                ModelState.AddModelError("TenPhim", "Tên quyền đã tồn tại trong hệ thống.");
+                return View(model);
+            }
             if (ModelState.IsValid)
             {
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));

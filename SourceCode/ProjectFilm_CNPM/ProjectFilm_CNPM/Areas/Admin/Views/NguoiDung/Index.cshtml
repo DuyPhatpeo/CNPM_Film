@@ -1,0 +1,89 @@
+﻿﻿@model IEnumerable<ProjectFilm_CNPM.Models.ERD.NguoiDung>
+
+@{
+    ViewBag.Title = "Danh sách người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i = 1;
+}
+
+@section header{
+    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer{
+    <script src="~/Public/js/jquery.dataTables.min.js"></script>
+    <script>let table = new DataTable('#myTable');</script>
+}
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">DANH SÁCH NGƯỜI DÙNG</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @*hien thi dong thong bao*@
+                    @Html.Partial("Message")
+                    <table class="table table-bordered table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Số thứ tự</th>
+                                <th>@Html.DisplayNameFor(model => model.MaND)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenND)</th>
+                                <th class="col-md-1">@Html.DisplayNameFor(modelItem => modelItem.Anh)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgaySinh)</th>
+                                <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.SDT)</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MaND)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenND)</td>
+                                    <td><img src="~/Public/img/user/@item.Anh" alt="Img" class="img-fluid" /></td>
+                                    <td>@Html.DisplayFor(modelItem => item.NgaySinh)</td>
+                                    <td>
+                                        @if (item.GioiTinh == true)
+                                        {
+                                            <text>Nam</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Nữ</text>
+                                        }
+                                    </td>
+
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SDT)</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","NguoiDung", new { id = item.MaND })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                    </td>
+                                    @{ i++; }
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

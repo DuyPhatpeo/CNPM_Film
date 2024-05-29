@@ -37,6 +37,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ThamSo thamSo)
         {
+            bool check = db.ThamSos.Any(p => p.TenThamSo == thamSo.TenThamSo);
+            if (check)
+            {
+                ModelState.AddModelError("TenThamSo", "Tên ghế đã tồn tại trong hệ thống.");
+                return View(check);
+            }
             if (ModelState.IsValid)
             {
                 db.ThamSos.Add(thamSo);
@@ -73,6 +79,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ThamSo thamSo)
         {
+            bool check = db.ThamSos.Any(p => p.TenThamSo == thamSo.TenThamSo);
+            if (check)
+            {
+                ModelState.AddModelError("TenThamSo", "Tên ghế đã tồn tại trong hệ thống.");
+                return View(check);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(thamSo).State = EntityState.Modified;

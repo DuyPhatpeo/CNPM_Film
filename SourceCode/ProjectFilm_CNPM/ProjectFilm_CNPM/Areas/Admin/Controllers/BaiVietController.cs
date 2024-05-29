@@ -65,6 +65,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BaiViet baiViet)
         {
+            
             // Chuyển ds phim thành SelectListItem
             var topiclist = db.ChuDes.ToList().Select(p => new SelectListItem
             {
@@ -72,6 +73,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 Text = p.TenChuDe
             });
             ViewBag.TopicList = topiclist;
+            bool check = db.BaiViets.Any(p => p.TenBV == baiViet.TenBV);
+            if (check)
+            {
+                ModelState.AddModelError("TenBV", "Tên bài viết đã tồn tại trong hệ thống.");
+                return View(baiViet);
+            }
             if (ModelState.IsValid)
             {
                 baiViet.LienKet = XString.Str_Slug(baiViet.TenBV);
@@ -152,6 +159,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(BaiViet baiViet)
         {
+
             // Chuyển ds phim thành SelectListItem
             var topiclist = db.ChuDes.ToList().Select(p => new SelectListItem
             {
@@ -161,6 +169,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 
             ViewBag.TopicList = topiclist;
             baiViet.LienKet = XString.Str_Slug(baiViet.TenBV);
+            bool check = db.BaiViets.Any(p => p.TenBV == baiViet.TenBV);
+            if (check)
+            {
+                ModelState.AddModelError("TenBV", "Tên bài viết đã tồn tại trong hệ thống.");
+                return View(baiViet);
+            }
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:

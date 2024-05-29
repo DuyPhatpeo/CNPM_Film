@@ -67,7 +67,7 @@
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.NamPhatHanh, htmlAttributes: new { @class = "control-label col-md-6" })
                                                 <div class="col-md-10">
-                                                    @Html.DropDownListFor(model => model.NamPhatHanh, Enumerable.Range(DateTime.Now.Year - 50, 100).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control" })
+                                                    @Html.DropDownListFor(model => model.NamPhatHanh, Enumerable.Range(DateTime.Now.Year, 50).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control"})
                                                     @Html.ValidationMessageFor(model => model.NamPhatHanh, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>

@@ -1,0 +1,72 @@
+﻿@model ProjectFilm_CNPM.Models.ERD.NguoiDung
+
+@{
+    ViewBag.Title = "Chi tiết người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var item = Model;
+}
+<div class="wrapper">
+    <!-- Main Sidebar Container -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger">CHI TIẾT NGƯỜI DÙNG</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Index", "NguoiDung")" class="btn-sm btn-primary"><i class="fa fa-arrow-left"> Quay lại</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.MaND)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenND)</th>
+                                <th class="col-md-1">@Html.DisplayNameFor(modelItem => modelItem.Anh)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgaySinh)</th>
+                                <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
+                                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                <th>@Html.DisplayNameFor(model => model.SDT)</th>
+                                <th>@Html.DisplayNameFor(model => model.NgayTao)</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+ 
+                                <td>@Html.DisplayFor(modelItem => item.MaND)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TenND)</td>
+                                <td><img src="~/Public/img/user/@item.Anh" alt="Img" class="img-fluid" /></td>
+                                <td>@Html.DisplayFor(modelItem => item.NgaySinh)</td>
+                                <td>
+                                    @if (item.GioiTinh == true)
+                                    {
+                                        <text>Nam</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Nữ</text>
+                                    }
+                                </td>
+
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td>@Html.DisplayFor(modelItem => item.SDT)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NgayTao)</td>
+                                    
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div> <!-- /.card-footer-->
+            </div><!-- /.card -->
+        </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+</div><!-- ./wrapper -->

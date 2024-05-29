@@ -55,6 +55,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Phim phim)
         {
+            bool check = db.Phims.Any(p => p.TenPhim == phim.TenPhim);
+            if (check)
+            {
+                ModelState.AddModelError("TenPhim", "Tên phim đã tồn tại trong hệ thống.");
+                return View(phim);
+            }
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:
@@ -121,7 +127,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Phim phim)
         {
-
+            bool check = db.Phims.Any(p => p.TenPhim == phim.TenPhim);
+            if (check)
+            {
+                ModelState.AddModelError("TenPhim", "Tên phim đã tồn tại trong hệ thống.");
+                return View(phim);
+            }
             if (ModelState.IsValid)
             {
                 db.Phims.Attach(phim);

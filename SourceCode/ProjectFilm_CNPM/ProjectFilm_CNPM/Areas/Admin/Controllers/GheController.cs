@@ -68,7 +68,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Ghe ghe)
         {
-
+            
             // Chuyển ds ghe thành SelectListItem
             var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
             {
@@ -78,8 +78,15 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
 
             ViewBag.PhongList = phonglist;
             ViewBag.LoaiGhe = loaighe;
+
             // Lấy loại ghế mà người dùng đã chọn từ form
             var selectedLoaiGhe = Request.Form["LoaiGhe"];
+            bool check = db.Ghes.Any(p => p.TenGhe == ghe.TenGhe && p.MaPhong == ghe.MaPhong);
+            if (check)
+            {
+                ModelState.AddModelError("TenGhe", "Tên ghế đã tồn tại trong phòng đó.");
+                return View(ghe);
+            }
             if (ModelState.IsValid)
             {
                 var tenThamSo = string.Format("Giá vé ({0})", selectedLoaiGhe);
@@ -145,6 +152,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Ghe ghe)
         {
+            bool check = db.Ghes.Any(p => p.TenGhe == ghe.TenGhe);
+            if (check)
+            {
+                ModelState.AddModelError("TenGhe", "Tên ghế đã tồn tại trong phòng đó.");
+                return View(check);
+            }
             // Chuyển ds ghe thành SelectListItem
             var phonglist = db.Phongs.ToList().Select(p => new SelectListItem
             {

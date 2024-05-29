@@ -34,6 +34,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Phong phong)
         {
+            bool check = db.Phongs.Any(p => p.TenPhong == phong.TenPhong);
+            if (check)
+            {
+                ModelState.AddModelError("TenPhong", "Tên phòng đã tồn tại trong hệ thống.");
+                return View(phong);
+            }
             if (ModelState.IsValid)
             {
                 phong.NgayTao = DateTime.Now;
@@ -48,7 +54,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                 db.Phongs.Add(phong);
                 db.SaveChanges();
                 //hiển thị thông báo thành công
-                TempData["message"] = new XMessage("success", "Tạo mới phim thành công!");
+                TempData["message"] = new XMessage("success", "Tạo mới phòng thành công!");
                 return RedirectToAction("Index");
             }
 
@@ -79,6 +85,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Phong phong)
         {
+            bool check = db.Phongs.Any(p => p.TenPhong == phong.TenPhong);
+            if (check)
+            {
+                ModelState.AddModelError("TenPhong", "Tên phòng đã tồn tại trong hệ thống.");
+                return View(phong);
+            }
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:

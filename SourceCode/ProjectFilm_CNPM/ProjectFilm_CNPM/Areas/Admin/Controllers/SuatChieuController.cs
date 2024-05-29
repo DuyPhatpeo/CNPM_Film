@@ -44,6 +44,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/SuatChieu/Create
         public ActionResult Create()
         {
+            
             var danhsachPhong = db.Phongs.ToList();
             var danhSachPhim = db.Phims.ToList();
 
@@ -70,7 +71,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SuatChieu suatChieu)
-        {
+        { 
             var danhsachPhong = db.Phongs.ToList();
             var danhSachPhim = db.Phims.ToList();
 
@@ -87,6 +88,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             });
             ViewBag.PhimList = phimList;
             ViewBag.PhongList = phongList;
+            bool check = db.SuatChieus.Any(sc => sc.GioChieu == suatChieu.GioChieu && sc.MaPhim == suatChieu.MaPhim);
+            if (check)
+            {
+                ModelState.AddModelError("GioChieu", "Ngày/giờ chiếu đã tồn tại trong phim đó.");
+                return View(suatChieu);
+            }
             if (ModelState.IsValid)
             {
 
@@ -164,6 +171,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             });
             ViewBag.PhimList = phimList;
             ViewBag.PhongList = phongList;
+            bool check = db.SuatChieus.Any(sc => sc.GioChieu == suatChieu.GioChieu && sc.MaPhim == suatChieu.MaPhim);
+            if (check)
+            {
+                ModelState.AddModelError("GioChieu", "Ngày/giờ chiếu đã tồn tại trong phim đó.");
+                return View(suatChieu);
+            }
             if (ModelState.IsValid)
             {
                 //Xử lý tự động cho các trường sau:

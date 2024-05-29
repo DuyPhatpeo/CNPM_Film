@@ -69,14 +69,20 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ChuDe chuDe)
         {
+            
             var danhSachPhim = db.Phims.ToList();
             var phimList = danhSachPhim.Select(p => new SelectListItem
             {
                 Value = p.MaPhim.ToString(),
                 Text = p.TenPhim
             });
-
             ViewBag.PhimList = phimList;
+            bool check = db.ChuDes.Any(p => p.TenChuDe == chuDe.TenChuDe);
+            if (check)
+            {
+                ModelState.AddModelError("TenChuDe", "Tên chủ đề đã tồn tại trong hệ thống.");
+                return View(chuDe);
+            }
             if (ModelState.IsValid)
             {
                 chuDe.NgayTao = DateTime.Now;
@@ -112,6 +118,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         // GET: Admin/ChuDe/Edit/5
         public ActionResult Edit(int? id)
         {
+
             // Lấy ds phim từ csdl
             var danhSachPhim = db.Phims.ToList();
 
@@ -144,6 +151,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ChuDe chuDe)
         {
+            
             var danhSachPhim = db.Phims.ToList();
             var phimList = danhSachPhim.Select(p => new SelectListItem
             {
@@ -152,6 +160,12 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
             });
 
             ViewBag.PhimList = phimList;
+            bool check = db.ChuDes.Any(p => p.TenChuDe == chuDe.TenChuDe);
+            if (check)
+            {
+                ModelState.AddModelError("TenChuDe", "Tên chủ đề đã tồn tại trong hệ thống.");
+                return View(chuDe);
+            }
             if (ModelState.IsValid)
             {
                 chuDe.NgayCapNhat = DateTime.Now;
