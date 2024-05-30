@@ -118,21 +118,32 @@ namespace ProjectFilm_CNPM.Controllers
                                select tl).ToList();
 
             ViewBag.listTheLoai = listTheLoai;
+            var thamSo = db.ThamSos.FirstOrDefault(t => t.TenThamSo == "Thời gian mua được vé");
+            if (thamSo == null || !int.TryParse(thamSo.GiaTri, out int minutes))
+            {
+                minutes = 30; 
+            }
+            DateTime now = DateTime.Now;
+            TimeSpan timelimit = TimeSpan.FromMinutes(minutes);
+            DateTime thresholdTime = now.Subtract(timelimit);
 
-            List<SuatChieu> listSuatChieu = db.SuatChieus.Where(m => m.MaPhim == phim.MaPhim).ToList();
+            List<SuatChieu> listSuatChieu = db.SuatChieus
+                .Where(m => m.MaPhim == phim.MaPhim && m.GioChieu > thresholdTime)
+                .ToList();
+
 
             var distinctDates = listSuatChieu.Select(s => s.GioChieu.Date).Distinct().OrderBy(d => d).ToList();
 
-            Dictionary<DateTime, List<SuatChieu>> suatChieusByDate = new Dictionary<DateTime, List<SuatChieu>>();
+            Dictionary<DateTime, List<SuatChieu>> suatChieusTungNgay = new Dictionary<DateTime, List<SuatChieu>>();
 
             foreach (var date in distinctDates)
             {
                 var suatChieusForDate = listSuatChieu.Where(s => s.GioChieu.Date == date).OrderBy(s => s.GioChieu).ToList();
-                suatChieusByDate.Add(date, suatChieusForDate);
+                suatChieusTungNgay.Add(date, suatChieusForDate);
             }
 
             ViewBag.phim = phim;
-            ViewBag.suatChieusByDate = suatChieusByDate;
+            ViewBag.suatChieusByDate = suatChieusTungNgay;
 
             return View();
         }
@@ -229,9 +240,16 @@ namespace ProjectFilm_CNPM.Controllers
             NguoiDung nguoiDung = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
             var danhSachHoaDon = db.HoaDons.Where(hd => hd.MaND == maND).ToList();
             int tongTienTichLuy = 0;
-            if(popcorn)
+            // Lấy giá trị 'Bắp nước' từ bảng ThamSo
+            var thamSo = db.ThamSos.FirstOrDefault(t => t.TenThamSo == "Bắp nước");
+            if (thamSo == null || !int.TryParse(thamSo.GiaTri, out int tienBapNuoc))
             {
-                total += 90000;
+                tienBapNuoc = 0; 
+            }
+
+            if (popcorn)
+            {
+                total += tienBapNuoc;
             }
             foreach (var hd in danhSachHoaDon)
             {

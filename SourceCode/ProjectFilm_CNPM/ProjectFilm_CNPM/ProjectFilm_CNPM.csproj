@@ -348,6 +348,7 @@
     <Content Include="Public\img\icon\eye.svg" />
     <Content Include="Public\img\icon_login.svg" />
     <Content Include="Public\img\page_not_found.png" />
+    <Content Include="Public\img\popcorn.png" />
     <Content Include="Public\js\jquery.dataTables.min.js" />
     <Content Include="Public\js\main.js" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
