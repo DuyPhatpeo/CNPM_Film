@@ -253,7 +253,7 @@ namespace ProjectFilm_CNPM.Controllers
             hoaDon.NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.MaND = Convert.ToInt32(Session["NguoiDung"]);
             db.HoaDons.Add(hoaDon);
-            if (db.SaveChanges() != 0) // Kiểm tra nếu lưu hoá đơn thành công
+            if (db.SaveChanges() != 0) // Kiểm tra nếu lưu hoá đơn thành côngg
             {
                 foreach (var seat in selectedSeats)
                 {
