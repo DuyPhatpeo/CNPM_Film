@@ -119,6 +119,7 @@
 
             .item.booked::before {
                 background-color: rgb(180, 180, 180); /* Màu nền cho ghế đã đặt */
+                pointer-events: none;
             }
 
             .item.selected::before {
@@ -141,6 +142,13 @@
             border-radius: 0.5mm;
             outline: 0.3mm solid rgb(180, 180, 180);
             cursor: pointer;
+        }
+        .seat.booked {
+            pointer-events: none; 
+        }
+
+        .seat.disabled {
+            pointer-events: none; 
         }
 
         .seat.vip {
@@ -474,6 +482,10 @@
                                 <span> <span class="count">0</span> Vé </span>
                                 <div class="totalPrice">0</div>
                             </div>
+                            <div>
+                                <input type="checkbox" style="display:flex!important" id="popcorn" name="popcorn" value="true" />
+                                <label for="popcorn">Bắp nước</label>
+                            </div>
                             <div class="d-flex justify-content-around mt-4">
                                 <button type="submit" name="submit" class="btn custom-btn d-flex justify-content-around mt-4" value="Submit">Mua vé</button>
                             </div>
@@ -523,31 +535,31 @@
     });
 });
 
-    function fetchSeats() {
-    $.ajax({
-        url: '@Url.Action("GetTinhTrangGhe", "Site")',
-        type: 'GET',
-        data: { },
-        success: function(data) {
-            if (data.redirectToLogin) {
-                window.location.href = '@Url.Action("DangNhap", "User")';
-            } else {
-                displaySeats(data);
+    function fetchSeats(maSuatChieu) {
+        $.ajax({
+            url: '@Url.Action("GetTinhTrangGhe", "Site")',
+            type: 'GET',
+            data: { maSuatChieu: maSuatChieu },
+            success: function(data) {
+                if (data.redirectToLogin) {
+                    window.location.href = '@Url.Action("DangNhap", "User")';
+                } else {
+                    displaySeats(data);
+                }
+            },
+            error: function() {
+                alert("Lỗi khi lấy danh sách ghế.");
             }
-        },
-        error: function() {
-            alert("Lỗi khi lấy danh sách ghế.");
-        }
-    });
-}
-
+        });
+    }
 
     function displaySeats(seats) {
         let seatsContainer = document.querySelector(".all-seats");
         seatsContainer.innerHTML = ''; // Clear existing seats
 
         seats.forEach(seat => {
-            let booked = seat.TinhTrangGhe ? 'booked' : '';
+            let booked = seat.IsBooked ? 'booked' : '';
+            let disabled = seat.IsBooked ? 'disabled' : '';
             let seatClass = '';
             switch (seat.LoaiGhe) {
                 case 'VIP':
@@ -565,10 +577,9 @@
             }
             seatsContainer.insertAdjacentHTML(
                 "beforeend",
-                '<input type="checkbox" name="tickets" id="s' + seat.MaGhe + '" />' +
+                '<input type="checkbox" name="tickets" id="s' + seat.MaGhe + '" ' + disabled + ' />' +
                 '<label for="s' + seat.MaGhe + '" class="seat ' + seatClass + ' ' + booked + '"></label>'
             );
-
         });
 
         let tickets = seatsContainer.querySelectorAll("input");
@@ -579,7 +590,7 @@
                 let giaGhe = seats.find(seat => seat.MaGhe === parseInt(ticket.id.substring(1))).GiaGhe;
                 totalPrice = Number(totalPrice);
                 count = Number(count);
-                // Sử dụng giá của ghế từ dữ liệu trả về
+
                 if (ticket.checked) {
                     count += 1;
                     totalPrice += giaGhe;
@@ -604,48 +615,49 @@
                 // Thêm lớp 'active' cho nút được nhấp
                 this.classList.add('active');
 
-                fetchSeats();
+                let maSuatChieu = this.getAttribute('data-masuatchieu');
+                fetchSeats(maSuatChieu);
             });
         });
     });
 
     document.querySelector('.custom-btn').addEventListener('click', function() {
-    let selectedSeats = [];
-    document.querySelectorAll('.all-seats input:checked').forEach(checkbox => {
-        selectedSeats.push(checkbox.id.substring(1));
-    });
-
-    let maSuatChieu = '';
-    document.querySelectorAll('.showtime_btn').forEach(button => {
-        if (button.classList.contains('active')) {
-            maSuatChieu = button.getAttribute('data-masuatchieu');
-        }
-    });
-        let totalPrice = document.querySelector('.totalPrice').innerText;
-    let requestData = {
-        maSuatChieu: maSuatChieu,
-        selectedSeats: selectedSeats,
-        totalPrice: totalPrice
-    };
-
-    // Make AJAX call to TaoHoaDon action
-    $.ajax({
-        url: '@Url.Action("TaoHoaDon", "Site")',
-        type: 'POST',
-        data: JSON.stringify(requestData),
-        contentType: 'application/json',
-        success: function (response) {
-            if (response.success) {
-                window.location.href = '@Url.Action("VeXemPhim", "Site")';
-
-            } else {
-                alert('Đặt vé thất bại. Vui lòng đặt lại sau.');
+        let selectedSeats = [];
+        document.querySelectorAll('.all-seats input:checked').forEach(checkbox => {
+            selectedSeats.push(checkbox.id.substring(1));
+        });
+        let popcorn = document.querySelector('#popcorn').checked;
+        let maSuatChieu = '';
+        document.querySelectorAll('.showtime_btn').forEach(button => {
+            if (button.classList.contains('active')) {
+                maSuatChieu = button.getAttribute('data-masuatchieu');
             }
-        },
-        error: function () {
-            alert('Lỗi khi đặt vé!!! :<');
-        }
+        });
+        let totalPrice = document.querySelector('.totalPrice').innerText;
+        let requestData = {
+            maSuatChieu: maSuatChieu,
+            selectedSeats: selectedSeats,
+            totalPrice: totalPrice,
+            popcorn : popcorn
+        };
+
+        // Make AJAX call to TaoHoaDon action
+        $.ajax({
+            url: '@Url.Action("TaoHoaDon", "Site")',
+            type: 'POST',
+            data: JSON.stringify(requestData),
+            contentType: 'application/json',
+            success: function (response) {
+                if (response.success) {
+                    window.location.href = '@Url.Action("VeXemPhim", "Site")';
+                } else {
+                    alert('Đặt vé thất bại. Vui lòng đặt lại sau.');
+                }
+            },
+            error: function () {
+                alert('Lỗi khi đặt vé!!! :<');
+            }
+        });
     });
-});
 
 </script>

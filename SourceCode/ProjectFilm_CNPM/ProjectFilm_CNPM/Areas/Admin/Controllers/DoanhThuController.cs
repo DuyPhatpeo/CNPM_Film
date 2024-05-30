@@ -17,7 +17,9 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
         {
             var doanhthutheophim = db.ChiTietHoaDons
                 .Where(cthd => cthd.HoaDon.TrangThai == 1) 
-                .Join(db.SuatChieus, cthd => cthd.MaSuatChieu, sc => sc.MaSuatChieu, (cthd, sc) => new { cthd, sc }) 
+                .Join(db.SuatChieus, cthd => cthd.MaSuatChieu, sc => sc.MaSuatChieu, (cthd, sc) => new { cthd, sc })
+                .Join(db.HoaDons, temp => temp.cthd.MaHD, hd => hd.MaHD, (temp, hd) => new { temp.cthd, temp.sc, hd })
+
                 .GroupBy(x => x.sc.MaPhim)
                 .Select(g => new DoanhThuViewModel
                 {
@@ -25,7 +27,7 @@ namespace ProjectFilm_CNPM.Areas.Admin.Controllers
                     TenPhim = g.FirstOrDefault().sc.Phim.TenPhim,
                     NgayChieu = g.FirstOrDefault().sc.GioChieu,
                     TongSoVe = g.Select(x => x.cthd).Count(),
-                    TongTien = g.Sum(x => x.cthd.HoaDon.TongTien) 
+                    TongTien = g.Sum(x => x.cthd.Ghe.GiaGhe)
                 })
                 .ToList();
 

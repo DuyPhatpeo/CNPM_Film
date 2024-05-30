@@ -143,22 +143,29 @@ namespace ProjectFilm_CNPM.Controllers
             return PartialView("ListBaiViet", list);
         }
 
-        public JsonResult GetTinhTrangGhe()
+        public JsonResult GetTinhTrangGhe(int maSuatChieu)
         {
             if (Session["NguoiDung"] == null)
             {
                 return Json(new { redirectToLogin = true }, JsonRequestBehavior.AllowGet);
             }
-            var seats = db.Ghes.Where(g => g.TrangThai == 1)
-                               .Select(g => new
-                               {
-                                   g.MaGhe,
-                                   g.GiaGhe,
-                                   g.LoaiGhe
-                               })
-                               .ToList();
+
+            var bookedSeats = db.ChiTietHoaDons
+                                .Where(c => c.MaSuatChieu == maSuatChieu)
+                                .Select(c => c.MaGhe)
+                                .ToList();
+
+            var seats = db.Ghes.Select(g => new
+            {
+                g.MaGhe,
+                g.GiaGhe,
+                g.LoaiGhe,
+                IsBooked = bookedSeats.Contains(g.MaGhe)
+            }).ToList();
+
             return Json(seats, JsonRequestBehavior.AllowGet);
         }
+
         public ActionResult VeXemPhim()
         {
             int? maHoaDon = Session["MaHoaDon"] as int?;
@@ -212,14 +219,36 @@ namespace ProjectFilm_CNPM.Controllers
             int maSuatChieu = int.Parse(requestData["maSuatChieu"]?.ToString());
             int total = int.Parse(requestData["totalPrice"]?.ToString());
             var selectedSeats = requestData["selectedSeats"]?.Select(x => int.Parse(x.ToString())).ToList();
+            bool popcorn = bool.Parse(requestData["popcorn"]?.ToString());
             HoaDon hoaDon = new HoaDon();
             hoaDon.NgayLapHD = DateTime.Now;
             hoaDon.NgayTao = DateTime.Now;
             hoaDon.NgayCapNhat = DateTime.Now;
             hoaDon.TrangThai = 1;
-            hoaDon.TongTien = total;
             int maND = Convert.ToInt32(Session["NguoiDung"]);
-
+            NguoiDung nguoiDung = db.NguoiDungs.Where(m => m.MaND == maND).FirstOrDefault();
+            var danhSachHoaDon = db.HoaDons.Where(hd => hd.MaND == maND).ToList();
+            int tongTienTichLuy = 0;
+            if(popcorn)
+            {
+                total += 90000;
+            }
+            foreach (var hd in danhSachHoaDon)
+            {
+                tongTienTichLuy += hd.TongTien;
+            }
+            if (tongTienTichLuy < 2000000)
+            {
+                hoaDon.TongTien = total;
+            }
+            else if (tongTienTichLuy > 4000000)
+            {
+                hoaDon.TongTien = total - total * 10 / 100;
+            }
+            else
+            {
+                hoaDon.TongTien = total - total * 5 / 100;
+            }   
             hoaDon.NguoiTao = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.NguoiCapNhat = Convert.ToInt32(Session["NguoiDung"]);
             hoaDon.MaND = Convert.ToInt32(Session["NguoiDung"]);
